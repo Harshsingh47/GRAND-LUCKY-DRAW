@@ -42,6 +42,7 @@ const RegisterPage = () => {
 
   const [registeredData, setRegisteredData] = useState(null);
   const [errorMsg, setErrorMsg] = useState('');
+  const [existingId, setExistingId] = useState('');
 
   useEffect(() => {
     api.get('/campaigns/active')
@@ -79,6 +80,7 @@ const RegisterPage = () => {
   const handleDirectRegistration = async (e) => {
     e.preventDefault();
     setErrorMsg('');
+    setExistingId('');
 
     if (!formData.fullName.trim()) return setErrorMsg('Please enter your full name');
     if (!formData.mobile || !/^\d{10}$/.test(formData.mobile.trim())) {
@@ -111,8 +113,12 @@ const RegisterPage = () => {
         showToast('Registration Successful! Unique Participant ID generated.', 'success');
       }
     } catch (err) {
-      setErrorMsg(err.response?.data?.message || 'Registration failed. Please check your details.');
-      showToast(err.response?.data?.message || 'Registration failed', 'error');
+      const msg = err.response?.data?.message || 'Registration failed. Please check your details.';
+      setErrorMsg(msg);
+      if (err.response?.data?.existingParticipantId) {
+        setExistingId(err.response.data.existingParticipantId);
+      }
+      showToast(msg, 'error');
     } finally {
       setLoading(false);
     }
@@ -122,15 +128,21 @@ const RegisterPage = () => {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
       {/* Title Header */}
       <div className="text-center max-w-2xl mx-auto space-y-4 mb-10">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-300 text-xs font-bold tracking-widest uppercase shadow-gold-glow">
-          <Crown className="w-4 h-4 text-gold-400" />
-          <span>Official Campaign</span>
+        <div className="flex flex-wrap items-center justify-center gap-2">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-300 text-xs font-bold tracking-widest uppercase shadow-gold-glow">
+            <Crown className="w-4 h-4 text-gold-400" />
+            <span>Official Campaign</span>
+          </div>
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs font-bold tracking-wider uppercase">
+            <ShieldCheck className="w-4 h-4 text-emerald-400" />
+            <span>Strictly 1 Entry Per Person</span>
+          </div>
         </div>
         <h1 className="text-3xl sm:text-5xl font-black font-heading text-white">
           PARTICIPANT <span className="text-gold-gradient">REGISTRATION</span>
         </h1>
         <p className="text-sm sm:text-base text-gray-400">
-          Enter your details below to register for the Grand Lucky Draw 2027 and receive your unique sequential participant ID.
+          Enter your details below to register for the Grand Lucky Draw 2027. Strictly one entry per person is permitted.
         </p>
       </div>
 
@@ -159,9 +171,25 @@ const RegisterPage = () => {
 
       {/* Error message alert */}
       {errorMsg && (
-        <div className="mb-6 p-4 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center gap-3 text-red-300 text-sm">
-          <AlertCircle className="w-5 h-5 text-red-400 shrink-0" />
-          <span>{errorMsg}</span>
+        <div className="mb-6 p-4 rounded-xl bg-red-500/10 border border-red-500/30 space-y-3 text-red-300 text-sm">
+          <div className="flex items-center gap-3">
+            <AlertCircle className="w-5 h-5 text-red-400 shrink-0" />
+            <span>{errorMsg}</span>
+          </div>
+          {existingId && (
+            <div className="pt-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-t border-red-500/20">
+              <span className="text-xs text-gray-300 font-mono">
+                Your Registered ID: <strong className="text-gold-300">{existingId}</strong>
+              </span>
+              <Link
+                to="/login"
+                className="px-4 py-1.5 rounded-lg bg-gold-500 text-dark-950 font-bold text-xs hover:bg-gold-400 transition-all flex items-center gap-1.5 shadow-gold-glow"
+              >
+                <span>View My Official Pass</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          )}
         </div>
       )}
 

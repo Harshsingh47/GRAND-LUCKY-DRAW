@@ -81,7 +81,7 @@ router.post('/register', apiLimiter, async (req, res) => {
       if (existingReg) {
         return res.status(400).json({
           success: false,
-          message: `This mobile number is already registered for this campaign with Participant ID: ${existingReg.participantId}`,
+          message: `One Person, One Entry Rule: This mobile number is already registered for the Grand Lucky Draw with Participant ID: ${existingReg.participantId}`,
           existingParticipantId: existingReg.participantId
         });
       }
@@ -96,7 +96,7 @@ router.post('/register', apiLimiter, async (req, res) => {
       if (emailDup) {
         return res.status(400).json({
           success: false,
-          message: 'This email address is already associated with another mobile number'
+          message: 'One Person, One Entry Rule: This email address is already associated with an existing participant entry.'
         });
       }
     }
@@ -180,7 +180,7 @@ router.post('/register', apiLimiter, async (req, res) => {
     if (error.code === 11000) {
       return res.status(400).json({
         success: false,
-        message: 'A duplicate registration was detected. Each participant is allowed one entry per campaign.'
+        message: 'One Person, One Entry Rule: A duplicate registration was detected. Each participant is strictly allowed only one entry.'
       });
     }
     res.status(500).json({ success: false, message: error.message });
