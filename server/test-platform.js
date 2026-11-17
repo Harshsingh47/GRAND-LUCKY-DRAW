@@ -244,6 +244,16 @@ async function runEndToEndTests() {
     console.log(`  Passed: ${passed} | Failed: ${failed}`);
     console.log('========================================================\n');
 
+    // Restore campaign to ACTIVE state so tests do not leave the live registration closed
+    await Campaign.updateMany({}, {
+      status: 'ACTIVE',
+      isRegistrationActive: true,
+      currentSnapshotRef: null
+    });
+    await Winner.deleteMany({});
+    await ParticipantSnapshot.deleteMany({});
+    console.log('[Cleanup] Restored campaign to ACTIVE and cleared test draw state.\n');
+
     await disconnectDB();
     if (failed > 0) process.exit(1);
     process.exit(0);

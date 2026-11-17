@@ -55,7 +55,13 @@ router.post('/register', apiLimiter, async (req, res) => {
     }
 
     // 2. Check campaign status
-    const campaign = await Campaign.findOne({ status: CAMPAIGN_STATUS.ACTIVE });
+    let campaign = await Campaign.findOne({ status: CAMPAIGN_STATUS.ACTIVE });
+    if (!campaign) {
+      campaign = await Campaign.findOne({ isRegistrationActive: true });
+    }
+    if (!campaign) {
+      campaign = await Campaign.findOne().sort({ createdAt: -1 });
+    }
     if (!campaign || !campaign.isRegistrationActive) {
       return res.status(400).json({
         success: false,

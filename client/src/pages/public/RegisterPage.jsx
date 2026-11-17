@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 import {
@@ -27,6 +27,7 @@ const RegisterPage = () => {
 
   const [step, setStep] = useState(1); // 1: Form, 2: Official Pass Issued
   const [loading, setLoading] = useState(false);
+  const [isRegOpen, setIsRegOpen] = useState(true);
   const [formData, setFormData] = useState({
     fullName: '',
     mobile: '',
@@ -41,6 +42,20 @@ const RegisterPage = () => {
 
   const [registeredData, setRegisteredData] = useState(null);
   const [errorMsg, setErrorMsg] = useState('');
+
+  useEffect(() => {
+    api.get('/campaigns/active')
+      .then((res) => {
+        if (res.data?.success && res.data?.data) {
+          if (res.data.data.isRegistrationActive === false) {
+            setIsRegOpen(false);
+          } else {
+            setIsRegOpen(true);
+          }
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   const indianStates = [
     'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh',
@@ -147,6 +162,14 @@ const RegisterPage = () => {
         <div className="mb-6 p-4 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center gap-3 text-red-300 text-sm">
           <AlertCircle className="w-5 h-5 text-red-400 shrink-0" />
           <span>{errorMsg}</span>
+        </div>
+      )}
+
+      {/* Registration Closed Notice */}
+      {!isRegOpen && (
+        <div className="mb-6 p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center gap-3 text-amber-200 text-sm">
+          <AlertCircle className="w-5 h-5 text-amber-400 shrink-0" />
+          <span>Lucky draw registrations are currently closed. The official draw ceremony is in progress.</span>
         </div>
       )}
 
@@ -317,11 +340,17 @@ const RegisterPage = () => {
             <div className="pt-4">
               <button
                 type="submit"
-                disabled={loading}
-                className="btn-gold w-full py-4 rounded-xl font-bold text-base flex items-center justify-center gap-2 shadow-gold-glow"
+                disabled={loading || !isRegOpen}
+                className={`w-full py-4 rounded-xl font-bold text-base flex items-center justify-center gap-2 transition-all ${
+                  !isRegOpen
+                    ? 'bg-gray-800 text-gray-500 cursor-not-allowed border border-gray-700'
+                    : 'btn-gold shadow-gold-glow'
+                }`}
               >
                 {loading ? (
                   <span>Generating Official Participant ID...</span>
+                ) : !isRegOpen ? (
+                  <span>Registrations Currently Closed</span>
                 ) : (
                   <>
                     <Sparkles className="w-5 h-5 text-dark-950" />

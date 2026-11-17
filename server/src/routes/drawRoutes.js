@@ -80,6 +80,44 @@ router.post('/close-registration', protectAdmin, authorize(ROLES.SUPERADMIN, ROL
 });
 
 /**
+ * @route   POST /api/draw/reopen-registration
+ * @desc    Reopen Registration
+ */
+router.post('/reopen-registration', protectAdmin, authorize(ROLES.SUPERADMIN, ROLES.ADMIN), async (req, res) => {
+  try {
+    const campaign = await Campaign.findOne().sort({ createdAt: -1 });
+    if (!campaign) {
+      return res.status(404).json({ success: false, message: 'Campaign not found' });
+    }
+
+    campaign.isRegistrationActive = true;
+    campaign.status = CAMPAIGN_STATUS.ACTIVE;
+    campaign.closedAt = undefined;
+    await campaign.save();
+
+    await logAudit(req, {
+      action: 'REGISTRATION_REOPENED',
+      entityType: 'Campaign',
+      entityId: campaign._id,
+      description: `Registration reopened by Admin ${req.user.name}`,
+      details: { campaignId: campaign._id }
+    });
+
+    res.json({
+      success: true,
+      message: 'Registration successfully reopened! Participants can now register.',
+      data: {
+        campaignId: campaign._id,
+        status: campaign.status,
+        isRegistrationActive: campaign.isRegistrationActive
+      }
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+});
+
+/**
  * @route   POST /api/draw/freeze-participants
  * @desc    Step 2: Freeze Participant List & Compute SHA-256 Cryptographic Hash
  */

@@ -67,6 +67,26 @@ const AdminDrawManagement = () => {
     }
   };
 
+  // Reopen Registration
+  const handleReopenRegistration = async () => {
+    if (!window.confirm('Reopen registrations for participants? This will allow new registrations.')) {
+      return;
+    }
+
+    setClosingReg(true);
+    try {
+      const res = await api.post('/draw/reopen-registration');
+      if (res.data.success) {
+        showToast(res.data.message, 'success');
+        fetchData();
+      }
+    } catch (err) {
+      showToast(err.response?.data?.message || 'Failed to reopen registration', 'error');
+    } finally {
+      setClosingReg(false);
+    }
+  };
+
   // Step 2: Freeze Participant List & Compute SHA-256 Hash
   const handleFreezeParticipants = async () => {
     if (!window.confirm('FREEZE PARTICIPANT LIST: This will lock all verified participants into an immutable snapshot and generate a cryptographic SHA-256 checksum for the offline manual draw. Proceed?')) {
@@ -183,18 +203,31 @@ const AdminDrawManagement = () => {
             </div>
           </div>
 
-          <button
-            onClick={handleCloseRegistration}
-            disabled={closingReg || isClosed}
-            className={`w-full py-3.5 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition-all ${
-              isClosed
-                ? 'bg-gray-800 text-gray-500 cursor-not-allowed'
-                : 'btn-gold shadow-gold-glow'
-            }`}
-          >
-            <Lock className="w-4 h-4" />
-            <span>{isClosed ? 'Registration Is Formally Closed' : 'Click to Close Registration'}</span>
-          </button>
+          {isClosed ? (
+            <div className="flex gap-2">
+              <div className="flex-1 py-3.5 rounded-xl bg-gray-800 text-gray-400 text-xs font-bold flex items-center justify-center gap-1.5">
+                <Lock className="w-3.5 h-3.5" />
+                <span>Closed</span>
+              </div>
+              <button
+                onClick={handleReopenRegistration}
+                disabled={closingReg}
+                className="px-4 py-3.5 rounded-xl text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/30 transition-all flex items-center gap-1.5 shadow-sm"
+              >
+                <Unlock className="w-3.5 h-3.5" />
+                <span>Reopen</span>
+              </button>
+            </div>
+          ) : (
+            <button
+              onClick={handleCloseRegistration}
+              disabled={closingReg}
+              className="w-full py-3.5 rounded-xl text-xs font-bold flex items-center justify-center gap-2 btn-gold shadow-gold-glow transition-all"
+            >
+              <Lock className="w-4 h-4" />
+              <span>Click to Close Registration</span>
+            </button>
+          )}
         </div>
 
         {/* STEP 2: FREEZE PARTICIPANT LIST */}
