@@ -1,16 +1,36 @@
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
+const os = require('os');
 
-// Ensure directories exist
-const prizesDir = path.join(__dirname, '../../uploads/prizes');
-const claimsDir = path.join(__dirname, '../../uploads/claims');
-if (!fs.existsSync(prizesDir)) fs.mkdirSync(prizesDir, { recursive: true });
-if (!fs.existsSync(claimsDir)) fs.mkdirSync(claimsDir, { recursive: true });
+// In serverless environments (e.g. Vercel, AWS Lambda), the root filesystem is strictly read-only.
+// We must use os.tmpdir() for temporary file storage and safely catch any filesystem errors.
+const isServerless = !!process.env.VERCEL || process.env.NODE_ENV === 'production';
+const baseUploadsDir = isServerless
+  ? path.join(os.tmpdir(), 'uploads')
+  : path.join(__dirname, '../../uploads');
+
+const prizesDir = path.join(baseUploadsDir, 'prizes');
+const claimsDir = path.join(baseUploadsDir, 'claims');
+
+try {
+  if (!fs.existsSync(prizesDir)) fs.mkdirSync(prizesDir, { recursive: true });
+} catch (err) {
+  console.warn('[Upload] Note: Read-only filesystem detected, using fallback handling:', err.message);
+}
+
+try {
+  if (!fs.existsSync(claimsDir)) fs.mkdirSync(claimsDir, { recursive: true });
+} catch (err) {
+  console.warn('[Upload] Note: Read-only filesystem detected, using fallback handling:', err.message);
+}
 
 // Prize Image Storage
 const prizeStorage = multer.diskStorage({
   destination: (req, file, cb) => {
+    try {
+      if (!fs.existsSync(prizesDir)) fs.mkdirSync(prizesDir, { recursive: true });
+    } catch (e) {}
     cb(null, prizesDir);
   },
   filename: (req, file, cb) => {
@@ -23,6 +43,9 @@ const prizeStorage = multer.diskStorage({
 // Claim Document Storage
 const claimStorage = multer.diskStorage({
   destination: (req, file, cb) => {
+    try {
+      if (!fs.existsSync(claimsDir)) fs.mkdirSync(claimsDir, { recursive: true });
+    } catch (e) {}
     cb(null, claimsDir);
   },
   filename: (req, file, cb) => {
