@@ -3,14 +3,18 @@ const dns = require('dns');
 const dotenv = require('dotenv');
 dotenv.config();
 
-// Ensure reliable SRV DNS resolution for MongoDB Atlas on Windows environments
-try {
-  dns.setServers(['8.8.8.8', '1.1.1.1']);
-} catch (dnsErr) {
-  // Ignore if custom dns servers cannot be set
+// Only set custom DNS servers on Windows local environment (where ISP DNS blocks SRV)
+// NEVER run on Linux / Vercel / AWS Lambda where outbound port 53 is restricted
+if (process.platform === 'win32') {
+  try {
+    dns.setServers(['8.8.8.8', '1.1.1.1']);
+  } catch (dnsErr) {
+    // Ignore if custom dns servers cannot be set
+  }
 }
 
 let mongodInstance = null;
+let cachedPromise = null;
 
 const connectDB = async () => {
   try {
@@ -18,46 +22,49 @@ const connectDB = async () => {
       return mongoose.connection;
     }
 
+    if (cachedPromise) {
+      return cachedPromise;
+    }
+
     const uri = process.env.MONGODB_URI;
 
     if (uri && uri.trim() !== '') {
-      console.log(`[Database] Connecting to MongoDB via URI: ${uri.replace(/:([^:@]{3})[^:@]*@/, ':***@')}`);
-      const conn = await mongoose.connect(uri, {
+      console.log(`[Database] Connecting to MongoDB Atlas...`);
+      cachedPromise = mongoose.connect(uri, {
         serverSelectionTimeoutMS: 8000,
+      }).then(conn => {
+        console.log(`[Database] MongoDB Connected to host: ${conn.connection.host}`);
+        return conn;
+      }).catch(err => {
+        cachedPromise = null;
+        console.error(`[Database Error] Connection failed: ${err.message}`);
+        throw err;
       });
-      console.log(`[Database] MongoDB Connected to host: ${conn.connection.host}`);
+
+      return cachedPromise;
+    }
+
+    // Fallback for local development when no MONGODB_URI is provided
+    if (!process.env.VERCEL) {
+      console.log('[Database] No MONGODB_URI provided in .env. Initializing in-memory MongoDB replica set / instance...');
+      const { MongoMemoryServer } = require('mongodb-memory-server');
+      mongodInstance = await MongoMemoryServer.create();
+      const memoryUri = mongodInstance.getUri();
+      
+      console.log(`[Database] In-memory MongoDB initialized at: ${memoryUri}`);
+      const conn = await mongoose.connect(memoryUri);
+      console.log(`[Database] In-memory MongoDB Connected successfully.`);
       return conn;
     }
 
-    console.log('[Database] No MONGODB_URI provided in .env. Initializing in-memory MongoDB replica set / instance...');
-    const { MongoMemoryServer } = require('mongodb-memory-server');
-    mongodInstance = await MongoMemoryServer.create();
-    const memoryUri = mongodInstance.getUri();
-    
-    console.log(`[Database] In-memory MongoDB initialized at: ${memoryUri}`);
-    const conn = await mongoose.connect(memoryUri);
-    console.log(`[Database] In-memory MongoDB Connected successfully.`);
-    return conn;
+    throw new Error('MONGODB_URI is required in Vercel environment');
   } catch (error) {
-    console.error(`[Database Error] Connection failed: ${error.message}`);
-    
-    // Fallback to in-memory if remote failed
-    if (!mongodInstance) {
-      try {
-        console.log('[Database] Attempting fallback to in-memory MongoMemoryServer...');
-        const { MongoMemoryServer } = require('mongodb-memory-server');
-        mongodInstance = await MongoMemoryServer.create();
-        const fallbackUri = mongodInstance.getUri();
-        const conn = await mongoose.connect(fallbackUri);
-        console.log(`[Database] Fallback In-memory MongoDB Connected at: ${fallbackUri}`);
-        return conn;
-      } catch (innerErr) {
-        console.error(`[Database Error] Fallback also failed: ${innerErr.message}`);
-        process.exit(1);
-      }
-    } else {
+    console.error(`[Database Error] ${error.message}`);
+    // Never call process.exit(1) on Vercel as it crashes the entire serverless container
+    if (!process.env.VERCEL && process.env.NODE_ENV !== 'production') {
       process.exit(1);
     }
+    throw error;
   }
 };
 

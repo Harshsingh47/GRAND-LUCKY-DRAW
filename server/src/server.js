@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const path = require('path');
+const fs = require('fs');
 const dotenv = require('dotenv');
 
 dotenv.config({ path: path.join(__dirname, '../.env') });
@@ -27,7 +28,7 @@ const app = express();
 
 // Security and utility middlewares
 app.use(helmet({
-  crossOriginResourcePolicy: false, // allow loading local uploaded images in browser
+  crossOriginResourcePolicy: false,
   contentSecurityPolicy: false
 }));
 app.use(cors({
@@ -40,6 +41,22 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // Static uploads directory
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
+
+// Middleware to ensure DB connection is active before processing requests
+app.use(async (req, res, next) => {
+  if (req.path === '/api/health' || req.path === '/') return next();
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    console.error('[DB Middleware Error]', err.message);
+    res.status(503).json({
+      success: false,
+      message: 'Database connection failed. Please verify MONGODB_URI credentials.',
+      error: err.message
+    });
+  }
+});
 
 // API Routes Mounting
 app.use('/api/auth', authRoutes);
@@ -54,14 +71,23 @@ app.use('/api/audit-logs', auditRoutes);
 app.use('/api/reports', reportRoutes);
 
 // Health check endpoint
-app.get('/api/health', (req, res) => {
+app.get('/api/health', async (req, res) => {
   const stateMap = {
     0: 'disconnected',
     1: 'connected',
     2: 'connecting',
     3: 'disconnecting'
   };
-  const isConnected = mongoose.connection.readyState === 1;
+
+  let isConnected = mongoose.connection.readyState === 1;
+  if (!isConnected) {
+    try {
+      await connectDB();
+      isConnected = mongoose.connection.readyState === 1;
+    } catch (e) {
+      // ignore in health check
+    }
+  }
 
   res.json({
     status: 'online',
@@ -79,30 +105,48 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// Serve frontend client in production
+// Serve frontend client if built dist exists, or fallback to API welcome page
 const clientDist = path.join(__dirname, '../../client/dist');
-app.use(express.static(clientDist));
-app.get('*', (req, res, next) => {
-  if (req.path.startsWith('/api') || req.path.startsWith('/uploads')) {
-    return next();
-  }
-  const indexHtml = path.join(clientDist, 'index.html');
-  res.sendFile(indexHtml, (err) => {
-    if (err) {
-      res.status(200).send(`
-        <!DOCTYPE html>
-        <html>
-          <head><title>Grand Lucky Draw API Server</title></head>
-          <body style="background:#070709; color:#D4AF37; font-family:sans-serif; text-align:center; padding:50px;">
-            <h1>Grand Lucky Draw — Independent Medias</h1>
-            <p>API Server is running on port ${process.env.PORT || 5001}.</p>
-            <p>Start the Vite frontend on port 3000 by running <code>npm run client</code> or <code>npm run dev</code>.</p>
-          </body>
-        </html>
-      `);
+const indexHtml = path.join(clientDist, 'index.html');
+const hasClientDist = fs.existsSync(indexHtml);
+
+if (hasClientDist) {
+  app.use(express.static(clientDist));
+  app.get('*', (req, res, next) => {
+    if (req.path.startsWith('/api') || req.path.startsWith('/uploads')) {
+      return next();
     }
+    res.sendFile(indexHtml);
   });
-});
+} else {
+  app.get('/', (req, res) => {
+    res.status(200).send(`
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <title>Grand Lucky Draw — API Server</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <style>
+            body { margin:0; background:#070709; color:#D4AF37; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; display:flex; align-items:center; justify-content:center; min-height:100vh; padding:20px; box-sizing:border-box; }
+            .card { max-width:480px; width:100%; background:#12131A; border:1px solid rgba(212,175,55,0.3); border-radius:24px; padding:36px 28px; text-align:center; box-shadow:0 20px 50px rgba(0,0,0,0.8); }
+            .badge { display:inline-block; padding:6px 14px; border-radius:999px; background:rgba(16,185,129,0.15); border:1px solid rgba(16,185,129,0.4); color:#34D399; font-weight:bold; font-size:12px; letter-spacing:1px; text-transform:uppercase; margin-bottom:16px; }
+            h1 { margin:0 0 8px; color:#FFF; font-size:24px; font-weight:800; }
+            p { color:#9CA3AF; font-size:14px; line-height:1.6; margin:0 0 24px; }
+            .btn { display:inline-block; padding:12px 24px; border-radius:12px; background:linear-gradient(135deg, #D4AF37, #AA7C11); color:#070709; font-weight:bold; font-size:14px; text-decoration:none; }
+          </style>
+        </head>
+        <body>
+          <div class="card">
+            <div class="badge">&#9679; API System Online</div>
+            <h1>Grand Lucky Draw Platform</h1>
+            <p>Independent Medias backend API services and MongoDB Atlas database are connected and operational.</p>
+            <a class="btn" href="/api/health">Check API Health Status</a>
+          </div>
+        </body>
+      </html>
+    `);
+  });
+}
 
 // Global Error Handler
 app.use((err, req, res, next) => {
@@ -112,16 +156,6 @@ app.use((err, req, res, next) => {
     message: err.message || 'Internal Server Error',
     ...(process.env.NODE_ENV !== 'production' && { stack: err.stack })
   });
-});
-
-// Middleware to ensure DB connection is ready for serverless invocations
-app.use(async (req, res, next) => {
-  try {
-    await connectDB();
-    next();
-  } catch (err) {
-    next(err);
-  }
 });
 
 const PORT = process.env.PORT || 5000;
