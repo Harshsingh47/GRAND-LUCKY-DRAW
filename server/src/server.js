@@ -114,6 +114,16 @@ app.use((err, req, res, next) => {
   });
 });
 
+// Middleware to ensure DB connection is ready for serverless invocations
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    next(err);
+  }
+});
+
 const PORT = process.env.PORT || 5000;
 
 const startServer = async () => {
@@ -127,16 +137,18 @@ const startServer = async () => {
       await seedData();
     }
 
-    app.listen(PORT, () => {
-      console.log(`\n======================================================`);
-      console.log(`  GRAND LUCKY DRAW — INDEPENDENT MEDIAS PLATFORM`);
-      console.log(`  Server running on http://localhost:${PORT}`);
-      console.log(`  Environment: ${process.env.NODE_ENV || 'development'}`);
-      console.log(`======================================================\n`);
-    });
+    if (!process.env.VERCEL) {
+      app.listen(PORT, () => {
+        console.log(`\n======================================================`);
+        console.log(`  GRAND LUCKY DRAW — INDEPENDENT MEDIAS PLATFORM`);
+        console.log(`  Server running on http://localhost:${PORT}`);
+        console.log(`  Environment: ${process.env.NODE_ENV || 'development'}`);
+        console.log(`======================================================\n`);
+      });
+    }
   } catch (error) {
     console.error('Failed to start server:', error);
-    process.exit(1);
+    if (!process.env.VERCEL) process.exit(1);
   }
 };
 
