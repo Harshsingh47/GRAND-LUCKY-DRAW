@@ -1,7 +1,17 @@
 import axios from 'axios';
 
+// Dynamically determine API base URL from Vercel/Vite environment variables
+const getBaseUrl = () => {
+  const envUrl = import.meta.env.VITE_API_URL || import.meta.env.VITE_API_BASE_URL;
+  if (envUrl && envUrl.trim() !== '') {
+    const cleanUrl = envUrl.trim().replace(/\/+$/, '');
+    return cleanUrl.endsWith('/api') ? cleanUrl : `${cleanUrl}/api`;
+  }
+  return '/api';
+};
+
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: getBaseUrl(),
   headers: {
     'Content-Type': 'application/json'
   }
