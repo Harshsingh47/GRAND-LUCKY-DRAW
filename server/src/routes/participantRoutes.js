@@ -142,7 +142,7 @@ router.post('/register', apiLimiter, async (req, res) => {
     });
 
     // 8. Send Confirmation SMS
-    const confirmationMsg = `Congratulations ${participant.fullName}! You are successfully registered for the Grand Lucky Draw by Independent Medias. Your Participant ID is: ${participantId}. Official Draw Date: 19 May. Dream Big... Win Big!`;
+    const confirmationMsg = `Congratulations ${participant.fullName}! You are successfully registered for the Grand Lucky Draw. Your Participant ID is: ${participantId}. Official Draw Date: 19 May. Dream Big... Win Big!`;
     sendSmsNotification(cleanMobile, confirmationMsg).catch(() => {});
 
     // 9. Generate Session JWT Token so user is immediately logged in

@@ -86,7 +86,7 @@ const HomePage = () => {
             {/* Top Pill */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-gold-500/20 via-gold-500/10 to-gold-500/20 border border-gold-500/30 text-gold-300 text-xs sm:text-sm font-bold uppercase tracking-widest shadow-gold-glow">
               <Crown className="w-4 h-4 text-gold-400" />
-              <span>Independent Medias Presents</span>
+              <span>Official Campaign</span>
               <Sparkles className="w-4 h-4 text-gold-400" />
             </div>
 
@@ -293,7 +293,7 @@ const HomePage = () => {
               <span className="text-gold-gradient">ZERO COMPUTER ALGORITHMS</span>
             </h2>
             <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
-              The Grand Lucky Draw by <strong>Independent Medias</strong> follows a strict physical manual draw protocol. The platform never automatically picks random winners. Organizers conduct the manual draw independently in front of cameras and observers.
+              The Grand Lucky Draw follows a strict physical manual draw protocol. The platform never automatically picks random winners. Organizers conduct the manual draw independently in front of cameras and observers.
             </p>
             <div className="space-y-3">
               {[
@@ -341,8 +341,8 @@ const HomePage = () => {
                 <span className="font-bold text-white font-mono">10,000 Verified</span>
               </div>
               <div className="flex items-center justify-between p-3.5 rounded-xl bg-dark-950 border border-gray-800">
-                <span className="text-gray-400">Campaign Developer & Host</span>
-                <span className="font-bold text-white">Independent Medias</span>
+                <span className="text-gray-400">Campaign Organization</span>
+                <span className="font-bold text-white">Grand Lucky Draw Committee</span>
               </div>
             </div>
           </div>
@@ -379,7 +379,7 @@ const HomePage = () => {
                   <p className="text-xs text-gray-400 line-clamp-3 leading-relaxed">{ann.content}</p>
                 </div>
                 <div className="pt-4 text-xs text-gold-400 font-medium">
-                  Official Communication • Independent Medias
+                  Official Communication • Draw Committee
                 </div>
               </div>
             ))}

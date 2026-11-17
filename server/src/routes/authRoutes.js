@@ -32,7 +32,11 @@ router.post('/admin/login', authLimiter, async (req, res) => {
       });
     }
 
-    const user = await User.findOne({ email }).select('+password +twoFactorSecret');
+    let user = await User.findOne({ email }).select('+password +twoFactorSecret');
+    if (!user && email.endsWith('@grandluckydraw.com')) {
+      const legacyEmail = email.replace('@grandluckydraw.com', '@independentmedias.com');
+      user = await User.findOne({ email: legacyEmail }).select('+password +twoFactorSecret');
+    }
     if (!user) {
       return res.status(401).json({
         success: false,

@@ -12,7 +12,7 @@ const ParticipantPass = () => {
           DIGITAL <span className="text-gold-gradient">PARTICIPATION PASS</span>
         </h1>
         <p className="text-sm text-gray-400">
-          Official lucky draw pass issued by Independent Medias. Present or scan this pass for draw verification.
+          Official lucky draw pass. Present or scan this pass for draw verification.
         </p>
       </div>
 
@@ -27,7 +27,7 @@ const ParticipantPass = () => {
           ticketNumber: participant?.ticketNumber || 1,
           campaignTitle: 'Grand Lucky Draw 2027',
           drawDate: '19 May 2027',
-          organizer: 'Independent Medias'
+          organizer: 'Grand Lucky Draw'
         }}
       />
     </div>

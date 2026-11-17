@@ -92,7 +92,6 @@ app.get('/api/health', async (req, res) => {
   res.json({
     status: 'online',
     appName: 'Grand Lucky Draw Platform',
-    developer: 'Independent Medias',
     database: {
       connected: isConnected,
       readyState: mongoose.connection.readyState,
@@ -139,7 +138,7 @@ if (hasClientDist) {
           <div class="card">
             <div class="badge">&#9679; API System Online</div>
             <h1>Grand Lucky Draw Platform</h1>
-            <p>Independent Medias backend API services and MongoDB Atlas database are connected and operational.</p>
+            <p>Backend API services and MongoDB Atlas database are connected and operational.</p>
             <a class="btn" href="/api/health">Check API Health Status</a>
           </div>
         </body>
@@ -174,7 +173,7 @@ const startServer = async () => {
     if (!process.env.VERCEL) {
       app.listen(PORT, () => {
         console.log(`\n======================================================`);
-        console.log(`  GRAND LUCKY DRAW — INDEPENDENT MEDIAS PLATFORM`);
+        console.log(`  GRAND LUCKY DRAW — OFFICIAL PLATFORM`);
         console.log(`  Server running on http://localhost:${PORT}`);
         console.log(`  Environment: ${process.env.NODE_ENV || 'development'}`);
         console.log(`======================================================\n`);

@@ -66,7 +66,7 @@ const AdminLayout = () => {
             </div>
           </div>
           <div>
-            <div className="text-[10px] uppercase tracking-widest text-gold-400 font-bold">Independent Medias</div>
+            <div className="text-[10px] uppercase tracking-widest text-gold-400 font-bold">Grand Lucky Draw</div>
             <div className="text-base font-bold text-white font-heading">ADMIN COMMAND</div>
           </div>
         </div>
@@ -156,7 +156,7 @@ const AdminLayout = () => {
           <div className="flex items-center gap-3">
             <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/20 text-xs text-gold-300">
               <Crown className="w-3.5 h-3.5 text-gold-400" />
-              <span>Independent Medias Superadmin Suite</span>
+              <span>Grand Lucky Draw Control Suite</span>
             </div>
             <Link
               to="/"

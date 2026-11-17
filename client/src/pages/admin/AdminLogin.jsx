@@ -10,7 +10,7 @@ const AdminLogin = () => {
   const { loginAdmin } = useAuth();
   const { showToast } = useToast();
 
-  const [email, setEmail] = useState('admin@independentmedias.com');
+  const [email, setEmail] = useState('admin@grandluckydraw.com');
   const [password, setPassword] = useState('Password@123');
   const [twoFactorCode, setTwoFactorCode] = useState('');
   const [requires2FA, setRequires2FA] = useState(false);
@@ -57,7 +57,7 @@ const AdminLogin = () => {
               <Crown className="w-7 h-7 text-gold-400" />
             </div>
           </div>
-          <div className="text-[10px] uppercase tracking-widest text-gold-400 font-bold">Independent Medias</div>
+          <div className="text-[10px] uppercase tracking-widest text-gold-400 font-bold">Grand Lucky Draw</div>
           <h1 className="text-2xl font-black font-heading text-white">ADMIN COMMAND PORTAL</h1>
           <p className="text-xs text-gray-400">Authorized personnel access only</p>
         </div>
@@ -75,7 +75,7 @@ const AdminLogin = () => {
             <button
               type="button"
               onClick={() => {
-                setEmail('admin@independentmedias.com');
+                setEmail('admin@grandluckydraw.com');
                 setPassword('Password@123');
               }}
               className="flex-1 py-1 rounded bg-gold-500/10 border border-gold-500/30 text-gold-300 text-[11px] font-semibold hover:bg-gold-500/20"
@@ -85,7 +85,7 @@ const AdminLogin = () => {
             <button
               type="button"
               onClick={() => {
-                setEmail('officer@independentmedias.com');
+                setEmail('officer@grandluckydraw.com');
                 setPassword('Password@123');
               }}
               className="flex-1 py-1 rounded bg-gold-500/10 border border-gold-500/30 text-gold-300 text-[11px] font-semibold hover:bg-gold-500/20"

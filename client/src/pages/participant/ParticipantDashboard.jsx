@@ -45,7 +45,7 @@ const ParticipantDashboard = () => {
         <div className="space-y-2">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 text-gold-400 text-xs font-bold uppercase tracking-widest">
             <Crown className="w-3.5 h-3.5" />
-            <span>Independent Medias Participant Portal</span>
+            <span>Official Participant Portal</span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-white font-heading">
             Welcome back, <span className="text-gold-gradient">{participant?.fullName}</span>

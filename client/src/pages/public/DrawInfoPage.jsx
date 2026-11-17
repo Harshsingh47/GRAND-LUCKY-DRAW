@@ -26,7 +26,7 @@ const DrawInfoPage = () => {
           DRAW PROCEDURE <span className="text-gold-gradient">& TRANSPARENCY</span>
         </h1>
         <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
-          The Grand Lucky Draw conducted by Independent Medias is built on complete procedural integrity. Learn how our manual draw and cryptographic verification protocols work.
+          The Grand Lucky Draw is built on complete procedural integrity. Learn how our manual draw and cryptographic verification protocols work.
         </p>
       </div>
 

@@ -60,7 +60,7 @@ const PrizesPage = () => {
           PRIZE <span className="text-gold-gradient">CATALOGUE</span>
         </h1>
         <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
-          Discover the complete lineup of 70 grand prizes up for grabs in the Grand Lucky Draw 2027 by Independent Medias.
+          Discover the complete lineup of 70 grand prizes up for grabs in the Grand Lucky Draw 2027.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4 text-sm font-semibold text-gold-300 pt-2 font-mono">

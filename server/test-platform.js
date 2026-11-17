@@ -53,7 +53,7 @@ async function runEndToEndTests() {
     const campaign = await Campaign.findOne({ status: 'ACTIVE' });
     assert(!!campaign, 'Active campaign exists');
     assert(campaign.targetParticipants === 10000, 'Target participants is 10,000');
-    assert(campaign.branding.organizerName === 'Independent Medias', 'Branding is Independent Medias');
+    assert(campaign.branding.organizerName === 'Grand Lucky Draw', 'Branding is Grand Lucky Draw');
     assert(campaign.participationFeeEnabled === false, 'Participation fee is strictly disabled as per legal directives');
 
     // TEST 3: Concurrency-Safe Atomic Sequential ID Generation

@@ -29,7 +29,7 @@ const ParticipantAnnouncements = () => {
           CAMPAIGN <span className="text-gold-gradient">ANNOUNCEMENTS</span>
         </h1>
         <p className="text-sm text-gray-400 mt-1">
-          Official bulletins and procedural updates published by Independent Medias.
+          Official bulletins and procedural updates published by the Draw Directorate.
         </p>
       </div>
 
@@ -58,7 +58,7 @@ const ParticipantAnnouncements = () => {
               <h3 className="text-xl font-bold text-white font-heading">{ann.title}</h3>
               <p className="text-sm text-gray-300 leading-relaxed">{ann.content}</p>
               <div className="pt-2 text-xs text-gold-400/80 font-mono">
-                Issued by: {ann.author || 'Independent Medias Directorate'}
+                Issued by: {ann.author || 'Draw Directorate'}
               </div>
             </div>
           ))}

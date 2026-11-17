@@ -60,7 +60,7 @@ const campaignSchema = new mongoose.Schema({
   branding: {
     organizerName: {
       type: String,
-      default: 'Independent Medias'
+      default: 'Grand Lucky Draw'
     },
     posterUrl: {
       type: String,

@@ -78,7 +78,7 @@ const WinnersPage = () => {
           GRAND LUCKY DRAW <span className="text-gold-gradient">WINNERS</span>
         </h1>
         <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
-          Official list of verified winners from the manual draw conducted by Independent Medias. All entries have been certified through two-step administrative approval.
+          Official list of verified winners from the manual draw. All entries have been certified through two-step administrative approval.
         </p>
 
         <div className="inline-flex items-center gap-2 text-xs text-gold-400/90 bg-dark-900 border border-gold-500/20 px-4 py-2 rounded-xl">

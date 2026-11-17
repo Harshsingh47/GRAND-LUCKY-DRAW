@@ -1,7 +1,7 @@
 {
   "name": "grand-lucky-draw",
   "version": "1.0.0",
-  "description": "Grand Lucky Draw Management Platform developed for Independent Medias",
+  "description": "Grand Lucky Draw Management Platform",
   "main": "server/src/server.js",
   "scripts": {
     "start": "node server/src/server.js",
@@ -16,11 +16,10 @@
   "keywords": [
     "lucky-draw",
     "sweepstakes",
-    "independent-medias",
     "lottery-management",
     "admin-dashboard"
   ],
-  "author": "Independent Medias",
+  "author": "Grand Lucky Draw",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^8.2.2"

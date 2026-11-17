@@ -13,7 +13,7 @@ const TermsPage = () => {
           TERMS & <span className="text-gold-gradient">CONDITIONS</span>
         </h1>
         <p className="text-sm text-gray-400">
-          Official campaign participation terms formulated by Independent Medias.
+          Official campaign participation terms.
         </p>
       </div>
 
@@ -35,7 +35,7 @@ const TermsPage = () => {
         <section className="space-y-2">
           <h2 className="text-lg font-bold text-white font-heading text-gold-300">3. Independent Manual Draw Ceremony</h2>
           <p>
-            The participant explicitly acknowledges that all drawings are performed manually, physically, and independently by Independent Medias outside the online website. The website platform acts solely as a registry and official publication ledger.
+            The participant explicitly acknowledges that all drawings are performed manually, physically, and independently outside the online website. The website platform acts solely as a registry and official publication ledger.
           </p>
         </section>
 

@@ -81,7 +81,7 @@ const HowItWorksPage = () => {
               </div>
 
               <div className="pt-4 border-t border-gray-800 text-xs text-gold-400/80 font-mono">
-                Independent Medias Protocol
+                Official Draw Protocol
               </div>
             </div>
           );

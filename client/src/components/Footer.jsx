@@ -16,8 +16,8 @@ const Footer = () => {
                 </div>
               </div>
               <div>
-                <span className="text-xs uppercase tracking-widest text-gold-400 font-semibold block">Developed By</span>
-                <span className="text-lg font-bold text-white font-heading tracking-wide">Independent Medias</span>
+                <span className="text-xs uppercase tracking-widest text-gold-400 font-semibold block">Official Campaign</span>
+                <span className="text-lg font-bold text-white font-heading tracking-wide">Grand Lucky Draw</span>
               </div>
             </div>
             <p className="text-sm text-gray-400 leading-relaxed">
@@ -86,13 +86,13 @@ const Footer = () => {
           {/* Contact Col */}
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-gold-400 mb-4 font-heading">
-              Organizer Support
+              Campaign Support
             </h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-3">
                 <Mail className="w-4 h-4 text-gold-400 shrink-0 mt-1" />
-                <a href="mailto:support@independentmedias.com" className="hover:text-gold-300 transition-colors break-all">
-                  support@independentmedias.com
+                <a href="mailto:support@grandluckydraw.com" className="hover:text-gold-300 transition-colors break-all">
+                  support@grandluckydraw.com
                 </a>
               </li>
               <li className="flex items-start gap-3">
@@ -101,7 +101,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-gold-400 shrink-0 mt-1" />
-                <span>Independent Medias Corporate Tower, Media City, New Delhi - 110001</span>
+                <span>Central Draw Committee Office, Media District, New Delhi - 110001</span>
               </li>
             </ul>
           </div>
@@ -114,14 +114,25 @@ const Footer = () => {
             Mandatory Legal & Process Disclaimer:
           </p>
           <p>
-            The Grand Lucky Draw is an official campaign conducted by <strong>Independent Medias</strong>. In accordance with strict integrity guidelines, all actual draws are conducted manually and physically outside the website in front of independent verification committees. The platform does not use random computer algorithms to select winners. Eligible participant lists are cryptographically frozen with a SHA-256 hash prior to the draw, and winners are verified through a multi-tier dual-administrator approval process. No payment or purchase is required unless explicitly confirmed and legally approved.
+            The Grand Lucky Draw is an official promotional campaign conducted under strict integrity guidelines. All actual draws are conducted manually and physically outside the website in front of independent verification committees. The platform does not use random computer algorithms to select winners. Eligible participant lists are cryptographically frozen with a SHA-256 hash prior to the draw, and winners are verified through a multi-tier dual-administrator approval process. No payment or purchase is required unless explicitly confirmed and legally approved.
           </p>
         </div>
 
         {/* Bottom Bar */}
         <div className="pt-6 border-t border-gray-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
           <div>
-            © {new Date().getFullYear()} <span className="text-gold-400 font-medium">Independent Medias</span>. All Rights Reserved.
+            © {new Date().getFullYear()} <span className="text-white font-medium">Grand Lucky Draw</span>. All Rights Reserved.
+          </div>
+          <div>
+            Developed by{' '}
+            <a
+              href="https://independentmedias.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gold-400 hover:text-gold-300 font-semibold underline underline-offset-4 transition-colors"
+            >
+              Independent Media
+            </a>
           </div>
           <div className="flex items-center gap-6">
             <Link to="/terms-and-conditions" className="hover:text-gold-400">Terms of Service</Link>

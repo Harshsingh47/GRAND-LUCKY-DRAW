@@ -55,7 +55,7 @@ const AdminSettings = () => {
           </div>
           <div>
             <h3 className="text-lg font-bold text-white font-heading">Legal & Compliance Model</h3>
-            <p className="text-xs text-gray-400">Independent Medias Regulatory Guidelines</p>
+            <p className="text-xs text-gray-400">Official Regulatory Guidelines</p>
           </div>
         </div>
 

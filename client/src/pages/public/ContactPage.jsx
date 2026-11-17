@@ -30,7 +30,7 @@ const ContactPage = () => {
           CONTACT <span className="text-gold-gradient">SUPPORT</span>
         </h1>
         <p className="text-sm sm:text-base text-gray-400">
-          Have an inquiry regarding registration or the campaign? Our support team at Independent Medias is ready to assist.
+          Have an inquiry regarding registration or the campaign? Our dedicated campaign support team is ready to assist.
         </p>
       </div>
 
@@ -38,7 +38,7 @@ const ContactPage = () => {
         {/* Contact Info */}
         <div className="space-y-6">
           <div className="luxury-card rounded-3xl p-6 sm:p-8 space-y-6">
-            <h3 className="text-xl font-bold text-white font-heading">Independent Medias Headquarters</h3>
+            <h3 className="text-xl font-bold text-white font-heading">Campaign Headquarters</h3>
             <ul className="space-y-5 text-sm">
               <li className="flex items-start gap-4">
                 <div className="p-3 rounded-xl bg-gold-500/10 text-gold-400 shrink-0">
@@ -46,8 +46,8 @@ const ContactPage = () => {
                 </div>
                 <div>
                   <span className="text-xs uppercase text-gray-500 block font-semibold">Email Us</span>
-                  <a href="mailto:support@independentmedias.com" className="text-white hover:text-gold-400 font-medium">
-                    support@independentmedias.com
+                  <a href="mailto:support@grandluckydraw.com" className="text-white hover:text-gold-400 font-medium">
+                    support@grandluckydraw.com
                   </a>
                 </div>
               </li>
@@ -67,7 +67,7 @@ const ContactPage = () => {
                 <div>
                   <span className="text-xs uppercase text-gray-500 block font-semibold">Corporate Address</span>
                   <span className="text-gray-300">
-                    Independent Medias Tower, Media District, New Delhi - 110001
+                    Central Draw Committee Office, Media District, New Delhi - 110001
                   </span>
                 </div>
               </li>
@@ -83,7 +83,7 @@ const ContactPage = () => {
                 <CheckCircle2 className="w-16 h-16 text-gold-400 mx-auto" />
                 <h3 className="text-2xl font-bold text-white font-heading">Message Dispatched!</h3>
                 <p className="text-sm text-gray-300 max-w-md mx-auto">
-                  Thank you for reaching out to Independent Medias. A support representative will review your query and respond via email or phone within 24 hours.
+                  Thank you for reaching out to the Grand Lucky Draw support team. A support representative will review your query and respond via email or phone within 24 hours.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}

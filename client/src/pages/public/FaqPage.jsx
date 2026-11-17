@@ -8,7 +8,7 @@ const FaqPage = () => {
   const faqs = [
     {
       q: 'Is there any fee or payment required to participate?',
-      a: 'No. The Grand Lucky Draw campaign by Independent Medias is conducted with strict adherence to applicable legal frameworks. No entry fee, purchase, or transaction is charged unless explicitly authorized and compliant with approved promotional regulations.'
+      a: 'No. The Grand Lucky Draw campaign is conducted with strict adherence to applicable legal frameworks. No entry fee, purchase, or transaction is charged unless explicitly authorized and compliant with approved promotional regulations.'
     },
     {
       q: 'How are winners selected?',

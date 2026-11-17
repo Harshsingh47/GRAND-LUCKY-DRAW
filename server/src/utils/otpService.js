@@ -15,7 +15,7 @@ const generateOtp = () => {
  * Sends OTP to a participant mobile number
  */
 const sendOtp = async (mobile, otp, purpose = 'Verification') => {
-  const message = `Your Grand Lucky Draw verification code is: ${otp}. Valid for 5 minutes. Do not share with anyone. - Independent Medias`;
+  const message = `Your Grand Lucky Draw verification code is: ${otp}. Valid for 5 minutes. Do not share with anyone. - Grand Lucky Draw`;
   
   console.log(`\n========================================`);
   console.log(`[SMS GATEWAY SIMULATION] To: ${mobile}`);

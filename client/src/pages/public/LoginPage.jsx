@@ -92,7 +92,7 @@ const LoginPage = () => {
       <div className="text-center space-y-3 mb-8">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 text-xs font-semibold text-gold-400 uppercase tracking-widest">
           <Crown className="w-4 h-4 text-gold-400" />
-          <span>Independent Medias</span>
+          <span>Official Portal</span>
         </div>
         <h1 className="text-3xl sm:text-4xl font-black font-heading text-white">
           PORTAL <span className="text-gold-gradient">ACCESS</span>
@@ -194,7 +194,7 @@ const LoginPage = () => {
               <button
                 type="button"
                 onClick={() => {
-                  setAdminEmail('admin@independentmedias.com');
+                  setAdminEmail('admin@grandluckydraw.com');
                   setAdminPassword('Password@123');
                 }}
                 className="px-2.5 py-1 rounded bg-gold-500/10 border border-gold-500/30 text-gold-300 hover:bg-gold-500/20 text-[11px]"
@@ -204,7 +204,7 @@ const LoginPage = () => {
               <button
                 type="button"
                 onClick={() => {
-                  setAdminEmail('officer@independentmedias.com');
+                  setAdminEmail('officer@grandluckydraw.com');
                   setAdminPassword('Password@123');
                 }}
                 className="px-2.5 py-1 rounded bg-gold-500/10 border border-gold-500/30 text-gold-300 hover:bg-gold-500/20 text-[11px]"
@@ -224,7 +224,7 @@ const LoginPage = () => {
                 type="email"
                 value={adminEmail}
                 onChange={(e) => setAdminEmail(e.target.value)}
-                placeholder="admin@independentmedias.com"
+                placeholder="admin@grandluckydraw.com"
                 required
                 className="w-full px-4 py-3.5 rounded-xl bg-dark-950 border border-gold-500/30 text-white text-sm focus:outline-none focus:border-gold-400"
               />

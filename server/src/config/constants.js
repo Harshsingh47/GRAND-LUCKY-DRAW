@@ -1,6 +1,6 @@
 /**
  * Application Constants
- * Grand Lucky Draw - Independent Medias
+ * Grand Lucky Draw Platform
  */
 
 const ROLES = {

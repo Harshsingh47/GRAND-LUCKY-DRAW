@@ -32,8 +32,8 @@ const seedData = async () => {
 
     // 1. Create Admins (Primary SuperAdmin and Secondary Admin for 2-step approval)
     const superAdmin = await User.create({
-      name: 'Independent Medias Director',
-      email: 'admin@independentmedias.com',
+      name: 'Grand Lucky Draw Director',
+      email: 'admin@grandluckydraw.com',
       password: 'Password@123',
       role: ROLES.SUPERADMIN,
       isActive: true,
@@ -42,14 +42,14 @@ const seedData = async () => {
 
     const secondAdmin = await User.create({
       name: 'Draw Verification Officer',
-      email: 'officer@independentmedias.com',
+      email: 'officer@grandluckydraw.com',
       password: 'Password@123',
       role: ROLES.ADMIN,
       isActive: true,
       twoFactorEnabled: false
     });
 
-    console.log(`[Seed] Created Admins:\n  - Super Admin: admin@independentmedias.com / Password@123\n  - Secondary Admin: officer@independentmedias.com / Password@123`);
+    console.log(`[Seed] Created Admins:\n  - Super Admin: admin@grandluckydraw.com / Password@123\n  - Secondary Admin: officer@grandluckydraw.com / Password@123`);
 
     // 2. Create Official Campaign
     const campaign = await Campaign.create({
@@ -65,7 +65,7 @@ const seedData = async () => {
       isRegistrationActive: true,
       participationFeeEnabled: false, // strictly disabled as per legal compliance instructions
       branding: {
-        organizerName: 'Independent Medias',
+        organizerName: 'Grand Lucky Draw',
         posterUrl: '/uploads/prizes/grand-poster.jpg'
       },
       rules: [
@@ -209,7 +209,7 @@ const seedData = async () => {
     await Announcement.insertMany([
       {
         title: 'Grand Lucky Draw Campaign Officially Launched!',
-        content: 'Independent Medias is thrilled to announce the official launch of the Grand Lucky Draw! Registrations are now open. 70 grand prizes await including 4 Fortuners, 5 Thars, 20 Swifts, 40 Electric Scooters, and 1 Luxury Farmhouse.',
+        content: 'The Grand Lucky Draw Committee is thrilled to announce the official launch of the Grand Lucky Draw! Registrations are now open. 70 grand prizes await including 4 Fortuners, 5 Thars, 20 Swifts, 40 Electric Scooters, and 1 Luxury Farmhouse.',
         category: 'GENERAL',
         isPinned: true
       },

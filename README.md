@@ -1,9 +1,8 @@
 # Grand Lucky Draw — Management Platform
 
-**Developed for: Independent Medias**  
 **Campaign Tagline:** *"Dream Big... Win Big..."*
 
-A complete, production-ready, luxury-themed full-stack platform for the **Grand Lucky Draw 2027**. Features dynamic prize catalogues, concurrency-safe participant ID generation, mobile OTP verification, digital participation passes with QR codes, and a secure manual draw management module with cryptographic SHA-256 list freezing and two-person dual-administrator verification.
+A complete, production-ready, luxury-themed full-stack platform for the **Grand Lucky Draw 2027**. Features dynamic prize catalogues, concurrency-safe participant ID generation, direct registration and participant login, digital participation passes with QR codes, and a secure manual draw management module with cryptographic SHA-256 list freezing and two-person dual-administrator verification.
 
 ---
 
@@ -27,7 +26,7 @@ Directly inspired by the official campaign promotional poster:
 
 > **CRITICAL ARCHITECTURAL DIRECTIVE:**  
 > **The platform NEVER automatically selects random winners.**  
-> The actual lucky draw is conducted **100% manually and physically** by Independent Medias outside the website (via ballot barrels, tokens, and independent verification observers). The platform acts as a secure, tamper-proof administrative ledger.
+> The actual lucky draw is conducted **100% manually and physically** by organizers outside the website (via ballot barrels, tokens, and independent verification observers). The platform acts as a secure, tamper-proof administrative ledger.
 
 ### Manual Draw Lifecycle (7 Steps)
 
@@ -49,8 +48,8 @@ flowchart TD
 ### Admin Accounts (Configured for Dual-Admin Approval Testing)
 | Role | Email | Password | Responsibilities |
 |---|---|---|---|
-| **Super Admin** | `admin@independentmedias.com` | `Password@123` | Full system control, draw close/freeze, unpublishing |
-| **Draw Officer (Admin)** | `officer@independentmedias.com` | `Password@123` | Secondary auditor for two-person approvals |
+| **Super Admin** | `admin@grandluckydraw.com` | `Password@123` | Full system control, draw close/freeze, unpublishing |
+| **Draw Officer (Admin)** | `officer@grandluckydraw.com` | `Password@123` | Secondary auditor for two-person approvals |
 
 ### Participant Accounts & OTP
 - **Universal Test OTP:** `123456` *(Valid across all registration and verification flows)*
@@ -101,7 +100,7 @@ Visit the website at:
 
 ### Public Website
 - `/` — Luxury Hero, Countdown Timer (19 May), Dynamic Target Progress Bar, 70 Prizes Showcase, How It Works, Announcements, FAQs, Contact.
-- `/about` — Campaign background, Independent Medias vision, manual draw methodology.
+- `/about` — Campaign background, vision, and manual draw methodology.
 - `/prizes` — Filterable catalogue of all 70 prizes with details modal.
 - `/how-it-works` — 6-step participation and verification guide.
 - `/register` — 3-step registration with mobile OTP and instant digital lucky draw ticket generation.
@@ -151,5 +150,5 @@ Visit the website at:
 
 ## 📜 Legal & Launch Compliance
 
-- **Zero-Fee Promotional Entry:** Paid entry and payment collection functionality are strictly disabled and isolated behind administrative toggles.
-- **Independent Medias Branding:** Official campaign identity, disclaimers, and contact information are integrated across all customer-facing touchpoints.
+- **Grand Lucky Draw Branding:** Official campaign identity, disclaimers, and contact information are integrated across all customer-facing touchpoints.
+- **Footer Attribution:** Developer attribution with hyperlink to `https://independentmedias.in` is housed in the global footer.

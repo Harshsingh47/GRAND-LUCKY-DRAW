@@ -109,7 +109,7 @@ const RegisterPage = () => {
       <div className="text-center max-w-2xl mx-auto space-y-4 mb-10">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-300 text-xs font-bold tracking-widest uppercase shadow-gold-glow">
           <Crown className="w-4 h-4 text-gold-400" />
-          <span>Independent Medias Campaign</span>
+          <span>Official Campaign</span>
         </div>
         <h1 className="text-3xl sm:text-5xl font-black font-heading text-white">
           PARTICIPANT <span className="text-gold-gradient">REGISTRATION</span>
@@ -363,7 +363,7 @@ const RegisterPage = () => {
               ticketNumber: registeredData.ticketNumber,
               campaignTitle: registeredData.campaign?.title || 'Grand Lucky Draw 2027',
               drawDate: registeredData.campaign?.drawDate || '19 May 2027',
-              organizer: registeredData.campaign?.organizer || 'Independent Medias'
+              organizer: registeredData.campaign?.organizer || 'Grand Lucky Draw'
             }}
           />
 

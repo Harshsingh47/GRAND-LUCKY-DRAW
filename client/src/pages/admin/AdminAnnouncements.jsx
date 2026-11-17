@@ -111,7 +111,7 @@ const AdminAnnouncements = () => {
             </div>
 
             <div className="pt-3 border-t border-gray-800 flex items-center justify-between text-xs text-gray-500">
-              <span>Author: {ann.author || 'Independent Medias'}</span>
+              <span>Author: {ann.author || 'Draw Committee'}</span>
               <button
                 onClick={() => handleDelete(ann._id)}
                 className="text-red-400 hover:text-red-300 p-1 rounded"

@@ -15,7 +15,7 @@ const ParticipantTicket = ({ data }) => {
     ticketNumber = 1,
     campaignTitle = 'Grand Lucky Draw 2027',
     drawDate = '19 May 2027',
-    organizer = 'Independent Medias'
+    organizer = 'Grand Lucky Draw'
   } = data || {};
 
   const handlePrint = () => {
@@ -26,8 +26,7 @@ const ParticipantTicket = ({ data }) => {
     id: participantId,
     name: fullName,
     ticket: ticketNumber,
-    campaign: campaignTitle,
-    organizer
+    campaign: campaignTitle
   });
 
   return (
@@ -62,7 +61,7 @@ const ParticipantTicket = ({ data }) => {
             </div>
             <div>
               <div className="text-[10px] uppercase tracking-widest text-gold-400 font-bold">
-                {organizer} Presents
+                Dream Big... Win Big...
               </div>
               <h2 className="text-xl sm:text-2xl font-extrabold text-gold-gradient font-heading">
                 {campaignTitle}
@@ -150,7 +149,7 @@ const ParticipantTicket = ({ data }) => {
             <span>Cryptographically sealed record. 100% manual draw transparency.</span>
           </div>
           <div className="text-gold-400 font-semibold tracking-wide">
-            Independent Medias © 2027
+            Grand Lucky Draw © 2027
           </div>
         </div>
       </div>

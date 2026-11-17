@@ -25,7 +25,7 @@ const announcementSchema = new mongoose.Schema({
   },
   author: {
     type: String,
-    default: 'Independent Medias Team'
+    default: 'Grand Lucky Draw Team'
   },
   publishedAt: {
     type: Date,

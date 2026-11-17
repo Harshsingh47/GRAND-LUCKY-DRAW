@@ -27,7 +27,7 @@ const Navbar = () => {
       <div className="bg-gradient-to-r from-dark-950 via-dark-850 to-dark-950 border-b border-gold-500/10 py-1.5 px-4 text-xs text-center text-gray-300">
         <span className="inline-flex items-center gap-1.5 text-gold-400 font-semibold tracking-wide uppercase">
           <Crown className="w-3.5 h-3.5 text-gold-400" />
-          Independent Medias Presents:
+          Official Campaign:
         </span>{' '}
         <span className="text-gray-200">Grand Lucky Draw 2027 — 70 Listed Prizes • 100% Offline Manual Draw</span>
         {isAdminLoggedIn && (
@@ -47,7 +47,7 @@ const Navbar = () => {
               </div>
             </div>
             <div>
-              <div className="text-xs uppercase tracking-[0.25em] text-gold-400/90 font-medium">Independent Medias</div>
+              <div className="text-xs uppercase tracking-[0.25em] text-gold-400/90 font-medium">Dream Big... Win Big...</div>
               <div className="text-xl sm:text-2xl font-extrabold tracking-wide text-gold-gradient font-heading">
                 GRAND LUCKY DRAW
               </div>

@@ -13,7 +13,7 @@ const PrivacyPage = () => {
           PRIVACY <span className="text-gold-gradient">POLICY</span>
         </h1>
         <p className="text-sm text-gray-400">
-          How Independent Medias safeguards and handles participant data.
+          How we safeguard and handle participant data.
         </p>
       </div>
 

@@ -569,7 +569,7 @@ router.get('/public', async (req, res) => {
       campaign: {
         title: campaign?.title || 'Grand Lucky Draw',
         drawDate: campaign?.drawDate,
-        organizer: campaign?.branding?.organizerName || 'Independent Medias'
+        organizer: campaign?.branding?.organizerName || 'Grand Lucky Draw'
       },
       totalPublishedWinners: publishedWinners.length,
       categories: Object.values(groupedMap)

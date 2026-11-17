@@ -49,7 +49,7 @@ router.post('/', protectAdmin, authorize(ROLES.SUPERADMIN, ROLES.ADMIN), async (
       content: content.trim(),
       category: category || 'GENERAL',
       isPinned: !!isPinned,
-      author: req.user.name || 'Independent Medias'
+      author: req.user.name || 'Draw Directorate'
     });
 
     res.status(201).json({ success: true, data: announcement });

@@ -392,7 +392,7 @@ router.put('/admin/:id/status', protectAdmin, authorize(ROLES.SUPERADMIN, ROLES.
     await claim.save();
 
     // Notify winner via SMS
-    const updateMsg = `Grand Lucky Draw Update: Your claim status for ${claim.prize?.name} is now updated to "${claimStatus}". - Independent Medias`;
+    const updateMsg = `Grand Lucky Draw Update: Your claim status for ${claim.prize?.name} is now updated to "${claimStatus}". - Grand Lucky Draw`;
     if (claim.contactMobile) {
       sendSmsNotification(claim.contactMobile, updateMsg).catch(() => {});
     }
