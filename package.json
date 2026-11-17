@@ -1,0 +1,28 @@
+{
+  "name": "grand-lucky-draw",
+  "version": "1.0.0",
+  "description": "Grand Lucky Draw Management Platform developed for Independent Medias",
+  "main": "server/src/server.js",
+  "scripts": {
+    "start": "node server/src/server.js",
+    "server": "node server/src/server.js",
+    "client": "npm --prefix client run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build:client": "npm --prefix client run build",
+    "build": "npm run build:client",
+    "seed": "node server/src/seeds/seedData.js",
+    "test:api": "node server/test-api.js"
+  },
+  "keywords": [
+    "lucky-draw",
+    "sweepstakes",
+    "independent-medias",
+    "lottery-management",
+    "admin-dashboard"
+  ],
+  "author": "Independent Medias",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
