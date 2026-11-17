@@ -14,6 +14,7 @@ import {
 import api from '../../services/api';
 import { useToast } from '../../context/ToastContext';
 import posterImg from '../../assets/grand-lucky-draw-poster.jpg';
+import { resolveImageUrl, handleImageError } from '../../utils/imageHelper';
 
 const AdminPrizes = () => {
   const { showToast } = useToast();
@@ -191,9 +192,10 @@ const AdminPrizes = () => {
               <div>
                 <div className="h-44 bg-black relative overflow-hidden border-b border-gray-800">
                   <img
-                    src={prize.imageUrl || posterImg}
+                    src={resolveImageUrl(prize.imageUrl)}
                     alt={prize.name}
                     className="w-full h-full object-cover"
+                    onError={handleImageError}
                   />
                   <div className="absolute top-2 right-2 px-2.5 py-1 rounded-full bg-black/80 backdrop-blur-md border border-gold-500/40 text-[11px] font-bold text-gold-300 font-mono">
                     {prize.quantity} Units

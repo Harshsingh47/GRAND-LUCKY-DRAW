@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import api from '../../services/api';
 import posterImg from '../../assets/grand-lucky-draw-poster.jpg';
+import { resolveImageUrl, handleImageError } from '../../utils/imageHelper';
 
 const WinnersPage = () => {
   const [data, setData] = useState({ categories: [], totalPublishedWinners: 0, campaign: null });
@@ -174,9 +175,10 @@ const WinnersPage = () => {
                 <div className="flex items-center gap-4">
                   <div className="w-16 h-16 rounded-2xl overflow-hidden bg-black border border-gold-500/30 shrink-0">
                     <img
-                      src={categoryGroup.prize.imageUrl || posterImg}
+                      src={resolveImageUrl(categoryGroup.prize.imageUrl)}
                       alt={categoryGroup.prize.name}
                       className="w-full h-full object-cover"
+                      onError={handleImageError}
                     />
                   </div>
                   <div>

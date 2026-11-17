@@ -20,6 +20,7 @@ import ProgressBar from '../../components/ProgressBar';
 import PrizeCard from '../../components/PrizeCard';
 import api from '../../services/api';
 import posterImg from '../../assets/grand-lucky-draw-poster.jpg';
+import { resolveImageUrl, handleImageError } from '../../utils/imageHelper';
 
 const HomePage = () => {
   const [campaign, setCampaign] = useState(null);
@@ -441,9 +442,10 @@ const HomePage = () => {
             </div>
             <div className="h-48 rounded-xl overflow-hidden bg-black">
               <img
-                src={selectedPrize.imageUrl || posterImg}
+                src={resolveImageUrl(selectedPrize.imageUrl)}
                 alt={selectedPrize.name}
                 className="w-full h-full object-cover"
+                onError={handleImageError}
               />
             </div>
             <p className="text-sm text-gray-300 leading-relaxed">{selectedPrize.description}</p>

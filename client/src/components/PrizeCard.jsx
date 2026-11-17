@@ -1,5 +1,6 @@
 import React from 'react';
 import { Award, Check, Sparkles } from 'lucide-react';
+import { resolveImageUrl, handleImageError } from '../utils/imageHelper';
 
 const PrizeCard = ({ prize, onSelect }) => {
   const { name, category, quantity, description, imageUrl, features } = prize;
@@ -10,12 +11,10 @@ const PrizeCard = ({ prize, onSelect }) => {
         {/* Image Container with Badges */}
         <div className="relative h-56 sm:h-64 overflow-hidden bg-dark-950 flex items-center justify-center border-b border-gold-500/20">
           <img
-            src={imageUrl || '/uploads/prizes/grand-poster.jpg'}
+            src={resolveImageUrl(imageUrl)}
             alt={name}
             className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-            onError={(e) => {
-              e.target.src = '/uploads/prizes/grand-poster.jpg';
-            }}
+            onError={handleImageError}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0C0D11] via-transparent to-black/30" />
 

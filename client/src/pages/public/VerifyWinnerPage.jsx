@@ -16,6 +16,7 @@ import {
 import api from '../../services/api';
 import { useToast } from '../../context/ToastContext';
 import posterImg from '../../assets/grand-lucky-draw-poster.jpg';
+import { resolveImageUrl, handleImageError } from '../../utils/imageHelper';
 
 const VerifyWinnerPage = () => {
   const { showToast } = useToast();
@@ -214,9 +215,10 @@ const VerifyWinnerPage = () => {
           <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-gold-500/20 via-gold-500/10 to-gold-500/20 border-2 border-gold-500/50 flex flex-col sm:flex-row items-center gap-6 shadow-gold-glow">
             <div className="w-28 h-28 rounded-2xl overflow-hidden bg-black shrink-0 border border-gold-500/30">
               <img
-                src={verifiedData.prize?.imageUrl || posterImg}
+                src={resolveImageUrl(verifiedData.prize?.imageUrl)}
                 alt={verifiedData.prize?.name}
                 className="w-full h-full object-cover"
+                onError={handleImageError}
               />
             </div>
             <div className="space-y-2 text-center sm:text-left flex-1">
