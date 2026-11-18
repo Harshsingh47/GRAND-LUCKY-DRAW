@@ -102,16 +102,16 @@ const AdminPrizeClaims = () => {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl sm:text-3xl font-black font-heading text-white">
+        <h1 className="text-2xl sm:text-3xl font-black font-heading text-[#0F172A]">
           PRIZE CLAIMS & <span className="text-gold-gradient">KYC VERIFICATION</span>
         </h1>
-        <p className="text-xs sm:text-sm text-gray-400 mt-1">
+        <p className="text-xs sm:text-sm text-[#475569] mt-1">
           Review winner claim submissions, inspect identity documents, and track distribution milestones.
         </p>
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="p-4 rounded-2xl bg-dark-900 border border-gold-500/20 flex flex-wrap items-center justify-between gap-4">
+      <div className="p-4 rounded-2xl bg-white border border-[#CBD5E1] shadow-sm flex flex-wrap items-center justify-between gap-4">
         <div className="flex flex-wrap items-center gap-2">
           {statuses.map((st) => (
             <button
@@ -119,8 +119,8 @@ const AdminPrizeClaims = () => {
               onClick={() => setStatusFilter(st)}
               className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
                 statusFilter === st
-                  ? 'bg-gold-500 text-dark-950 font-bold shadow-gold-glow'
-                  : 'bg-dark-950 border border-gray-800 text-gray-400 hover:text-white'
+                  ? 'bg-[#D4AF37] text-[#0F172A] font-bold shadow-sm'
+                  : 'bg-[#FAF8F5] border border-[#CBD5E1] text-[#475569] hover:text-[#0F172A] hover:border-[#94A3B8]'
               }`}
             >
               {st}
@@ -134,93 +134,93 @@ const AdminPrizeClaims = () => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search by ID or Name..."
-            className="w-full px-3.5 py-1.5 pl-8 rounded-xl bg-dark-950 border border-gray-800 text-white text-xs"
+            className="w-full px-3.5 py-1.5 pl-8 rounded-xl bg-[#FAF8F5] border border-[#CBD5E1] text-[#0F172A] text-xs placeholder-[#94A3B8] focus:outline-none focus:border-[#8C610A]"
           />
-          <Search className="w-3.5 h-3.5 text-gray-500 absolute left-2.5 top-1/2 -translate-y-1/2" />
+          <Search className="w-3.5 h-3.5 text-[#94A3B8] absolute left-2.5 top-1/2 -translate-y-1/2" />
         </form>
       </div>
 
       {/* Claims Table */}
-      <div className="luxury-card rounded-2xl overflow-hidden shadow-card-dark">
+      <div className="luxury-card rounded-2xl overflow-hidden shadow-sm border border-[#E2E8F0]">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
             <thead>
-              <tr className="border-b border-gray-800 text-[11px] uppercase tracking-wider text-gray-400 bg-dark-950/80">
-                <th className="py-3 px-4">Participant ID</th>
-                <th className="py-3 px-4">Winner Name</th>
-                <th className="py-3 px-4">Prize</th>
-                <th className="py-3 px-4">Contact</th>
-                <th className="py-3 px-4">Location</th>
-                <th className="py-3 px-4">ID Document</th>
-                <th className="py-3 px-4">Claim Status</th>
-                <th className="py-3 px-4 text-right">Actions</th>
+              <tr className="border-b border-[#E2E8F0] text-[11px] font-black uppercase tracking-wider text-[#475569] bg-[#FAF8F5]">
+                <th className="py-3.5 px-4">Participant ID</th>
+                <th className="py-3.5 px-4">Winner Name</th>
+                <th className="py-3.5 px-4">Prize</th>
+                <th className="py-3.5 px-4">Contact</th>
+                <th className="py-3.5 px-4">Location</th>
+                <th className="py-3.5 px-4">ID Document</th>
+                <th className="py-3.5 px-4">Claim Status</th>
+                <th className="py-3.5 px-4 text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-800/60 text-gray-200">
+            <tbody className="divide-y divide-[#E2E8F0] text-[#0F172A]">
               {loading ? (
                 <tr>
-                  <td colSpan={8} className="py-12 text-center text-gold-400 font-mono">
+                  <td colSpan={8} className="py-12 text-center text-[#8C610A] font-mono font-bold">
                     Loading claims...
                   </td>
                 </tr>
               ) : claims.length === 0 ? (
                 <tr>
-                  <td colSpan={8} className="py-12 text-center text-gray-500">
+                  <td colSpan={8} className="py-12 text-center text-[#64748B]">
                     No prize claim records found matching criteria.
                   </td>
                 </tr>
               ) : (
                 claims.map((claim) => (
-                  <tr key={claim._id} className="hover:bg-gold-500/5 transition-colors">
-                    <td className="py-3 px-4 font-mono font-bold text-gold-300">
+                  <tr key={claim._id} className="hover:bg-[#FAF8F5]/80 transition-colors">
+                    <td className="py-3.5 px-4 font-mono font-black text-[#8C610A]">
                       {claim.participantId}
                     </td>
-                    <td className="py-3 px-4 font-semibold text-white">
+                    <td className="py-3.5 px-4 font-bold text-[#0F172A]">
                       {claim.claimantName || claim.participant?.fullName}
                     </td>
-                    <td className="py-3 px-4 text-gray-200 font-medium">
+                    <td className="py-3.5 px-4 text-[#1E293B] font-semibold">
                       {claim.prize?.name}
                     </td>
-                    <td className="py-3 px-4 font-mono text-gray-400">
+                    <td className="py-3.5 px-4 font-mono text-[#334155] font-medium">
                       {claim.contactMobile || claim.participant?.mobile}
                     </td>
-                    <td className="py-3 px-4 text-gray-400">
+                    <td className="py-3.5 px-4 text-[#475569] font-medium">
                       {claim.city || claim.participant?.city}, {claim.state || claim.participant?.state}
                     </td>
-                    <td className="py-3 px-4">
+                    <td className="py-3.5 px-4">
                       {claim.idProofDocumentUrl ? (
                         <a
                           href={claim.idProofDocumentUrl}
                           target="_blank"
                           rel="noreferrer"
-                          className="text-gold-400 underline font-semibold flex items-center gap-1"
+                          className="text-[#8C610A] underline font-bold flex items-center gap-1 hover:text-[#5E4204]"
                         >
                           <span>{claim.idProofType || 'Proof'}</span>
                           <ExternalLink className="w-3 h-3" />
                         </a>
                       ) : (
-                        <span className="text-gray-500 font-mono">Not Uploaded</span>
+                        <span className="text-[#94A3B8] font-mono">Not Uploaded</span>
                       )}
                     </td>
-                    <td className="py-3 px-4">
+                    <td className="py-3.5 px-4">
                       <span
                         className={`px-2.5 py-1 rounded-full text-[10px] font-bold ${
                           claim.claimStatus === 'Prize Awarded'
-                            ? 'bg-purple-500/20 text-purple-300'
+                            ? 'bg-purple-100 text-purple-800 border border-purple-300'
                             : claim.claimStatus === 'Approved'
-                            ? 'bg-emerald-500/20 text-emerald-300'
+                            ? 'bg-emerald-100 text-[#047857] border border-emerald-300'
                             : claim.claimStatus === 'Rejected'
-                            ? 'bg-red-500/20 text-red-300'
-                            : 'bg-gold-500/15 text-gold-300'
+                            ? 'bg-rose-100 text-[#B91C1C] border border-rose-300'
+                            : 'bg-amber-100 text-[#B45309] border border-amber-300'
                         }`}
                       >
                         {claim.claimStatus}
                       </span>
                     </td>
-                    <td className="py-3 px-4 text-right">
+                    <td className="py-3.5 px-4 text-right">
                       <button
                         onClick={() => openStatusModal(claim)}
-                        className="px-3 py-1 rounded-lg btn-outline-gold text-[11px] font-bold"
+                        className="px-3 py-1.5 rounded-lg btn-outline-gold text-[11px] font-bold shadow-sm"
                       >
                         Manage Status
                       </button>
@@ -235,46 +235,46 @@ const AdminPrizeClaims = () => {
 
       {/* Status Update Modal */}
       {modalOpen && selectedClaim && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
-          <div className="bg-[#0F1015] border border-gold-500/40 rounded-3xl max-w-lg w-full p-6 space-y-5 animate-scale-up">
-            <div className="flex items-center justify-between border-b border-gray-800 pb-3">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+          <div className="bg-white border border-[#CBD5E1] rounded-3xl max-w-lg w-full p-6 space-y-5 shadow-2xl animate-scale-up">
+            <div className="flex items-center justify-between border-b border-[#E2E8F0] pb-3">
               <div>
-                <span className="text-[10px] uppercase font-mono text-gold-400 font-bold block">
+                <span className="text-[10px] uppercase font-mono text-[#8C610A] font-bold block">
                   Winner Claim Management
                 </span>
-                <h3 className="text-lg font-bold text-white font-heading">
+                <h3 className="text-lg font-bold text-[#0F172A] font-heading">
                   {selectedClaim.claimantName} ({selectedClaim.participantId})
                 </h3>
               </div>
-              <button onClick={() => setModalOpen(false)} className="text-gray-400 hover:text-white">
+              <button onClick={() => setModalOpen(false)} className="text-[#64748B] hover:text-[#0F172A]">
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             <form onSubmit={handleUpdateStatus} className="space-y-4 text-xs">
-              <div className="p-3 rounded-xl bg-dark-950 border border-gray-800 space-y-1.5">
+              <div className="p-3.5 rounded-xl bg-[#FAF8F5] border border-[#E2E8F0] space-y-1.5">
                 <div className="flex justify-between">
-                  <span className="text-gray-500">Prize Won:</span>
-                  <span className="text-gold-300 font-bold">{selectedClaim.prize?.name}</span>
+                  <span className="text-[#64748B] font-medium">Prize Won:</span>
+                  <span className="text-[#8C610A] font-bold">{selectedClaim.prize?.name}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-500">Delivery Address:</span>
-                  <span className="text-white text-right max-w-xs truncate">{selectedClaim.deliveryAddress || 'Pending submission'}</span>
+                  <span className="text-[#64748B] font-medium">Delivery Address:</span>
+                  <span className="text-[#0F172A] font-semibold text-right max-w-xs truncate">{selectedClaim.deliveryAddress || 'Pending submission'}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-500">ID Document:</span>
-                  <span className="text-white">
+                  <span className="text-[#64748B] font-medium">ID Document:</span>
+                  <span className="text-[#0F172A] font-semibold">
                     {selectedClaim.idProofType} ({selectedClaim.idProofNumber || 'N/A'})
                   </span>
                 </div>
               </div>
 
               <div className="space-y-1">
-                <label className="text-xs font-bold uppercase text-gray-300">Set New Claim Status *</label>
+                <label className="text-xs font-bold uppercase text-[#334155]">Set New Claim Status *</label>
                 <select
                   value={newStatus}
                   onChange={(e) => setNewStatus(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-dark-950 border border-gold-500/30 text-white text-xs font-bold"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF8F5] border border-[#CBD5E1] text-[#0F172A] text-xs font-bold focus:outline-none focus:border-[#8C610A]"
                 >
                   <option value="Pending Verification">Pending Verification</option>
                   <option value="Verified">Verified</option>
@@ -288,41 +288,41 @@ const AdminPrizeClaims = () => {
 
               {newStatus === 'Rejected' && (
                 <div className="space-y-1">
-                  <label className="text-xs font-bold uppercase text-red-400">Mandatory Rejection Reason *</label>
+                  <label className="text-xs font-bold uppercase text-rose-700">Mandatory Rejection Reason *</label>
                   <textarea
                     rows={2}
                     required
                     value={rejectionReason}
                     onChange={(e) => setRejectionReason(e.target.value)}
                     placeholder="Provide specific reason for rejecting claim"
-                    className="w-full px-3.5 py-2 rounded-xl bg-dark-950 border border-red-500/40 text-white text-xs"
+                    className="w-full px-3.5 py-2 rounded-xl bg-[#FAF8F5] border border-rose-300 text-[#0F172A] text-xs focus:outline-none focus:border-rose-500 placeholder-[#94A3B8]"
                   />
                 </div>
               )}
 
               <div className="space-y-1">
-                <label className="text-xs font-bold uppercase text-gray-300">Internal Admin Notes / Dispatch Tracking</label>
+                <label className="text-xs font-bold uppercase text-[#334155]">Internal Admin Notes / Dispatch Tracking</label>
                 <textarea
                   rows={2}
                   value={adminNotes}
                   onChange={(e) => setAdminNotes(e.target.value)}
                   placeholder="e.g. Courier tracking # or dealership dispatch date"
-                  className="w-full px-3.5 py-2 rounded-xl bg-dark-950 border border-gray-800 text-white text-xs"
+                  className="w-full px-3.5 py-2 rounded-xl bg-[#FAF8F5] border border-[#CBD5E1] text-[#0F172A] text-xs placeholder-[#94A3B8] focus:outline-none focus:border-[#8C610A]"
                 />
               </div>
 
-              <div className="flex justify-end gap-3 pt-3 border-t border-gray-800">
+              <div className="flex justify-end gap-3 pt-3 border-t border-[#E2E8F0]">
                 <button
                   type="button"
                   onClick={() => setModalOpen(false)}
-                  className="px-4 py-2 rounded-xl border border-gray-800 text-gray-400"
+                  className="px-4 py-2 rounded-xl border border-[#CBD5E1] text-[#475569] hover:bg-gray-50 font-semibold"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="btn-gold px-6 py-2 rounded-xl font-bold shadow-gold-glow"
+                  className="btn-gold px-6 py-2 rounded-xl font-bold shadow-sm"
                 >
                   {submitting ? 'Updating...' : 'Save Claim Status'}
                 </button>

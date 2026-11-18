@@ -116,10 +116,10 @@ const AdminParticipants = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-black font-heading text-white">
+          <h1 className="text-2xl sm:text-3xl font-black font-heading text-[#0F172A]">
             PARTICIPANT <span className="text-gold-gradient">MANAGEMENT</span>
           </h1>
-          <p className="text-xs sm:text-sm text-gray-400 mt-1">
+          <p className="text-xs sm:text-sm text-[#5A657D] mt-1">
             Browse, filter, audit, disqualify, and export registered participants.
           </p>
         </div>
@@ -128,38 +128,38 @@ const AdminParticipants = () => {
         <div className="flex items-center gap-2">
           <button
             onClick={() => handleExport('xlsx')}
-            className="btn-outline-gold px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5"
+            className="btn-outline-gold px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-xs"
           >
-            <FileSpreadsheet className="w-4 h-4 text-gold-400" />
+            <FileSpreadsheet className="w-4 h-4 text-[#8C610A]" />
             <span>Export Excel</span>
           </button>
           <button
             onClick={() => handleExport('csv')}
-            className="btn-outline-gold px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5"
+            className="btn-outline-gold px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-xs"
           >
-            <Download className="w-4 h-4 text-gold-400" />
+            <Download className="w-4 h-4 text-[#8C610A]" />
             <span>Export CSV</span>
           </button>
         </div>
       </div>
 
       {/* Search and Filters Bar */}
-      <div className="p-4 rounded-2xl bg-dark-900 border border-gold-500/20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+      <div className="p-4 rounded-2xl bg-white border border-[#E8EAF0] shadow-card-light grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
         <form onSubmit={handleSearchSubmit} className="relative sm:col-span-2">
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search by Name, Mobile, or ID..."
-            className="w-full px-4 py-2.5 pl-10 rounded-xl bg-dark-950 border border-gray-800 text-white text-xs focus:outline-none focus:border-gold-400"
+            className="w-full px-4 py-2.5 pl-10 rounded-xl bg-[#FAF8F5] border border-[#CBD5E1] text-[#0F172A] placeholder-[#94A3B8] text-xs font-medium focus:outline-none focus:border-[#D4AF37] focus:bg-white transition-all"
           />
-          <Search className="w-4 h-4 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2" />
+          <Search className="w-4 h-4 text-[#94A3B8] absolute left-3 top-1/2 -translate-y-1/2" />
         </form>
 
         <select
           value={verifiedFilter}
           onChange={(e) => setVerifiedFilter(e.target.value)}
-          className="px-3 py-2.5 rounded-xl bg-dark-950 border border-gray-800 text-xs text-gray-300 focus:outline-none focus:border-gold-400"
+          className="px-3 py-2.5 rounded-xl bg-[#FAF8F5] border border-[#CBD5E1] text-xs font-medium text-[#0F172A] focus:outline-none focus:border-[#D4AF37] focus:bg-white transition-all"
         >
           <option value="">All Verification Statuses</option>
           <option value="true">Mobile Verified Only</option>
@@ -169,7 +169,7 @@ const AdminParticipants = () => {
         <select
           value={disqualifiedFilter}
           onChange={(e) => setDisqualifiedFilter(e.target.value)}
-          className="px-3 py-2.5 rounded-xl bg-dark-950 border border-gray-800 text-xs text-gray-300 focus:outline-none focus:border-gold-400"
+          className="px-3 py-2.5 rounded-xl bg-[#FAF8F5] border border-[#CBD5E1] text-xs font-medium text-[#0F172A] focus:outline-none focus:border-[#D4AF37] focus:bg-white transition-all"
         >
           <option value="">All Eligibility States</option>
           <option value="false">Eligible Participants</option>
@@ -178,88 +178,89 @@ const AdminParticipants = () => {
       </div>
 
       {/* Participants Table */}
-      <div className="luxury-card rounded-2xl overflow-hidden shadow-card-dark">
+      <div className="rounded-2xl overflow-hidden bg-white border border-[#E8EAF0] shadow-card-light">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
             <thead>
-              <tr className="border-b border-gray-800 text-[11px] uppercase tracking-wider text-gray-400 bg-dark-950/80">
-                <th className="py-3 px-4">Participant ID</th>
-                <th className="py-3 px-4">Full Name</th>
-                <th className="py-3 px-4">Mobile</th>
-                <th className="py-3 px-4">Location</th>
-                <th className="py-3 px-4">Verified</th>
-                <th className="py-3 px-4">Status</th>
-                <th className="py-3 px-4">Reg. Date</th>
-                <th className="py-3 px-4 text-right">Actions</th>
+              <tr className="border-b border-[#E2E8F0] text-[11px] uppercase tracking-wider text-[#475569] font-black font-display bg-[#FAF8F5]">
+                <th className="py-3.5 px-4">Participant ID</th>
+                <th className="py-3.5 px-4">Full Name</th>
+                <th className="py-3.5 px-4">Mobile</th>
+                <th className="py-3.5 px-4">Location</th>
+                <th className="py-3.5 px-4">Verified</th>
+                <th className="py-3.5 px-4">Status</th>
+                <th className="py-3.5 px-4">Reg. Date</th>
+                <th className="py-3.5 px-4 text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-800/60 text-gray-200">
+            <tbody className="divide-y divide-[#F1F5F9] text-[#0F172A]">
               {loading ? (
                 <tr>
-                  <td colSpan={8} className="py-12 text-center text-gold-400 font-mono">
+                  <td colSpan={8} className="py-12 text-center text-[#8C610A] font-bold font-mono">
                     Loading records...
                   </td>
                 </tr>
               ) : participants.length === 0 ? (
                 <tr>
-                  <td colSpan={8} className="py-12 text-center text-gray-500">
+                  <td colSpan={8} className="py-12 text-center text-[#64748B]">
                     No participants found matching the query.
                   </td>
                 </tr>
               ) : (
                 participants.map((item) => (
-                  <tr key={item._id} className="hover:bg-gold-500/5 transition-colors">
-                    <td className="py-3 px-4 font-mono font-bold text-gold-300">
+                  <tr key={item._id} className="hover:bg-[#FAF8F5] transition-colors">
+                    <td className="py-3.5 px-4 font-mono font-black text-[#8C610A] text-xs">
                       {item.registration?.participantId || 'PENDING'}
                     </td>
-                    <td className="py-3 px-4 font-semibold text-white">
+                    <td className="py-3.5 px-4 font-bold text-[#0F172A] text-xs">
                       {item.fullName}
                     </td>
-                    <td className="py-3 px-4 font-mono text-gray-300">
+                    <td className="py-3.5 px-4 font-mono font-semibold text-[#334155] text-xs">
                       {item.mobile}
                     </td>
-                    <td className="py-3 px-4 text-gray-400">
+                    <td className="py-3.5 px-4 text-[#475569] text-xs font-medium">
                       {item.city}, {item.state}
                     </td>
-                    <td className="py-3 px-4">
+                    <td className="py-3.5 px-4">
                       {item.isMobileVerified ? (
-                        <span className="px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 font-semibold text-[10px]">
+                        <span className="px-2.5 py-0.5 rounded-full bg-[#ECFDF5] border border-[#10B981]/30 text-[#047857] font-bold text-[10px]">
                           Verified
                         </span>
                       ) : (
-                        <span className="px-2 py-0.5 rounded-full bg-yellow-500/15 text-yellow-400 font-semibold text-[10px]">
+                        <span className="px-2.5 py-0.5 rounded-full bg-[#FEF3C7] border border-[#F59E0B]/30 text-[#B45309] font-bold text-[10px]">
                           Pending
                         </span>
                       )}
                     </td>
-                    <td className="py-3 px-4">
+                    <td className="py-3.5 px-4">
                       {item.isDisqualified ? (
-                        <span className="px-2 py-0.5 rounded-full bg-red-500/15 text-red-400 font-semibold text-[10px]" title={item.disqualificationReason}>
+                        <span className="px-2.5 py-0.5 rounded-full bg-[#FEF2F2] border border-[#EF4444]/30 text-[#B91C1C] font-bold text-[10px]" title={item.disqualificationReason}>
                           Disqualified
                         </span>
                       ) : (
-                        <span className="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-300 font-semibold text-[10px]">
+                        <span className="px-2.5 py-0.5 rounded-full bg-[#EFF6FF] border border-[#3B82F6]/30 text-[#1D4ED8] font-bold text-[10px]">
                           Eligible
                         </span>
                       )}
                     </td>
-                    <td className="py-3 px-4 text-gray-500 font-mono">
+                    <td className="py-3.5 px-4 text-[#64748B] font-mono text-xs">
                       {new Date(item.createdAt).toLocaleDateString()}
                     </td>
-                    <td className="py-3 px-4 text-right">
+                    <td className="py-3.5 px-4 text-right">
                       <div className="flex items-center justify-end gap-1.5">
                         <button
                           onClick={() => setSelectedParticipant(item)}
-                          title="View Participant Details"
-                          className="p-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5"
+                          className="p-1.5 rounded-lg text-[#475569] hover:text-[#0F172A] hover:bg-[#F1F5F9] border border-[#E2E8F0] transition-colors"
+                          title="View Details"
                         >
                           <Eye className="w-4 h-4" />
                         </button>
+
                         {item.isDisqualified ? (
                           <button
                             onClick={() => handleReinstate(item._id)}
+                            className="p-1.5 rounded-lg text-[#047857] hover:bg-emerald-50 border border-emerald-200 transition-colors"
                             title="Reinstate Participant"
-                            className="p-1.5 rounded-lg text-emerald-400 hover:bg-emerald-500/10"
                           >
                             <UserCheck className="w-4 h-4" />
                           </button>
@@ -269,8 +270,8 @@ const AdminParticipants = () => {
                               setDisqualifyTarget(item);
                               setDisqualifyModalOpen(true);
                             }}
+                            className="p-1.5 rounded-lg text-[#DC2626] hover:bg-red-50 border border-red-200 transition-colors"
                             title="Disqualify Participant"
-                            className="p-1.5 rounded-lg text-red-400 hover:bg-red-500/10"
                           >
                             <UserX className="w-4 h-4" />
                           </button>
@@ -285,8 +286,8 @@ const AdminParticipants = () => {
         </div>
 
         {/* Pagination Bar */}
-        <div className="p-4 border-t border-gray-800 flex items-center justify-between text-xs text-gray-400">
-          <div>
+        <div className="p-4 border-t border-[#E2E8F0] flex items-center justify-between text-xs text-[#64748B] bg-[#FAF8F5]">
+          <div className="font-medium">
             Showing {(pagination.page - 1) * pagination.limit + (participants.length > 0 ? 1 : 0)} to{' '}
             {Math.min(pagination.page * pagination.limit, pagination.total)} of {pagination.total} entries
           </div>
@@ -294,17 +295,17 @@ const AdminParticipants = () => {
             <button
               onClick={() => fetchParticipants(pagination.page - 1)}
               disabled={pagination.page <= 1}
-              className="p-1.5 rounded-lg border border-gray-800 text-gray-300 disabled:opacity-30"
+              className="p-1.5 rounded-lg border border-[#CBD5E1] bg-white text-[#0F172A] hover:border-[#D4AF37] disabled:opacity-30 transition-colors"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
-            <span className="font-mono text-gold-400">
+            <span className="font-mono font-bold text-[#8C610A] px-2">
               Page {pagination.page} of {pagination.pages || 1}
             </span>
             <button
               onClick={() => fetchParticipants(pagination.page + 1)}
               disabled={pagination.page >= pagination.pages}
-              className="p-1.5 rounded-lg border border-gray-800 text-gray-300 disabled:opacity-30"
+              className="p-1.5 rounded-lg border border-[#CBD5E1] bg-white text-[#0F172A] hover:border-[#D4AF37] disabled:opacity-30 transition-colors"
             >
               <ChevronRight className="w-4 h-4" />
             </button>
@@ -314,62 +315,65 @@ const AdminParticipants = () => {
 
       {/* View Details Modal */}
       {selectedParticipant && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-          <div className="bg-[#0F1015] border border-gold-500/40 rounded-3xl max-w-lg w-full p-6 space-y-5 animate-scale-up">
-            <div className="flex items-center justify-between border-b border-gray-800 pb-3">
-              <h3 className="text-lg font-bold text-white font-heading">Participant Profile</h3>
-              <button onClick={() => setSelectedParticipant(null)} className="text-gray-400 hover:text-white">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+          <div className="bg-white border border-[#D4AF37]/50 rounded-3xl max-w-lg w-full p-6 sm:p-7 space-y-5 shadow-2xl animate-scale-up">
+            <div className="flex items-center justify-between border-b border-[#E2E8F0] pb-3">
+              <h3 className="text-lg font-black text-[#0F172A] font-heading">Participant Profile</h3>
+              <button
+                onClick={() => setSelectedParticipant(null)}
+                className="text-[#64748B] hover:text-[#0F172A] p-1 rounded-lg hover:bg-[#F1F5F9] transition-colors"
+              >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             <div className="space-y-3 text-xs">
-              <div className="p-3 rounded-xl bg-dark-950 border border-gray-800 space-y-1">
-                <span className="text-gray-500 uppercase font-mono">Participant ID</span>
-                <div className="text-lg font-bold font-mono text-gold-gradient">
+              <div className="p-3.5 rounded-xl bg-[#FAF8F5] border border-[#E8EAF0] space-y-1">
+                <span className="text-[#8C610A] uppercase font-bold text-[10px] tracking-wider font-display">Participant ID</span>
+                <div className="text-xl font-black font-mono text-[#0F172A]">
                   {selectedParticipant.registration?.participantId || 'N/A'}
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-3">
-                <div className="p-3 rounded-xl bg-dark-950 border border-gray-800">
-                  <span className="text-gray-500 block">Full Name</span>
-                  <span className="font-bold text-white text-sm">{selectedParticipant.fullName}</span>
+                <div className="p-3 rounded-xl bg-[#FAF8F5] border border-[#E8EAF0]">
+                  <span className="text-[#64748B] block text-[10px] uppercase font-bold">Full Name</span>
+                  <span className="font-bold text-[#0F172A] text-sm">{selectedParticipant.fullName}</span>
                 </div>
-                <div className="p-3 rounded-xl bg-dark-950 border border-gray-800">
-                  <span className="text-gray-500 block">Mobile</span>
-                  <span className="font-mono text-white text-sm">{selectedParticipant.mobile}</span>
+                <div className="p-3 rounded-xl bg-[#FAF8F5] border border-[#E8EAF0]">
+                  <span className="text-[#64748B] block text-[10px] uppercase font-bold">Mobile</span>
+                  <span className="font-mono font-bold text-[#0F172A] text-sm">{selectedParticipant.mobile}</span>
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-3">
-                <div className="p-3 rounded-xl bg-dark-950 border border-gray-800">
-                  <span className="text-gray-500 block">Email</span>
-                  <span className="text-gray-300">{selectedParticipant.email || 'None provided'}</span>
+                <div className="p-3 rounded-xl bg-[#FAF8F5] border border-[#E8EAF0]">
+                  <span className="text-[#64748B] block text-[10px] uppercase font-bold">Email</span>
+                  <span className="text-[#0F172A] font-medium">{selectedParticipant.email || 'None provided'}</span>
                 </div>
-                <div className="p-3 rounded-xl bg-dark-950 border border-gray-800">
-                  <span className="text-gray-500 block">Location</span>
-                  <span className="text-gray-300">{selectedParticipant.city}, {selectedParticipant.state}</span>
+                <div className="p-3 rounded-xl bg-[#FAF8F5] border border-[#E8EAF0]">
+                  <span className="text-[#64748B] block text-[10px] uppercase font-bold">Location</span>
+                  <span className="text-[#0F172A] font-medium">{selectedParticipant.city}, {selectedParticipant.state}</span>
                 </div>
               </div>
 
-              <div className="p-3 rounded-xl bg-dark-950 border border-gray-800">
-                <span className="text-gray-500 block">Address</span>
-                <span className="text-gray-300">{selectedParticipant.address || 'Standard registration'}</span>
+              <div className="p-3 rounded-xl bg-[#FAF8F5] border border-[#E8EAF0]">
+                <span className="text-[#64748B] block text-[10px] uppercase font-bold">Address</span>
+                <span className="text-[#0F172A] font-medium">{selectedParticipant.address || 'Standard registration'}</span>
               </div>
 
               {selectedParticipant.isDisqualified && (
-                <div className="p-3 rounded-xl bg-red-500/15 border border-red-500/30 text-red-300 space-y-1">
-                  <span className="font-bold">Disqualification Reason:</span>
-                  <p>{selectedParticipant.disqualificationReason}</p>
+                <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 space-y-1">
+                  <span className="font-bold text-xs">Disqualification Reason:</span>
+                  <p className="text-xs">{selectedParticipant.disqualificationReason}</p>
                 </div>
               )}
             </div>
 
-            <div className="flex justify-end">
+            <div className="flex justify-end pt-2">
               <button
                 onClick={() => setSelectedParticipant(null)}
-                className="btn-gold px-5 py-2 rounded-xl text-xs font-bold"
+                className="btn-gold px-6 py-2.5 rounded-xl text-xs font-bold shadow-xs"
               >
                 Close Profile
               </button>
@@ -380,19 +384,19 @@ const AdminParticipants = () => {
 
       {/* Disqualify Modal */}
       {disqualifyModalOpen && disqualifyTarget && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
-          <div className="bg-[#0F1015] border border-red-500/40 rounded-3xl max-w-md w-full p-6 space-y-5 animate-scale-up">
-            <div className="flex items-center gap-3 text-red-400">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+          <div className="bg-white border border-red-300 rounded-3xl max-w-md w-full p-6 space-y-5 shadow-2xl animate-scale-up">
+            <div className="flex items-center gap-3 text-red-600">
               <ShieldAlert className="w-6 h-6 shrink-0" />
               <h3 className="text-lg font-bold font-heading">Disqualify Participant</h3>
             </div>
 
-            <p className="text-xs text-gray-300 leading-relaxed">
-              Disqualifying <strong className="text-white">{disqualifyTarget.fullName}</strong> ({disqualifyTarget.registration?.participantId}) will revoke their entry and permanently record the action in the audit log.
+            <p className="text-xs text-[#475569] leading-relaxed">
+              Disqualifying <strong className="text-[#0F172A]">{disqualifyTarget.fullName}</strong> ({disqualifyTarget.registration?.participantId}) will revoke their entry and permanently record the action in the audit log.
             </p>
 
             <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-gray-300">
+              <label className="text-xs font-bold uppercase tracking-wider text-[#334155]">
                 Mandatory Disqualification Reason *
               </label>
               <textarea
@@ -401,7 +405,7 @@ const AdminParticipants = () => {
                 value={disqualifyReason}
                 onChange={(e) => setDisqualifyReason(e.target.value)}
                 placeholder="e.g. Duplicate account detected / Failed compliance rule #3"
-                className="w-full px-4 py-3 rounded-xl bg-dark-950 border border-red-500/40 text-white text-xs focus:outline-none focus:border-red-400"
+                className="w-full px-4 py-3 rounded-xl bg-[#FAF8F5] border border-red-300 text-[#0F172A] text-xs focus:outline-none focus:border-red-500 focus:bg-white transition-all"
               />
             </div>
 
@@ -412,14 +416,14 @@ const AdminParticipants = () => {
                   setDisqualifyReason('');
                   setDisqualifyTarget(null);
                 }}
-                className="px-4 py-2 rounded-xl border border-gray-800 text-xs text-gray-400 hover:text-white"
+                className="px-4 py-2 rounded-xl border border-[#CBD5E1] text-xs font-bold text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9] transition-colors"
               >
                 Cancel
               </button>
               <button
                 onClick={handleDisqualify}
                 disabled={submittingAction}
-                className="px-5 py-2 rounded-xl bg-red-600 hover:bg-red-500 text-white text-xs font-bold shadow-lg"
+                className="px-5 py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-bold shadow-md transition-colors"
               >
                 {submittingAction ? 'Processing...' : 'Confirm Disqualification'}
               </button>

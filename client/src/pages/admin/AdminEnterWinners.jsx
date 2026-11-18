@@ -165,7 +165,7 @@ const AdminEnterWinners = () => {
   };
 
   if (loading) {
-    return <div className="p-8 text-gold-400 font-mono">Loading manual winner entry...</div>;
+    return <div className="p-8 text-[#8C610A] font-mono font-bold">Loading manual winner entry...</div>;
   }
 
   const remainingQuota = selectedPrize ? Math.max(0, selectedPrize.quantity - (selectedPrize.winnersCount || 0)) : 0;
@@ -174,38 +174,38 @@ const AdminEnterWinners = () => {
     <div className="max-w-4xl mx-auto space-y-8">
       {/* Header */}
       <div>
-        <h1 className="text-2xl sm:text-3xl font-black font-heading text-white">
+        <h1 className="text-2xl sm:text-3xl font-black font-heading text-[#0F172A]">
           ENTER <span className="text-gold-gradient">MANUAL WINNERS</span>
         </h1>
-        <p className="text-xs sm:text-sm text-gray-400 mt-1">
+        <p className="text-xs sm:text-sm text-[#475569] mt-1">
           Record winning participant IDs from the physical manual draw. Enforces multi-tier validation against the frozen list.
         </p>
       </div>
 
       {!snapshot && (
-        <div className="p-5 rounded-2xl bg-yellow-500/10 border border-yellow-500/30 flex items-start gap-3 text-yellow-300 text-xs">
-          <AlertCircle className="w-5 h-5 text-yellow-400 shrink-0" />
+        <div className="p-5 rounded-2xl bg-amber-50 border border-amber-300 flex items-start gap-3 text-amber-900 text-xs shadow-sm">
+          <AlertCircle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
           <div>
-            <strong>Step 2 Pending:</strong> The participant list has not been frozen yet! You must go to{' '}
-            <strong className="underline">Draw Management</strong> and click "Freeze Participant List" before entering winners.
+            <strong className="font-bold">Step 2 Pending:</strong> The participant list has not been frozen yet! You must go to{' '}
+            <strong className="underline font-bold">Draw Management</strong> and click "Freeze Participant List" before entering winners.
           </div>
         </div>
       )}
 
       {/* Main Entry Card */}
-      <div className="luxury-card rounded-3xl p-6 sm:p-8 shadow-card-dark space-y-6">
+      <div className="luxury-card rounded-3xl p-6 sm:p-8 shadow-sm border border-[#E2E8F0] space-y-6">
         <form onSubmit={handleSubmitWinners} className="space-y-6">
           {/* Prize Selection */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-gray-300">
+              <label className="text-xs font-bold uppercase tracking-wider text-[#334155]">
                 Select Prize Category *
               </label>
               <select
                 value={selectedPrizeId}
                 onChange={handlePrizeChange}
                 required
-                className="w-full px-4 py-3 rounded-xl bg-dark-950 border border-gold-500/30 text-white text-sm focus:outline-none focus:border-gold-400"
+                className="w-full px-4 py-3 rounded-xl bg-[#FAF8F5] border border-[#CBD5E1] text-[#0F172A] text-sm font-semibold focus:outline-none focus:border-[#8C610A]"
               >
                 {prizes.map((p) => (
                   <option key={p._id} value={p._id}>
@@ -217,13 +217,13 @@ const AdminEnterWinners = () => {
 
             {/* Quota Indicator */}
             {selectedPrize && (
-              <div className="p-4 rounded-xl bg-dark-950 border border-gray-800 space-y-1 text-xs font-mono">
-                <span className="text-gray-500 uppercase">Prize Quota Status</span>
-                <div className="text-white font-bold text-sm">
-                  Required Winners: <strong className="text-gold-400">{selectedPrize.quantity}</strong>
+              <div className="p-4 rounded-xl bg-[#FAF8F5] border border-[#E2E8F0] space-y-1 text-xs font-mono">
+                <span className="text-[#64748B] uppercase font-sans font-medium text-[11px]">Prize Quota Status</span>
+                <div className="text-[#0F172A] font-bold text-sm">
+                  Required Winners: <strong className="text-[#8C610A]">{selectedPrize.quantity}</strong>
                 </div>
-                <div className="text-gray-400 text-[11px]">
-                  Already Assigned: {selectedPrize.winnersCount || 0} • Available slots: <span className="text-emerald-400 font-bold">{remainingQuota}</span>
+                <div className="text-[#475569] text-[11px]">
+                  Already Assigned: {selectedPrize.winnersCount || 0} • Available slots: <span className="text-[#047857] font-bold">{remainingQuota}</span>
                 </div>
               </div>
             )}
@@ -231,9 +231,9 @@ const AdminEnterWinners = () => {
 
           {/* Quick Autocomplete Search from Frozen Snapshot */}
           <div className="space-y-2">
-            <label className="text-xs font-bold uppercase tracking-wider text-gray-300 flex items-center justify-between">
+            <label className="text-xs font-bold uppercase tracking-wider text-[#334155] flex items-center justify-between">
               <span>Quick Lookup from Frozen List</span>
-              <span className="text-[11px] text-gray-500 font-normal">Search by participant ID or name</span>
+              <span className="text-[11px] text-[#64748B] font-normal">Search by participant ID or name</span>
             </label>
             <div className="relative">
               <input
@@ -241,33 +241,33 @@ const AdminEnterWinners = () => {
                 value={searchQuery}
                 onChange={(e) => handleSearchParticipants(e.target.value)}
                 placeholder="Type 'LD2027' or participant name..."
-                className="w-full px-4 py-2.5 pl-10 rounded-xl bg-dark-950 border border-gray-800 text-white text-xs font-mono focus:outline-none focus:border-gold-400"
+                className="w-full px-4 py-2.5 pl-10 rounded-xl bg-[#FAF8F5] border border-[#CBD5E1] text-[#0F172A] text-xs font-mono focus:outline-none focus:border-[#8C610A] placeholder-[#94A3B8]"
               />
-              <Search className="w-4 h-4 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2" />
+              <Search className="w-4 h-4 text-[#94A3B8] absolute left-3 top-1/2 -translate-y-1/2" />
             </div>
 
             {/* Autocomplete Dropdown */}
             {searchResults.length > 0 && (
-              <div className="p-2 rounded-xl bg-dark-950 border border-gold-500/30 space-y-1 max-h-48 overflow-y-auto">
+              <div className="p-2 rounded-xl bg-white border border-[#CBD5E1] shadow-xl space-y-1 max-h-48 overflow-y-auto">
                 {searchResults.map((sr) => (
                   <div
                     key={sr.participantId}
                     onClick={() => !sr.alreadyWon && selectSearchResult(sr.participantId)}
                     className={`p-2.5 rounded-lg flex items-center justify-between text-xs cursor-pointer ${
                       sr.alreadyWon
-                        ? 'opacity-40 cursor-not-allowed bg-red-500/10'
-                        : 'hover:bg-gold-500/15'
+                        ? 'opacity-40 cursor-not-allowed bg-rose-50'
+                        : 'hover:bg-[#FAF8F5]'
                     }`}
                   >
                     <div>
-                      <span className="font-mono font-bold text-gold-300">{sr.participantId}</span>
-                      <span className="text-gray-300 ml-2">{sr.fullName}</span>
-                      <span className="text-gray-500 text-[11px] ml-2">({sr.city}, {sr.state})</span>
+                      <span className="font-mono font-bold text-[#8C610A]">{sr.participantId}</span>
+                      <span className="text-[#0F172A] font-semibold ml-2">{sr.fullName}</span>
+                      <span className="text-[#64748B] text-[11px] ml-2">({sr.city}, {sr.state})</span>
                     </div>
                     {sr.alreadyWon ? (
-                      <span className="text-[10px] text-red-400 font-bold">Already Won Prize</span>
+                      <span className="text-[10px] text-rose-600 font-bold">Already Won Prize</span>
                     ) : (
-                      <span className="text-[10px] text-gold-400 font-bold">+ Select</span>
+                      <span className="text-[10px] text-[#8C610A] font-bold">+ Select</span>
                     )}
                   </div>
                 ))}
@@ -278,13 +278,13 @@ const AdminEnterWinners = () => {
           {/* Winner Participant IDs Inputs List */}
           <div className="space-y-3">
             <div className="flex items-center justify-between">
-              <label className="text-xs font-bold uppercase tracking-wider text-gray-300">
+              <label className="text-xs font-bold uppercase tracking-wider text-[#334155]">
                 Winning Participant IDs (from Physical Draw)
               </label>
               <button
                 type="button"
                 onClick={addWinnerInput}
-                className="text-xs text-gold-400 hover:text-gold-300 flex items-center gap-1 font-semibold"
+                className="text-xs text-[#8C610A] hover:text-[#5E4204] flex items-center gap-1 font-bold"
               >
                 <Plus className="w-3.5 h-3.5" />
                 <span>Add Another Winner Entry</span>
@@ -294,19 +294,19 @@ const AdminEnterWinners = () => {
             <div className="space-y-2">
               {winnerIds.map((idVal, idx) => (
                 <div key={idx} className="flex items-center gap-3">
-                  <span className="text-xs font-mono text-gray-500 w-20">Winner #{idx + 1}:</span>
+                  <span className="text-xs font-mono font-bold text-[#64748B] w-20">Winner #{idx + 1}:</span>
                   <input
                     type="text"
                     value={idVal}
                     onChange={(e) => updateWinnerInput(idx, e.target.value)}
                     placeholder="e.g. LD2027-000001"
                     required
-                    className="flex-1 px-4 py-2.5 rounded-xl bg-dark-950 border border-gold-500/30 text-white font-mono text-sm focus:outline-none focus:border-gold-400 uppercase"
+                    className="flex-1 px-4 py-2.5 rounded-xl bg-[#FAF8F5] border border-[#CBD5E1] text-[#0F172A] font-mono text-sm font-bold focus:outline-none focus:border-[#8C610A] uppercase placeholder-[#94A3B8]"
                   />
                   <button
                     type="button"
                     onClick={() => removeWinnerInput(idx)}
-                    className="p-2 rounded-lg text-gray-500 hover:text-red-400 hover:bg-white/5"
+                    className="p-2 rounded-lg text-[#94A3B8] hover:text-rose-600 hover:bg-rose-50 transition-colors"
                   >
                     <Trash2 className="w-4 h-4" />
                   </button>
@@ -317,7 +317,7 @@ const AdminEnterWinners = () => {
 
           {/* Notes */}
           <div className="space-y-2">
-            <label className="text-xs font-bold uppercase tracking-wider text-gray-300">
+            <label className="text-xs font-bold uppercase tracking-wider text-[#334155]">
               Draw Session Notes / Token Barrel Details
             </label>
             <input
@@ -325,13 +325,13 @@ const AdminEnterWinners = () => {
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               placeholder="e.g. Drawn in physical session 1 supervised by Chief Legal Officer"
-              className="w-full px-4 py-2.5 rounded-xl bg-dark-950 border border-gray-800 text-white text-xs"
+              className="w-full px-4 py-2.5 rounded-xl bg-[#FAF8F5] border border-[#CBD5E1] text-[#0F172A] text-xs placeholder-[#94A3B8] focus:outline-none focus:border-[#8C610A]"
             />
           </div>
 
           {/* Validation Errors Box */}
           {validationErrors.length > 0 && (
-            <div className="p-4 rounded-xl bg-red-500/15 border border-red-500/40 space-y-2 text-red-300 text-xs">
+            <div className="p-4 rounded-xl bg-rose-50 border border-rose-300 space-y-2 text-rose-800 text-xs">
               <span className="font-bold block">Validation Errors:</span>
               <ul className="list-disc pl-5 space-y-1">
                 {validationErrors.map((err, i) => (
@@ -346,9 +346,9 @@ const AdminEnterWinners = () => {
             <button
               type="submit"
               disabled={submitting || !snapshot}
-              className="btn-gold w-full py-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 shadow-gold-glow"
+              className="btn-gold w-full py-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 shadow-sm"
             >
-              <ShieldCheck className="w-4 h-4 text-dark-950" />
+              <ShieldCheck className="w-4 h-4 text-[#0F172A]" />
               <span>{submitting ? 'Validating against Frozen Snapshot...' : 'Submit to Two-Step Dual-Admin Approval Queue'}</span>
             </button>
           </div>

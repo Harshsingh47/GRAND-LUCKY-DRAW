@@ -160,73 +160,73 @@ const AdminPrizes = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-black font-heading text-white">
+          <h1 className="text-2xl sm:text-3xl font-black font-heading text-[#0F172A]">
             PRIZE <span className="text-gold-gradient">MANAGEMENT</span>
           </h1>
-          <p className="text-xs sm:text-sm text-gray-400 mt-1">
+          <p className="text-xs sm:text-sm text-[#475569] mt-1">
             Dynamic prize catalogue • Currently listing {totalPrizeUnits} grand prize units.
           </p>
         </div>
 
         <button
           onClick={openCreateModal}
-          className="btn-gold px-4 py-2.5 rounded-xl text-xs font-bold flex items-center gap-2 shadow-gold-glow self-start sm:self-auto"
+          className="btn-gold px-4 py-2.5 rounded-xl text-xs font-bold flex items-center gap-2 shadow-sm self-start sm:self-auto"
         >
-          <Plus className="w-4 h-4 text-dark-950" />
+          <Plus className="w-4 h-4 text-[#0F172A]" />
           <span>Add New Prize Category</span>
         </button>
       </div>
 
       {/* Grid of Prizes */}
       {loading ? (
-        <div className="p-8 text-gold-400 font-mono">Loading prizes...</div>
+        <div className="p-8 text-[#8C610A] font-mono font-bold">Loading prizes...</div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {prizes.map((prize) => (
             <div
               key={prize._id}
-              className={`luxury-card rounded-2xl overflow-hidden flex flex-col justify-between ${
-                !prize.isActive ? 'opacity-60 border-gray-800' : ''
+              className={`luxury-card rounded-2xl overflow-hidden flex flex-col justify-between border border-[#E2E8F0] shadow-sm ${
+                !prize.isActive ? 'opacity-60 bg-gray-50' : ''
               }`}
             >
               <div>
-                <div className="h-44 bg-black relative overflow-hidden border-b border-gray-800">
+                <div className="h-44 bg-gray-100 relative overflow-hidden border-b border-[#E2E8F0]">
                   <img
                     src={resolveImageUrl(prize.imageUrl)}
                     alt={prize.name}
                     className="w-full h-full object-cover"
                     onError={handleImageError}
                   />
-                  <div className="absolute top-2 right-2 px-2.5 py-1 rounded-full bg-black/80 backdrop-blur-md border border-gold-500/40 text-[11px] font-bold text-gold-300 font-mono">
+                  <div className="absolute top-2 right-2 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md border border-[#D4AF37]/50 text-[11px] font-bold text-[#8C610A] font-mono shadow-sm">
                     {prize.quantity} Units
                   </div>
-                  <div className="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-gold-500/20 text-[10px] font-bold text-gold-300 uppercase">
+                  <div className="absolute bottom-2 left-2 px-2.5 py-0.5 rounded bg-amber-100 border border-amber-300 text-[10px] font-bold text-[#8C610A] uppercase tracking-wider">
                     {prize.category}
                   </div>
                 </div>
 
                 <div className="p-5 space-y-2">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-bold text-white font-heading">{prize.name}</h3>
-                    <span className="text-[10px] font-mono text-gray-400">Order: #{prize.displayOrder}</span>
+                    <h3 className="text-lg font-bold text-[#0F172A] font-heading">{prize.name}</h3>
+                    <span className="text-[10px] font-mono text-[#64748B]">Order: #{prize.displayOrder}</span>
                   </div>
-                  <p className="text-xs text-gray-400 line-clamp-2 leading-relaxed">
+                  <p className="text-xs text-[#475569] line-clamp-2 leading-relaxed">
                     {prize.description || 'No description provided'}
                   </p>
 
-                  <div className="pt-2 text-xs text-gray-400 font-mono">
-                    Winners assigned: <strong className="text-gold-300">{prize.winnersCount || 0} / {prize.quantity}</strong>
+                  <div className="pt-2 text-xs text-[#64748B] font-mono">
+                    Winners assigned: <strong className="text-[#8C610A] font-bold">{prize.winnersCount || 0} / {prize.quantity}</strong>
                   </div>
                 </div>
               </div>
 
-              <div className="p-5 pt-0 flex items-center justify-between border-t border-gray-800/80 mt-2">
+              <div className="p-5 pt-0 flex items-center justify-between border-t border-[#E2E8F0] mt-2">
                 <button
                   onClick={() => togglePrizeActive(prize)}
                   className={`text-xs font-semibold px-2.5 py-1 rounded-lg flex items-center gap-1.5 ${
                     prize.isActive
-                      ? 'bg-emerald-500/10 text-emerald-400'
-                      : 'bg-gray-800 text-gray-400'
+                      ? 'bg-emerald-100 text-[#047857] border border-emerald-300'
+                      : 'bg-gray-100 text-[#64748B] border border-gray-300'
                   }`}
                 >
                   {prize.isActive ? <CheckCircle2 className="w-3.5 h-3.5" /> : <XCircle className="w-3.5 h-3.5" />}
@@ -235,7 +235,7 @@ const AdminPrizes = () => {
 
                 <button
                   onClick={() => openEditModal(prize)}
-                  className="p-1.5 rounded-lg text-gray-300 hover:text-gold-300 hover:bg-white/5 flex items-center gap-1 text-xs"
+                  className="px-3 py-1.5 rounded-lg border border-[#CBD5E1] text-[#0F172A] hover:text-[#8C610A] hover:bg-[#FAF8F5] flex items-center gap-1.5 text-xs font-bold transition-colors"
                 >
                   <Edit2 className="w-3.5 h-3.5" />
                   <span>Edit</span>
@@ -248,13 +248,13 @@ const AdminPrizes = () => {
 
       {/* Add / Edit Modal */}
       {modalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
-          <div className="bg-[#0F1015] border border-gold-500/40 rounded-3xl max-w-xl w-full p-6 sm:p-8 space-y-5 animate-scale-up max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between border-b border-gray-800 pb-3">
-              <h3 className="text-lg font-bold text-white font-heading">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+          <div className="bg-white border border-[#CBD5E1] rounded-3xl max-w-xl w-full p-6 sm:p-8 space-y-5 shadow-2xl animate-scale-up max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between border-b border-[#E2E8F0] pb-3">
+              <h3 className="text-lg font-bold text-[#0F172A] font-heading">
                 {editingPrize ? 'Edit Prize Details' : 'Add New Prize Category'}
               </h3>
-              <button onClick={() => setModalOpen(false)} className="text-gray-400 hover:text-white">
+              <button onClick={() => setModalOpen(false)} className="text-[#64748B] hover:text-[#0F172A]">
                 <X className="w-5 h-5" />
               </button>
             </div>
@@ -262,23 +262,23 @@ const AdminPrizes = () => {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1">
-                  <label className="text-xs font-bold uppercase text-gray-300">Prize Name *</label>
+                  <label className="text-xs font-bold uppercase text-[#334155]">Prize Name *</label>
                   <input
                     type="text"
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="e.g. Toyota Fortuner 4x4"
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-dark-950 border border-gold-500/30 text-white text-xs focus:outline-none focus:border-gold-400"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF8F5] border border-[#CBD5E1] text-[#0F172A] text-xs focus:outline-none focus:border-[#8C610A]"
                   />
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-xs font-bold uppercase text-gray-300">Category *</label>
+                  <label className="text-xs font-bold uppercase text-[#334155]">Category *</label>
                   <select
                     value={formData.category}
                     onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-dark-950 border border-gold-500/30 text-white text-xs"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF8F5] border border-[#CBD5E1] text-[#0F172A] text-xs font-semibold focus:outline-none focus:border-[#8C610A]"
                   >
                     <option value="SUV">SUV</option>
                     <option value="CAR">CAR</option>
@@ -292,81 +292,81 @@ const AdminPrizes = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1">
-                  <label className="text-xs font-bold uppercase text-gray-300">Quantity (Units) *</label>
+                  <label className="text-xs font-bold uppercase text-[#334155]">Quantity (Units) *</label>
                   <input
                     type="number"
                     min="1"
                     required
                     value={formData.quantity}
                     onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-dark-950 border border-gold-500/30 text-white text-xs font-mono"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF8F5] border border-[#CBD5E1] text-[#0F172A] text-xs font-mono font-bold focus:outline-none focus:border-[#8C610A]"
                   />
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-xs font-bold uppercase text-gray-300">Display Order</label>
+                  <label className="text-xs font-bold uppercase text-[#334155]">Display Order</label>
                   <input
                     type="number"
                     value={formData.displayOrder}
                     onChange={(e) => setFormData({ ...formData, displayOrder: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-dark-950 border border-gold-500/30 text-white text-xs font-mono"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF8F5] border border-[#CBD5E1] text-[#0F172A] text-xs font-mono focus:outline-none focus:border-[#8C610A]"
                   />
                 </div>
               </div>
 
               <div className="space-y-1">
-                <label className="text-xs font-bold uppercase text-gray-300">Short Description</label>
+                <label className="text-xs font-bold uppercase text-[#334155]">Short Description</label>
                 <textarea
                   rows={2}
                   value={formData.description}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                   placeholder="Specifications, model trim, and details"
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-dark-950 border border-gold-500/30 text-white text-xs focus:outline-none focus:border-gold-400"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF8F5] border border-[#CBD5E1] text-[#0F172A] text-xs focus:outline-none focus:border-[#8C610A] placeholder-[#94A3B8]"
                 />
               </div>
 
               <div className="space-y-1">
-                <label className="text-xs font-bold uppercase text-gray-300">Key Features (Comma-Separated)</label>
+                <label className="text-xs font-bold uppercase text-[#334155]">Key Features (Comma-Separated)</label>
                 <input
                   type="text"
                   value={formData.features}
                   onChange={(e) => setFormData({ ...formData, features: e.target.value })}
                   placeholder="Automatic, Sunroof, Leather Seats, 4x4"
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-dark-950 border border-gold-500/30 text-white text-xs"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF8F5] border border-[#CBD5E1] text-[#0F172A] text-xs focus:outline-none focus:border-[#8C610A] placeholder-[#94A3B8]"
                 />
               </div>
 
               {/* Image Upload */}
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase text-gray-300">Prize Image</label>
+                <label className="text-xs font-bold uppercase text-[#334155]">Prize Image</label>
                 <div className="flex items-center gap-3">
                   <input
                     type="file"
                     accept="image/*"
                     onChange={handleImageUpload}
-                    className="text-xs text-gray-400 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-gold-500 file:text-dark-950"
+                    className="text-xs text-[#475569] file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border file:border-[#CBD5E1] file:text-xs file:font-bold file:bg-[#FAF8F5] file:text-[#0F172A] hover:file:bg-[#F1EADA]"
                   />
-                  {uploadingImage && <span className="text-xs text-gold-400 font-mono">Uploading...</span>}
+                  {uploadingImage && <span className="text-xs text-[#8C610A] font-mono font-bold">Uploading...</span>}
                 </div>
                 {formData.imageUrl && (
-                  <div className="w-20 h-14 rounded-lg overflow-hidden border border-gray-700 bg-black">
+                  <div className="w-20 h-14 rounded-lg overflow-hidden border border-[#CBD5E1] bg-gray-50">
                     <img src={formData.imageUrl} alt="Preview" className="w-full h-full object-cover" />
                   </div>
                 )}
               </div>
 
-              <div className="flex justify-end gap-3 pt-3 border-t border-gray-800">
+              <div className="flex justify-end gap-3 pt-3 border-t border-[#E2E8F0]">
                 <button
                   type="button"
                   onClick={() => setModalOpen(false)}
-                  className="px-4 py-2 rounded-xl border border-gray-800 text-xs text-gray-400 hover:text-white"
+                  className="px-4 py-2 rounded-xl border border-[#CBD5E1] text-xs text-[#475569] hover:bg-gray-50 font-semibold"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="btn-gold px-6 py-2 rounded-xl text-xs font-bold shadow-gold-glow"
+                  className="btn-gold px-6 py-2 rounded-xl text-xs font-bold shadow-sm"
                 >
                   {submitting ? 'Saving...' : 'Save Prize'}
                 </button>

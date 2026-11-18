@@ -90,25 +90,25 @@ const AdminCampaigns = () => {
   };
 
   if (loading) {
-    return <div className="p-8 text-gold-400 font-mono">Loading campaign configuration...</div>;
+    return <div className="p-8 text-[#8C610A] font-mono font-bold">Loading campaign configuration...</div>;
   }
 
   return (
     <div className="max-w-4xl mx-auto space-y-8">
       <div>
-        <h1 className="text-2xl sm:text-3xl font-black font-heading text-white">
+        <h1 className="text-2xl sm:text-3xl font-black font-heading text-[#0F172A]">
           CAMPAIGN <span className="text-gold-gradient">SETTINGS</span>
         </h1>
-        <p className="text-xs sm:text-sm text-gray-400 mt-1">
+        <p className="text-xs sm:text-sm text-[#475569] mt-1">
           Configure campaign timelines, target participants, rules, and compliance toggles.
         </p>
       </div>
 
       {/* Legal & Compliance Notice */}
-      <div className="p-5 rounded-2xl bg-dark-900 border border-gold-500/30 flex items-start gap-4">
-        <ShieldCheck className="w-6 h-6 text-gold-400 shrink-0 mt-0.5" />
-        <div className="text-xs text-gray-300 space-y-1">
-          <span className="font-bold text-white text-sm block">Legal Compliance Advisory</span>
+      <div className="p-5 rounded-2xl bg-[#FAF8F5] border border-[#D4AF37]/50 flex items-start gap-4 shadow-sm">
+        <ShieldCheck className="w-6 h-6 text-[#8C610A] shrink-0 mt-0.5" />
+        <div className="text-xs text-[#334155] space-y-1">
+          <span className="font-bold text-[#0F172A] text-sm block">Legal Compliance Advisory</span>
           <p>
             Campaign dates, targets, and branding are dynamically configurable. Per legal directives, paid entry and payment processing remain disabled until confirmed with legal counsel.
           </p>
@@ -116,115 +116,115 @@ const AdminCampaigns = () => {
       </div>
 
       {/* Main Settings Form */}
-      <div className="luxury-card rounded-3xl p-6 sm:p-8 shadow-card-dark">
+      <div className="luxury-card rounded-3xl p-6 sm:p-8 shadow-sm border border-[#E2E8F0]">
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="space-y-2">
-              <label className="text-xs font-bold uppercase text-gray-300">Campaign Title</label>
+              <label className="text-xs font-bold uppercase text-[#334155]">Campaign Title</label>
               <input
                 type="text"
                 required
                 value={formData.title}
                 onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl bg-dark-950 border border-gold-500/30 text-white text-sm focus:outline-none focus:border-gold-400"
+                className="w-full px-4 py-3 rounded-xl bg-[#FAF8F5] border border-[#CBD5E1] text-[#0F172A] text-sm font-semibold focus:outline-none focus:border-[#8C610A]"
               />
             </div>
 
             <div className="space-y-2">
-              <label className="text-xs font-bold uppercase text-gray-300">Tagline</label>
+              <label className="text-xs font-bold uppercase text-[#334155]">Tagline</label>
               <input
                 type="text"
                 value={formData.tagline}
                 onChange={(e) => setFormData({ ...formData, tagline: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl bg-dark-950 border border-gold-500/30 text-white text-sm focus:outline-none focus:border-gold-400 font-serif italic"
+                className="w-full px-4 py-3 rounded-xl bg-[#FAF8F5] border border-[#CBD5E1] text-[#0F172A] text-sm font-serif italic focus:outline-none focus:border-[#8C610A]"
               />
             </div>
 
             <div className="space-y-2">
-              <label className="text-xs font-bold uppercase text-gray-300">Joining Start Date</label>
+              <label className="text-xs font-bold uppercase text-[#334155]">Joining Start Date</label>
               <input
                 type="date"
                 required
                 value={formData.joiningStartDate}
                 onChange={(e) => setFormData({ ...formData, joiningStartDate: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl bg-dark-950 border border-gold-500/30 text-white text-sm focus:outline-none focus:border-gold-400"
+                className="w-full px-4 py-3 rounded-xl bg-[#FAF8F5] border border-[#CBD5E1] text-[#0F172A] text-sm focus:outline-none focus:border-[#8C610A]"
               />
             </div>
 
             <div className="space-y-2">
-              <label className="text-xs font-bold uppercase text-gray-300">Registration Closing Date</label>
+              <label className="text-xs font-bold uppercase text-[#334155]">Registration Closing Date</label>
               <input
                 type="date"
                 required
                 value={formData.registrationClosingDate}
                 onChange={(e) => setFormData({ ...formData, registrationClosingDate: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl bg-dark-950 border border-gold-500/30 text-white text-sm focus:outline-none focus:border-gold-400"
+                className="w-full px-4 py-3 rounded-xl bg-[#FAF8F5] border border-[#CBD5E1] text-[#0F172A] text-sm focus:outline-none focus:border-[#8C610A]"
               />
             </div>
 
             <div className="space-y-2">
-              <label className="text-xs font-bold uppercase text-gold-400">Official Draw Date (19 May)</label>
+              <label className="text-xs font-bold uppercase text-[#8C610A]">Official Draw Date (19 May)</label>
               <input
                 type="date"
                 required
                 value={formData.drawDate}
                 onChange={(e) => setFormData({ ...formData, drawDate: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl bg-dark-950 border border-gold-500/40 text-gold-300 text-sm focus:outline-none focus:border-gold-400 font-bold"
+                className="w-full px-4 py-3 rounded-xl bg-[#FAF8F5] border border-[#D4AF37]/60 text-[#8C610A] text-sm focus:outline-none focus:border-[#8C610A] font-bold"
               />
             </div>
 
             <div className="space-y-2">
-              <label className="text-xs font-bold uppercase text-gray-300">Target Participants</label>
+              <label className="text-xs font-bold uppercase text-[#334155]">Target Participants</label>
               <input
                 type="number"
                 min="100"
                 required
                 value={formData.targetParticipants}
                 onChange={(e) => setFormData({ ...formData, targetParticipants: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl bg-dark-950 border border-gold-500/30 text-white text-sm font-mono focus:outline-none focus:border-gold-400"
+                className="w-full px-4 py-3 rounded-xl bg-[#FAF8F5] border border-[#CBD5E1] text-[#0F172A] text-sm font-mono font-bold focus:outline-none focus:border-[#8C610A]"
               />
             </div>
           </div>
 
           {/* Toggle Switches */}
-          <div className="p-4 rounded-2xl bg-dark-950 border border-gray-800 space-y-4">
+          <div className="p-4 rounded-2xl bg-[#FAF8F5] border border-[#E2E8F0] space-y-4">
             <label className="flex items-center justify-between cursor-pointer">
               <div>
-                <span className="text-sm font-bold text-white block">Active Public Registration</span>
-                <span className="text-xs text-gray-400">Allow users to register and generate participant IDs</span>
+                <span className="text-sm font-bold text-[#0F172A] block">Active Public Registration</span>
+                <span className="text-xs text-[#64748B]">Allow users to register and generate participant IDs</span>
               </div>
               <input
                 type="checkbox"
                 checked={formData.isRegistrationActive}
                 onChange={(e) => setFormData({ ...formData, isRegistrationActive: e.target.checked })}
-                className="w-5 h-5 accent-gold-500 rounded cursor-pointer"
+                className="w-5 h-5 accent-[#8C610A] rounded cursor-pointer"
               />
             </label>
 
-            <label className="flex items-center justify-between cursor-pointer border-t border-gray-800 pt-3">
+            <label className="flex items-center justify-between cursor-pointer border-t border-[#E2E8F0] pt-3">
               <div>
-                <span className="text-sm font-bold text-white block">Participation Entry Fee Gate</span>
-                <span className="text-xs text-gray-500">Requires formal legal review before activating</span>
+                <span className="text-sm font-bold text-[#0F172A] block">Participation Entry Fee Gate</span>
+                <span className="text-xs text-[#64748B]">Requires formal legal review before activating</span>
               </div>
               <input
                 type="checkbox"
                 checked={formData.participationFeeEnabled}
                 onChange={(e) => setFormData({ ...formData, participationFeeEnabled: e.target.checked })}
-                className="w-5 h-5 accent-gold-500 rounded cursor-pointer"
+                className="w-5 h-5 accent-[#8C610A] rounded cursor-pointer"
               />
             </label>
           </div>
 
           {/* Campaign Rules */}
           <div className="space-y-2">
-            <label className="text-xs font-bold uppercase text-gray-300">
+            <label className="text-xs font-bold uppercase text-[#334155]">
               Participation Rules (One per line)
             </label>
             <textarea
               rows={4}
               value={formData.rules}
               onChange={(e) => setFormData({ ...formData, rules: e.target.value })}
-              className="w-full px-4 py-3 rounded-xl bg-dark-950 border border-gold-500/30 text-white text-xs focus:outline-none focus:border-gold-400 leading-relaxed font-mono"
+              className="w-full px-4 py-3 rounded-xl bg-[#FAF8F5] border border-[#CBD5E1] text-[#0F172A] text-xs focus:outline-none focus:border-[#8C610A] leading-relaxed font-mono"
             />
           </div>
 
@@ -232,9 +232,9 @@ const AdminCampaigns = () => {
             <button
               type="submit"
               disabled={submitting}
-              className="btn-gold px-8 py-3.5 rounded-xl text-xs font-bold flex items-center gap-2 shadow-gold-glow"
+              className="btn-gold px-8 py-3.5 rounded-xl text-xs font-bold flex items-center gap-2 shadow-sm"
             >
-              <Save className="w-4 h-4 text-dark-950" />
+              <Save className="w-4 h-4 text-[#0F172A]" />
               <span>{submitting ? 'Updating...' : 'Save Campaign Settings'}</span>
             </button>
           </div>
