@@ -94,7 +94,7 @@ const PrizesPage = () => {
       {loading ? (
         <div className="text-center py-20 text-[#B8860B] font-bold">Loading prize catalogue...</div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {filteredPrizes.map((prize) => (
             <PrizeCard
               key={prize._id}
@@ -138,7 +138,7 @@ const PrizesPage = () => {
             </div>
             <div className="h-52 rounded-2xl overflow-hidden bg-[#F4F6FA] border border-[#E8EAF0]">
               <img
-                src={resolveImageUrl(selectedPrize.imageUrl)}
+                src={resolveImageUrl(selectedPrize.imageUrl, selectedPrize.name)}
                 alt={selectedPrize.name}
                 className="w-full h-full object-cover"
                 onError={handleImageError}

@@ -78,151 +78,45 @@ const HomePage = () => {
 
   return (
     <div className="space-y-20 pb-20 overflow-hidden">
-      {/* SECTION A: HERO SECTION (Split 2-Column Layout) */}
-      <section className="relative pt-6 pb-12 md:pt-14 md:pb-24">
-        {/* Soft background ambient warmth & golden radiance */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[850px] bg-gradient-to-tr from-[#D4AF37]/15 via-[#F3E5C1]/20 to-transparent rounded-full blur-[140px] pointer-events-none" />
+      {/* SECTION A: FULL-SCREEN HERO SHOWCASE CAROUSEL */}
+      <HeroCarousel campaign={campaign} onSelectPrize={(p) => setSelectedPrize(p)} />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            
-            {/* Left Column: Headlines, CTAs & Key Stats */}
-            <div className="lg:col-span-7 space-y-7 text-left">
-              {/* Campaign Status Pills */}
-              <div className="flex flex-wrap items-center gap-2.5">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full badge-gold text-xs font-black uppercase tracking-widest shadow-xs">
-                  <Crown className="w-4 h-4 text-[#8C610A]" />
-                  <span className="font-display">OFFICIAL CAMPAIGN 2027</span>
-                  <Sparkles className="w-3.5 h-3.5 text-[#8C610A]" />
-                </div>
-                <div className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#18865B]/10 border border-[#18865B]/30 text-[#18865B] text-xs font-bold uppercase tracking-wider">
-                  <ShieldCheck className="w-4 h-4 text-[#18865B]" />
-                  <span>100% Offline Manual Draw</span>
-                </div>
-              </div>
-
-              {/* Main Headline */}
-              <div className="space-y-3">
-                <div className="text-xs sm:text-sm uppercase tracking-[0.3em] font-display font-black text-[#9E7012] flex items-center gap-2">
-                  <span className="w-8 h-[2px] bg-gradient-to-r from-[#D4AF37] to-transparent"></span>
-                  <span>EXCLUSIVE LOTTERY GALA</span>
-                </div>
-                <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black font-heading tracking-tight text-[#0F172A] leading-[1.05]">
-                  DREAM BIG. <br />
-                  <span className="text-gold-gradient text-gold-glow">WIN BIG.</span>
-                </h1>
-                <p className="text-xl sm:text-2xl font-black text-[#8C610A] font-heading flex items-center gap-2">
-                  <span>Grand Lucky Draw 2027</span>
-                  <span className="text-xs px-3 py-1 rounded-full bg-[#FAF7EE] border border-[#D4AF37]/40 text-[#8C610A] font-bold">
-                    70 Grand Rewards
-                  </span>
-                </p>
-              </div>
-
-              {/* Description */}
-              <p className="text-base sm:text-lg text-[#5A657D] leading-relaxed max-w-xl font-normal">
-                Your opportunity to win 70 life-changing grand rewards including 4 Toyota Fortuners, 5 Mahindra Thars, 20 Swift Cars, 40 Electric Scooters, and a Luxury Farmhouse!
-              </p>
-
-              {/* Key Meta Badges */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-1">
-                <div className="p-4 rounded-2xl bg-white border border-[#E8EAF0] shadow-card-light hover:border-[#D4AF37]/50 hover:shadow-card-hover transition-all flex items-center gap-3.5 group">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#FAF7EE] to-[#F3E5C1] border border-[#D4AF37]/40 flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-transform">
-                    <Calendar className="w-4 h-4 text-[#8C610A]" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] uppercase tracking-wider text-[#5A657D] font-bold block font-display">Joining</span>
-                    <span className="text-sm sm:text-base font-black text-[#0F172A] font-heading">1 December</span>
-                  </div>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-white border border-[#E8EAF0] shadow-card-light hover:border-[#D4AF37]/50 hover:shadow-card-hover transition-all flex items-center gap-3.5 group">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#FAF7EE] to-[#F3E5C1] border border-[#D4AF37]/40 flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-transform">
-                    <Clock className="w-4 h-4 text-[#8C610A]" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] uppercase tracking-wider text-[#5A657D] font-bold block font-display">Official Draw</span>
-                    <span className="text-sm sm:text-base font-black text-[#8C610A] font-heading">19 May</span>
-                  </div>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-white border border-[#E8EAF0] shadow-card-light hover:border-[#D4AF37]/50 hover:shadow-card-hover transition-all flex items-center gap-3.5 group">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#FAF7EE] to-[#F3E5C1] border border-[#D4AF37]/40 flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-transform">
-                    <Users className="w-4 h-4 text-[#8C610A]" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] uppercase tracking-wider text-[#5A657D] font-bold block font-display">Target</span>
-                    <span className="text-sm sm:text-base font-black text-[#0F172A] font-heading">10,000 Seats</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
-                <Link
-                  to="/register"
-                  className="btn-gold px-9 py-4 rounded-2xl text-base font-black tracking-wide flex items-center justify-center gap-2.5 shadow-gold-glow group text-center font-heading"
-                >
-                  <Sparkles className="w-5 h-5 text-[#0F172A] group-hover:rotate-12 transition-transform" />
-                  <span>Join Now & Register Free</span>
-                  <ArrowRight className="w-5 h-5 text-[#0F172A] group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link
-                  to="/prizes"
-                  className="btn-outline-gold px-9 py-4 rounded-2xl text-base font-bold flex items-center justify-center gap-2.5 text-center font-heading"
-                >
-                  <Gift className="w-5 h-5 text-[#D4AF37]" />
-                  <span>Explore 70 Grand Prizes</span>
-                </Link>
-              </div>
-
-              {/* Integrated Countdown Timer */}
-              <div className="pt-4 border-t border-[#E8EAF0]">
-                <CountdownTimer
-                  targetDate={campaign?.drawDate || '2027-05-19T10:00:00.000Z'}
-                  label="Official Physical Draw Countdown • 19 May"
-                />
-              </div>
-            </div>
-
-            {/* Right Column: Hero Showcase Carousel */}
-            <div className="lg:col-span-5 relative">
-              {/* Golden Ambient Glow */}
-              <div className="absolute -inset-2 bg-gradient-to-r from-[#D4AF37]/25 via-[#F3E5C1]/35 to-[#D4AF37]/15 rounded-[2.5rem] blur-xl -z-10" />
-
-              <HeroCarousel onSelectPrize={(p) => setSelectedPrize(p)} />
-            </div>
-
+      {/* SECTION B: DUAL GALA STATUS BAR: COUNTDOWN & REGISTRATION PROGRESS */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 sm:-mt-14 relative z-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+          <div className="lg:col-span-6">
+            <CountdownTimer
+              targetDate={campaign?.drawDate || '2027-05-19T10:00:00.000Z'}
+              label="Official Physical Draw Countdown • 19 May 2027"
+            />
+          </div>
+          <div className="lg:col-span-6">
+            <ProgressBar
+              current={campaign?.currentParticipants || 0}
+              target={campaign?.targetParticipants || 10000}
+              label="Live Registration Counter"
+            />
           </div>
         </div>
       </section>
 
-      {/* SECTION B: REGISTRATION PROGRESS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ProgressBar
-          current={campaign?.currentParticipants || 0}
-          target={campaign?.targetParticipants || 10000}
-          label="Live Registration Counter"
-        />
-      </section>
-
       {/* SECTION C: GRAND PRIZES SECTION */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full badge-gold text-xs font-black text-[#8C610A] uppercase tracking-widest font-display shadow-xs">
-            <Award className="w-4 h-4 text-[#D4AF37]" />
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-2xl mx-auto space-y-2.5 mb-8 sm:mb-10">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full badge-gold text-[11px] font-black text-[#8C610A] uppercase tracking-widest font-display shadow-xs">
+            <Award className="w-3.5 h-3.5 text-[#D4AF37]" />
             <span>OFFICIAL REWARD CATALOGUE</span>
           </div>
-          <h2 className="text-4xl sm:text-5xl font-black font-heading text-[#0F172A]">
+          <h2 className="text-3xl sm:text-4xl font-black font-heading text-[#0F172A]">
             GRAND <span className="text-gold-gradient text-gold-glow">PRIZES</span> SHOWCASE
           </h2>
-          <p className="text-[#5A657D] text-base leading-relaxed">
+          <p className="text-[#5A657D] text-xs sm:text-sm leading-relaxed max-w-lg mx-auto">
             Every eligible verified participant has an equal chance to win. All prizes are physical and will be awarded under legal supervision.
           </p>
         </div>
 
-        {/* Prizes Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Compact Prizes Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {prizes.map((prize) => (
             <PrizeCard
               key={prize._id}
@@ -232,13 +126,13 @@ const HomePage = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-8 sm:mt-10">
           <Link
             to="/prizes"
-            className="btn-outline-gold inline-flex items-center gap-2 px-9 py-4 rounded-2xl text-sm font-extrabold shadow-xs"
+            className="btn-outline-gold inline-flex items-center gap-2 px-7 py-3 rounded-xl text-xs sm:text-sm font-extrabold shadow-xs"
           >
             <span>View Complete 70-Prize Catalogue</span>
-            <ArrowRight className="w-4 h-4 text-[#D4AF37]" />
+            <ArrowRight className="w-3.5 h-3.5 text-[#D4AF37]" />
           </Link>
         </div>
       </section>
@@ -478,7 +372,7 @@ const HomePage = () => {
             </div>
             <div className="h-52 rounded-2xl overflow-hidden bg-[#F4F6FA] border border-[#E8EAF0]">
               <img
-                src={resolveImageUrl(selectedPrize.imageUrl)}
+                src={resolveImageUrl(selectedPrize.imageUrl, selectedPrize.name)}
                 alt={selectedPrize.name}
                 className="w-full h-full object-cover"
                 onError={handleImageError}

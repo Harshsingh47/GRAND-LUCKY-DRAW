@@ -125,3 +125,13 @@
   background: #D4AF37;
 }
 
+/* Carousel Auto-Scroll Visual Progress Animation */
+@keyframes carouselProgress {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+.animate-carousel-progress {
+  animation: carouselProgress 4.5s linear forwards;
+}
+
