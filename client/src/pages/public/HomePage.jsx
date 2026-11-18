@@ -18,6 +18,7 @@ import {
 import CountdownTimer from '../../components/CountdownTimer';
 import ProgressBar from '../../components/ProgressBar';
 import PrizeCard from '../../components/PrizeCard';
+import HeroCarousel from '../../components/HeroCarousel';
 import api from '../../services/api';
 import posterImg from '../../assets/grand-lucky-draw-poster.jpg';
 import { resolveImageUrl, handleImageError } from '../../utils/imageHelper';
@@ -184,49 +185,12 @@ const HomePage = () => {
               </div>
             </div>
 
-            {/* Right Column: High Quality Vehicle & Prize Showcase */}
+            {/* Right Column: Hero Showcase Carousel */}
             <div className="lg:col-span-5 relative">
               {/* Golden Ambient Glow */}
               <div className="absolute -inset-2 bg-gradient-to-r from-[#D4AF37]/25 via-[#F3E5C1]/35 to-[#D4AF37]/15 rounded-[2.5rem] blur-xl -z-10" />
 
-              <div className="relative rounded-3xl overflow-hidden bg-white border-2 border-[#D4AF37]/40 shadow-card-hover group">
-                {/* Image Container */}
-                <div className="relative overflow-hidden bg-[#FAF8F5]">
-                  <img
-                    src={posterImg}
-                    alt="Grand Lucky Draw Official Campaign Poster"
-                    className="w-full h-auto object-cover object-center group-hover:scale-[1.02] transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent pointer-events-none" />
-                  
-                  {/* Floating Top Badge */}
-                  <div className="absolute top-4 left-4 px-4 py-2 rounded-full bg-white/95 backdrop-blur-md border border-[#D4AF37]/50 shadow-sm flex items-center gap-2 text-xs font-black text-[#0F172A] font-display">
-                    <Award className="w-4 h-4 text-[#D4AF37]" />
-                    <span>70 Listed Grand Rewards</span>
-                  </div>
-
-                  {/* Floating Bottom Badge */}
-                  <div className="absolute bottom-4 right-4 px-4 py-2 rounded-full bg-white/95 backdrop-blur-md border border-[#18865B]/30 shadow-sm flex items-center gap-2 text-xs font-bold text-[#18865B]">
-                    <ShieldCheck className="w-4 h-4 text-[#18865B]" />
-                    <span>Zero Computer Algorithms</span>
-                  </div>
-                </div>
-
-                {/* Showcase Quick Highlights Bar */}
-                <div className="p-5 bg-gradient-to-b from-white to-[#FDFBF7] border-t border-[#E8EAF0] space-y-2.5">
-                  <div className="flex items-center justify-between text-xs font-bold text-[#0F172A]">
-                    <span className="text-[#8C610A] uppercase tracking-wider font-display font-black">Mega Fleet Lineup</span>
-                    <span className="text-[#5A657D]">100% Physical Handover</span>
-                  </div>
-                  <div className="flex flex-wrap gap-2 pt-1 text-xs font-bold text-[#0F172A]">
-                    <span className="px-3 py-1.5 rounded-xl bg-white border border-[#D4AF37]/35 shadow-xs hover:border-[#D4AF37] hover:bg-[#FAF7EE] transition-all">4x Fortuner 4x4</span>
-                    <span className="px-3 py-1.5 rounded-xl bg-white border border-[#D4AF37]/35 shadow-xs hover:border-[#D4AF37] hover:bg-[#FAF7EE] transition-all">5x Thar 4x4</span>
-                    <span className="px-3 py-1.5 rounded-xl bg-white border border-[#D4AF37]/35 shadow-xs hover:border-[#D4AF37] hover:bg-[#FAF7EE] transition-all">20x Swift Cars</span>
-                    <span className="px-3 py-1.5 rounded-xl bg-white border border-[#D4AF37]/35 shadow-xs hover:border-[#D4AF37] hover:bg-[#FAF7EE] transition-all">40x EV Scooters</span>
-                    <span className="px-3 py-1.5 rounded-xl bg-white border border-[#D4AF37]/35 shadow-xs hover:border-[#D4AF37] hover:bg-[#FAF7EE] transition-all">1x Farmhouse</span>
-                  </div>
-                </div>
-              </div>
+              <HeroCarousel onSelectPrize={(p) => setSelectedPrize(p)} />
             </div>
 
           </div>
