@@ -128,20 +128,20 @@ const RegisterPage = () => {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
       {/* Title Header */}
       <div className="text-center max-w-2xl mx-auto space-y-4 mb-10">
-        <div className="flex flex-wrap items-center justify-center gap-2">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF7EE] border border-[#D6A63A]/40 text-[#946708] text-xs font-bold tracking-wider uppercase shadow-xs">
-            <Crown className="w-4 h-4 text-[#D6A63A]" />
-            <span>Official Campaign</span>
+        <div className="flex flex-wrap items-center justify-center gap-2.5">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full badge-gold text-xs font-black tracking-widest uppercase font-display shadow-xs">
+            <Crown className="w-4 h-4 text-[#8C610A]" />
+            <span>OFFICIAL CAMPAIGN 2027</span>
           </div>
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#18865B]/10 border border-[#18865B]/20 text-[#18865B] text-xs font-bold tracking-wider uppercase">
+          <div className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#18865B]/10 border border-[#18865B]/30 text-[#18865B] text-xs font-bold tracking-wider uppercase">
             <ShieldCheck className="w-4 h-4 text-[#18865B]" />
             <span>Strictly 1 Entry Per Person</span>
           </div>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-black font-heading text-[#172033]">
-          PARTICIPANT <span className="text-gold-gradient">REGISTRATION</span>
+        <h1 className="text-4xl sm:text-5xl font-black font-heading text-[#0F172A]">
+          PARTICIPANT <span className="text-gold-gradient text-gold-glow">REGISTRATION</span>
         </h1>
-        <p className="text-sm sm:text-base text-[#667085]">
+        <p className="text-base text-[#5A657D]">
           Enter your details below to register for the Grand Lucky Draw 2027. Strictly one entry per person is permitted.
         </p>
       </div>
@@ -154,15 +154,15 @@ const RegisterPage = () => {
         ].map((s) => (
           <div key={s.num} className="flex items-center gap-2">
             <div
-              className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs transition-all ${
+              className={`w-9 h-9 rounded-full flex items-center justify-center font-black text-xs transition-all font-display ${
                 step >= s.num
-                  ? 'bg-gradient-to-r from-[#DFBA5E] to-[#D6A63A] text-[#172033] shadow-gold-glow'
-                  : 'bg-white text-[#667085] border border-[#E8EAF0]'
+                  ? 'bg-gradient-to-r from-[#F0C75E] to-[#D8A738] text-[#0F172A] shadow-gold-glow'
+                  : 'bg-white text-[#5A657D] border border-[#E8EAF0]'
               }`}
             >
-              {step > s.num ? <CheckCircle2 className="w-5 h-5 text-[#172033]" /> : s.num}
+              {step > s.num ? <CheckCircle2 className="w-5 h-5 text-[#0F172A]" /> : s.num}
             </div>
-            <span className={`text-xs font-bold hidden sm:inline ${step >= s.num ? 'text-[#B8860B]' : 'text-[#667085]'}`}>
+            <span className={`text-xs font-bold hidden sm:inline font-heading ${step >= s.num ? 'text-[#8C610A]' : 'text-[#5A657D]'}`}>
               {s.label}
             </span>
           </div>

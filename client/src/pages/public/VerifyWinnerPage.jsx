@@ -145,14 +145,14 @@ const VerifyWinnerPage = () => {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 space-y-12">
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto space-y-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF7EE] border border-[#D6A63A]/40 text-[#946708] text-xs font-bold tracking-wider uppercase shadow-xs">
-          <Crown className="w-4 h-4 text-[#D6A63A]" />
-          <span>Official Distribution System</span>
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full badge-gold text-xs font-black text-[#8C610A] tracking-widest uppercase font-display shadow-xs">
+          <Crown className="w-4 h-4 text-[#D4AF37]" />
+          <span>OFFICIAL PRIZE CLAIM PORTAL</span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-black font-heading text-[#172033]">
-          WINNER VERIFICATION <span className="text-gold-gradient">& CLAIM</span>
+        <h1 className="text-4xl sm:text-5xl font-black font-heading text-[#0F172A]">
+          WINNER VERIFICATION <span className="text-gold-gradient text-gold-glow">& CLAIM</span>
         </h1>
-        <p className="text-sm sm:text-base text-[#667085]">
+        <p className="text-base text-[#5A657D]">
           Enter your unique participant ID and registered mobile number to verify your winning status and submit your claim documentation securely.
         </p>
       </div>
@@ -166,7 +166,7 @@ const VerifyWinnerPage = () => {
 
       {/* STEP 1: ENTER ID + MOBILE */}
       {step === 1 && (
-        <div className="bg-white rounded-3xl p-6 sm:p-10 max-w-xl mx-auto border border-[#E8EAF0] shadow-card-light">
+        <div className="bg-gradient-to-b from-white to-[#FDFBF7] rounded-3xl p-6 sm:p-10 max-w-xl mx-auto border border-[#E8EAF0] shadow-card-light">
           <form onSubmit={handleDirectVerify} className="space-y-6">
             <div className="space-y-2">
               <label className="text-xs font-bold uppercase tracking-wider text-[#172033]">

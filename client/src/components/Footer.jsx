@@ -16,52 +16,52 @@ const Footer = () => {
                 </div>
               </div>
               <div>
-                <span className="text-[11px] uppercase tracking-widest text-[#B8860B] font-bold block">Official Campaign</span>
-                <span className="text-lg font-black text-[#172033] font-heading tracking-tight">Grand Lucky Draw</span>
+                <span className="text-[10px] uppercase tracking-[0.25em] text-[#8C610A] font-black font-display block">Official Campaign</span>
+                <span className="text-xl font-black text-[#0F172A] font-display tracking-wide">Grand Lucky Draw</span>
               </div>
             </div>
-            <p className="text-sm text-[#667085] leading-relaxed">
-              Organizers of the official <span className="text-[#172033] font-semibold">Grand Lucky Draw 2027</span>. Offering 70 life-changing grand prizes with complete procedural transparency and manual draw integrity.
+            <p className="text-sm text-[#5A657D] leading-relaxed">
+              Organizers of the official <span className="text-[#0F172A] font-semibold">Grand Lucky Draw 2027</span>. Offering 70 life-changing grand prizes with complete procedural transparency and manual draw integrity.
             </p>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#FAF7EE] border border-[#D6A63A]/30 text-xs font-semibold text-[#946708]">
-              <ShieldCheck className="w-4 h-4 text-[#D6A63A]" />
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#FAF7EE] border border-[#D4AF37]/40 text-xs font-bold text-[#8C610A]">
+              <ShieldCheck className="w-4 h-4 text-[#D4AF37]" />
               <span>100% Transparent Manual Draw</span>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-wider text-[#172033] mb-4 font-heading">
+            <h3 className="text-sm font-black uppercase tracking-widest text-[#0F172A] mb-4 font-display">
               Campaign Links
             </h3>
-            <ul className="space-y-2.5 text-sm font-medium">
+            <ul className="space-y-2.5 text-sm font-semibold">
               <li>
-                <Link to="/prizes" className="hover:text-[#D6A63A] transition-colors">Grand Prizes (70 Units)</Link>
+                <Link to="/prizes" className="hover:text-[#B8860B] transition-colors">Grand Prizes (70 Units)</Link>
               </li>
               <li>
-                <Link to="/how-it-works" className="hover:text-[#D6A63A] transition-colors">How Participation Works</Link>
+                <Link to="/how-it-works" className="hover:text-[#B8860B] transition-colors">How Participation Works</Link>
               </li>
               <li>
-                <Link to="/draw-information" className="hover:text-[#D6A63A] transition-colors">Draw Procedure & Transparency</Link>
+                <Link to="/draw-information" className="hover:text-[#B8860B] transition-colors">Draw Procedure & Transparency</Link>
               </li>
               <li>
-                <Link to="/winners" className="hover:text-[#D6A63A] transition-colors">Official Published Winners</Link>
+                <Link to="/winners" className="hover:text-[#B8860B] transition-colors">Official Published Winners</Link>
               </li>
               <li>
-                <Link to="/verify-winner" className="hover:text-[#D6A63A] transition-colors">Winner Verification & Claim</Link>
+                <Link to="/verify-winner" className="hover:text-[#B8860B] transition-colors">Winner Verification & Claim</Link>
               </li>
               <li>
-                <Link to="/register" className="text-[#B8860B] hover:text-[#946708] font-bold transition-colors">Join Now / Register</Link>
+                <Link to="/register" className="text-[#8C610A] hover:text-[#B8860B] font-black transition-colors">Join Now / Register</Link>
               </li>
             </ul>
           </div>
 
           {/* Legal & Governance */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-wider text-[#172033] mb-4 font-heading">
+            <h3 className="text-sm font-black uppercase tracking-widest text-[#0F172A] mb-4 font-display">
               Governance & Policies
             </h3>
-            <ul className="space-y-2.5 text-sm font-medium">
+            <ul className="space-y-2.5 text-sm font-semibold">
               <li>
                 <Link to="/terms-and-conditions" className="hover:text-[#D6A63A] transition-colors">Terms and Conditions</Link>
               </li>

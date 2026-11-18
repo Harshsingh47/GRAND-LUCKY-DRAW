@@ -42,14 +42,14 @@ const CountdownTimer = ({ targetDate = '2027-05-19T10:00:00.000Z', label = 'Draw
   return (
     <div className="w-full">
       {label && (
-        <div className="flex items-center justify-center gap-2 mb-3 text-xs tracking-wider uppercase font-bold text-[#B8860B]">
-          <Clock className="w-4 h-4 text-[#D6A63A] animate-pulse" />
+        <div className="flex items-center justify-center gap-2 mb-3 text-xs tracking-widest uppercase font-black text-[#8C610A] font-display">
+          <Clock className="w-4 h-4 text-[#D4AF37] animate-pulse" />
           <span>{label}</span>
         </div>
       )}
 
       {timeLeft.isCompleted ? (
-        <div className="text-center p-4 rounded-xl bg-[#FAF7EE] border border-[#D6A63A]/40 text-[#B8860B] font-bold tracking-wide">
+        <div className="text-center p-4 rounded-xl bg-[#FAF7EE] border border-[#D4AF37]/50 text-[#8C610A] font-bold tracking-wide">
           Official Draw Event Underway! Check published results.
         </div>
       ) : (
@@ -57,12 +57,13 @@ const CountdownTimer = ({ targetDate = '2027-05-19T10:00:00.000Z', label = 'Draw
           {units.map((unit, idx) => (
             <div
               key={idx}
-              className="relative group p-3 sm:p-4 rounded-2xl bg-white border border-[#E8EAF0] text-center shadow-card-light hover:border-[#D6A63A]/60 transition-all"
+              className="relative group p-3 sm:p-5 rounded-2xl bg-gradient-to-b from-white to-[#FDFBF7] border border-[#E8EAF0] text-center shadow-card-light hover:border-[#D4AF37] hover:shadow-card-hover transition-all overflow-hidden"
             >
-              <div className="text-2xl sm:text-4xl md:text-5xl font-black font-heading text-[#172033] tracking-tight">
+              <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-transparent" />
+              <div className="text-2xl sm:text-4xl md:text-5xl font-black font-heading text-[#0F172A] tracking-tight group-hover:text-[#8C610A] transition-colors">
                 {unit.value}
               </div>
-              <div className="text-[10px] sm:text-xs font-bold tracking-wider text-[#667085] uppercase mt-1">
+              <div className="text-[10px] sm:text-xs font-black tracking-widest text-[#8C610A] uppercase mt-1 font-display">
                 {unit.label}
               </div>
             </div>

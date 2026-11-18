@@ -53,23 +53,23 @@ const PrizesPage = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 space-y-12">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF7EE] border border-[#D6A63A]/40 text-[#946708] text-xs font-bold tracking-wider uppercase shadow-xs">
-          <Crown className="w-4 h-4 text-[#D6A63A]" />
-          <span>70 Life-Changing Rewards</span>
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full badge-gold text-xs font-black tracking-widest uppercase font-display shadow-xs">
+          <Crown className="w-4 h-4 text-[#D4AF37]" />
+          <span>70 LIFE-CHANGING REWARDS</span>
         </div>
-        <h1 className="text-4xl sm:text-6xl font-black font-heading text-[#172033]">
-          PRIZE <span className="text-gold-gradient">CATALOGUE</span>
+        <h1 className="text-4xl sm:text-6xl font-black font-heading text-[#0F172A]">
+          PRIZE <span className="text-gold-gradient text-gold-glow">CATALOGUE</span>
         </h1>
-        <p className="text-sm sm:text-base text-[#667085] leading-relaxed">
+        <p className="text-base text-[#5A657D] leading-relaxed">
           Discover the complete lineup of 70 grand prizes up for grabs in the Grand Lucky Draw 2027.
         </p>
 
-        <div className="flex flex-wrap items-center justify-center gap-3 text-xs sm:text-sm font-bold text-[#172033] pt-2">
-          <span className="px-3 py-1 rounded-lg bg-[#FAF7EE] border border-[#D6A63A]/30 text-[#946708]">4x Toyota Fortuners</span>
-          <span className="px-3 py-1 rounded-lg bg-[#FAF7EE] border border-[#D6A63A]/30 text-[#946708]">5x Mahindra Thars</span>
-          <span className="px-3 py-1 rounded-lg bg-[#FAF7EE] border border-[#D6A63A]/30 text-[#946708]">20x Maruti Swifts</span>
-          <span className="px-3 py-1 rounded-lg bg-[#FAF7EE] border border-[#D6A63A]/30 text-[#946708]">40x Electric Scooters</span>
-          <span className="px-3 py-1 rounded-lg bg-[#FAF7EE] border border-[#D6A63A]/30 text-[#946708]">1x Luxury Farmhouse</span>
+        <div className="flex flex-wrap items-center justify-center gap-2.5 text-xs sm:text-sm font-bold text-[#0F172A] pt-2">
+          <span className="px-3.5 py-1.5 rounded-xl bg-white border border-[#D4AF37]/30 text-[#8C610A] shadow-xs">4x Toyota Fortuners</span>
+          <span className="px-3.5 py-1.5 rounded-xl bg-white border border-[#D4AF37]/30 text-[#8C610A] shadow-xs">5x Mahindra Thars</span>
+          <span className="px-3.5 py-1.5 rounded-xl bg-white border border-[#D4AF37]/30 text-[#8C610A] shadow-xs">20x Maruti Swifts</span>
+          <span className="px-3.5 py-1.5 rounded-xl bg-white border border-[#D4AF37]/30 text-[#8C610A] shadow-xs">40x Electric Scooters</span>
+          <span className="px-3.5 py-1.5 rounded-xl bg-white border border-[#D4AF37]/30 text-[#8C610A] shadow-xs">1x Luxury Farmhouse</span>
         </div>
       </div>
 
@@ -79,10 +79,10 @@ const PrizesPage = () => {
           <button
             key={c.value}
             onClick={() => handleFilter(c.value)}
-            className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all shadow-xs ${
+            className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all shadow-xs font-heading ${
               selectedCategory === c.value
-                ? 'bg-gradient-to-r from-[#DFBA5E] to-[#D6A63A] text-[#172033] shadow-gold-glow'
-                : 'bg-white border border-[#E8EAF0] text-[#667085] hover:text-[#172033] hover:border-[#D6A63A]/50'
+                ? 'bg-gradient-to-r from-[#F0C75E] to-[#D8A738] text-[#0F172A] shadow-gold-glow font-black'
+                : 'bg-white border border-[#E8EAF0] text-[#5A657D] hover:text-[#0F172A] hover:border-[#D4AF37]/50'
             }`}
           >
             {c.label}

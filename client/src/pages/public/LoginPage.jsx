@@ -90,14 +90,14 @@ const LoginPage = () => {
   return (
     <div className="max-w-xl mx-auto px-4 py-12 sm:py-20">
       <div className="text-center space-y-3 mb-8">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF7EE] border border-[#D6A63A]/40 text-xs font-bold text-[#946708] uppercase tracking-wider shadow-xs">
-          <Crown className="w-4 h-4 text-[#D6A63A]" />
-          <span>Official Portal</span>
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full badge-gold text-xs font-black text-[#8C610A] uppercase tracking-widest font-display shadow-xs">
+          <Crown className="w-4 h-4 text-[#D4AF37]" />
+          <span>OFFICIAL PORTAL ACCESS</span>
         </div>
-        <h1 className="text-3xl sm:text-4xl font-black font-heading text-[#172033]">
-          PORTAL <span className="text-gold-gradient">ACCESS</span>
+        <h1 className="text-4xl sm:text-5xl font-black font-heading text-[#0F172A]">
+          PORTAL <span className="text-gold-gradient text-gold-glow">ACCESS</span>
         </h1>
-        <p className="text-sm text-[#667085]">
+        <p className="text-sm text-[#5A657D]">
           Login using your registered credentials to access your dashboard.
         </p>
       </div>
@@ -109,10 +109,10 @@ const LoginPage = () => {
             setActiveTab('participant');
             setErrorMsg('');
           }}
-          className={`py-3 rounded-xl text-sm font-bold transition-all flex items-center justify-center gap-2 ${
+          className={`py-3 rounded-xl text-sm font-black transition-all flex items-center justify-center gap-2 font-heading ${
             activeTab === 'participant'
-              ? 'bg-gradient-to-r from-[#DFBA5E] to-[#D6A63A] text-[#172033] shadow-gold-glow'
-              : 'text-[#667085] hover:text-[#172033]'
+              ? 'bg-gradient-to-r from-[#F0C75E] to-[#D8A738] text-[#0F172A] shadow-gold-glow'
+              : 'text-[#5A657D] hover:text-[#0F172A]'
           }`}
         >
           <User className="w-4 h-4" />
@@ -123,10 +123,10 @@ const LoginPage = () => {
             setActiveTab('admin');
             setErrorMsg('');
           }}
-          className={`py-3 rounded-xl text-sm font-bold transition-all flex items-center justify-center gap-2 ${
+          className={`py-3 rounded-xl text-sm font-black transition-all flex items-center justify-center gap-2 font-heading ${
             activeTab === 'admin'
-              ? 'bg-gradient-to-r from-[#DFBA5E] to-[#D6A63A] text-[#172033] shadow-gold-glow'
-              : 'text-[#667085] hover:text-[#172033]'
+              ? 'bg-gradient-to-r from-[#F0C75E] to-[#D8A738] text-[#0F172A] shadow-gold-glow'
+              : 'text-[#5A657D] hover:text-[#0F172A]'
           }`}
         >
           <ShieldCheck className="w-4 h-4" />
@@ -143,7 +143,7 @@ const LoginPage = () => {
 
       {/* TAB 1: PARTICIPANT DIRECT LOGIN */}
       {activeTab === 'participant' && (
-        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#E8EAF0] shadow-card-light">
+        <div className="bg-gradient-to-b from-white to-[#FDFBF7] rounded-3xl p-6 sm:p-8 border border-[#E8EAF0] shadow-card-light">
           <form onSubmit={handleParticipantDirectLogin} className="space-y-6">
             <div className="space-y-2">
               <label className="text-xs font-bold uppercase tracking-wider text-[#172033] flex items-center gap-2">

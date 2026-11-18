@@ -60,30 +60,30 @@ const ParticipantTicket = ({ data }) => {
               </div>
             </div>
             <div>
-              <div className="text-[11px] uppercase tracking-widest text-[#B8860B] font-bold">
+              <div className="text-[10px] uppercase tracking-[0.25em] text-[#8C610A] font-black font-display">
                 Dream Big... Win Big...
               </div>
-              <h2 className="text-xl sm:text-2xl font-black text-[#172033] font-heading tracking-tight">
+              <h2 className="text-xl sm:text-2xl font-black text-[#0F172A] font-display tracking-wide">
                 {campaignTitle}
               </h2>
             </div>
           </div>
 
-          <div className="px-3.5 py-1.5 rounded-full bg-[#18865B]/10 border border-[#18865B]/25 flex items-center gap-1.5 text-xs font-bold text-[#18865B]">
+          <div className="px-4 py-2 rounded-full bg-[#18865B]/10 border border-[#18865B]/30 flex items-center gap-1.5 text-xs font-bold text-[#18865B] shadow-xs">
             <CheckCircle2 className="w-4 h-4 text-[#18865B]" />
             <span>Official Verified Entry</span>
           </div>
         </div>
 
         {/* Participant ID Big Hero Badge */}
-        <div className="bg-[#FAF7EE] border border-[#D6A63A]/40 rounded-2xl p-4 sm:p-6 text-center mb-6 shadow-xs">
-          <div className="text-xs uppercase tracking-wider text-[#946708] font-bold mb-1">
+        <div className="bg-[#FAF7EE] border border-[#D4AF37]/50 rounded-2xl p-5 sm:p-7 text-center mb-6 shadow-sm">
+          <div className="text-xs uppercase tracking-widest text-[#8C610A] font-black font-display mb-1">
             Official Participant Pass ID
           </div>
-          <div className="text-3xl sm:text-4xl md:text-5xl font-black font-mono tracking-wider text-[#172033]">
+          <div className="text-3xl sm:text-4xl md:text-5xl font-black font-mono tracking-wider text-[#0F172A]">
             {participantId}
           </div>
-          <div className="text-xs text-[#667085] mt-1.5 font-medium">
+          <div className="text-xs text-[#5A657D] mt-2 font-medium">
             Ticket Entry #{ticketNumber} • Keep this ID safe for live manual draw result verification
           </div>
         </div>
@@ -92,10 +92,10 @@ const ParticipantTicket = ({ data }) => {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 items-center border-b border-[#E8EAF0] pb-6 mb-6">
           <div className="sm:col-span-2 space-y-3.5">
             <div>
-              <span className="text-[11px] uppercase tracking-wider text-[#667085] block font-bold">
+              <span className="text-[10px] uppercase tracking-wider text-[#5A657D] block font-bold font-display">
                 Participant Name
               </span>
-              <span className="text-lg sm:text-xl font-black text-[#172033] font-heading">{fullName}</span>
+              <span className="text-lg sm:text-xl font-black text-[#0F172A] font-heading">{fullName}</span>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div>

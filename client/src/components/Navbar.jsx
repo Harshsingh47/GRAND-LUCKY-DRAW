@@ -24,14 +24,14 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#E8EAF0] shadow-sm">
       {/* Top micro announcement bar */}
-      <div className="bg-[#FAF7EE] border-b border-[#E8EAF0] py-1.5 px-4 text-xs text-center text-[#172033]">
-        <span className="inline-flex items-center gap-1.5 text-[#B8860B] font-bold tracking-wide uppercase">
-          <Crown className="w-3.5 h-3.5 text-[#D6A63A]" />
-          Official Campaign:
+      <div className="bg-[#FAF7EE] border-b border-[#E8EAF0] py-2 px-4 text-xs text-center text-[#0F172A]">
+        <span className="inline-flex items-center gap-1.5 text-[#8C610A] font-black tracking-widest uppercase font-display">
+          <Crown className="w-3.5 h-3.5 text-[#D4AF37]" />
+          Official Campaign 2027:
         </span>{' '}
-        <span className="text-[#172033] font-medium">Grand Lucky Draw 2027 — 70 Listed Prizes • 100% Offline Manual Draw</span>
+        <span className="text-[#0F172A] font-semibold">Grand Lucky Draw — 70 Listed Prizes • 100% Offline Manual Draw</span>
         {isAdminLoggedIn && (
-          <Link to="/admin/dashboard" className="ml-3 text-[#B8860B] underline font-semibold hover:text-[#946708]">
+          <Link to="/admin/dashboard" className="ml-3 text-[#B8860B] underline font-bold hover:text-[#946708]">
             [Admin Panel: {adminUser?.role}]
           </Link>
         )}
@@ -41,14 +41,14 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo & Brand */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#DFBA5E] via-[#D6A63A] to-[#B8860B] p-0.5 shadow-gold-glow flex items-center justify-center transition-transform group-hover:scale-105">
-              <div className="w-full h-full bg-white rounded-[10px] flex items-center justify-center">
-                <Crown className="w-6 h-6 text-[#D6A63A] group-hover:scale-110 transition-transform" />
+            <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#F0C75E] via-[#D8A738] to-[#B88214] p-0.5 shadow-gold-glow flex items-center justify-center transition-transform group-hover:scale-105">
+              <div className="w-full h-full bg-[#0F172A] rounded-[14px] flex items-center justify-center">
+                <Crown className="w-6 h-6 text-[#FBF5B7] group-hover:scale-110 transition-transform" />
               </div>
             </div>
             <div>
-              <div className="text-[11px] uppercase tracking-[0.22em] text-[#B8860B] font-bold">Dream Big... Win Big...</div>
-              <div className="text-xl sm:text-2xl font-black tracking-tight text-[#172033] font-heading">
+              <div className="text-[10px] uppercase tracking-[0.25em] text-[#9E7012] font-black font-display">Dream Big... Win Big...</div>
+              <div className="text-xl sm:text-2xl font-black tracking-wider text-[#0F172A] font-display">
                 GRAND <span className="text-gold-gradient">LUCKY DRAW</span>
               </div>
             </div>
@@ -60,10 +60,10 @@ const Navbar = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-3 py-2 text-sm font-semibold rounded-lg transition-all duration-200 ${
+                className={`px-3.5 py-2 text-sm font-bold rounded-xl transition-all duration-200 font-heading ${
                   isActive(link.path)
-                    ? 'text-[#B8860B] bg-[#FAF7EE] border border-[#D6A63A]/40 shadow-xs'
-                    : 'text-[#667085] hover:text-[#172033] hover:bg-gray-100/70'
+                    ? 'text-[#8C610A] bg-[#FAF7EE] border border-[#D4AF37]/50 shadow-xs'
+                    : 'text-[#5A657D] hover:text-[#0F172A] hover:bg-[#FAF8F5]'
                 }`}
               >
                 {link.name}
@@ -77,18 +77,18 @@ const Navbar = () => {
               <div className="flex items-center gap-2">
                 <Link
                   to="/participant/dashboard"
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#FAF7EE] border border-[#D6A63A]/40 text-[#172033] text-sm font-semibold hover:bg-[#F3E5C1]/50 transition-all shadow-xs"
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#FAF7EE] border border-[#D4AF37]/40 text-[#0F172A] text-sm font-bold hover:bg-[#F3E5C1]/50 transition-all shadow-xs"
                 >
-                  <User className="w-4 h-4 text-[#D6A63A]" />
+                  <User className="w-4 h-4 text-[#D4AF37]" />
                   <span>{participant?.fullName?.split(' ')[0] || 'My Pass'}</span>
-                  <span className="text-xs bg-[#D6A63A]/20 px-2 py-0.5 rounded text-[#946708] font-mono font-bold">
+                  <span className="text-xs bg-[#D4AF37]/20 px-2 py-0.5 rounded text-[#8C610A] font-mono font-bold">
                     {participant?.participantId || 'Pass'}
                   </span>
                 </Link>
                 <button
                   onClick={logoutParticipant}
                   title="Logout"
-                  className="p-2 rounded-lg text-[#667085] hover:text-red-500 hover:bg-red-50 transition-colors"
+                  className="p-2 rounded-xl text-[#5A657D] hover:text-red-600 hover:bg-red-50 transition-colors"
                 >
                   <LogOut className="w-4 h-4" />
                 </button>
@@ -97,16 +97,16 @@ const Navbar = () => {
               <div className="flex items-center gap-2">
                 <Link
                   to="/login"
-                  className="px-3.5 py-2 text-sm font-semibold text-[#667085] hover:text-[#172033] transition-colors"
+                  className="px-3.5 py-2 text-sm font-bold text-[#5A657D] hover:text-[#0F172A] transition-colors font-heading"
                 >
                   Login
                 </Link>
                 <Link
                   to="/register"
-                  className="btn-gold px-5 py-2.5 rounded-xl text-sm font-bold flex items-center gap-1.5 shadow-gold-glow"
+                  className="btn-gold px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider flex items-center gap-1.5 shadow-gold-glow font-heading"
                 >
-                  <Sparkles className="w-4 h-4 text-[#172033]" />
-                  <span>Join Now</span>
+                  <Sparkles className="w-3.5 h-3.5 text-[#0F172A]" />
+                  <span>Join Now Free</span>
                 </Link>
               </div>
             )}

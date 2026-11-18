@@ -46,14 +46,14 @@ const HowItWorksPage = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 space-y-16">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF7EE] border border-[#D6A63A]/40 text-[#946708] text-xs font-bold tracking-wider uppercase shadow-xs">
-          <Crown className="w-4 h-4 text-[#D6A63A]" />
-          <span>Participation Guide</span>
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full badge-gold text-xs font-black tracking-widest uppercase font-display shadow-xs">
+          <Crown className="w-4 h-4 text-[#D4AF37]" />
+          <span>PARTICIPATION GUIDE</span>
         </div>
-        <h1 className="text-4xl sm:text-6xl font-black font-heading text-[#172033]">
-          HOW IT <span className="text-gold-gradient">WORKS</span>
+        <h1 className="text-4xl sm:text-6xl font-black font-heading text-[#0F172A]">
+          HOW IT <span className="text-gold-gradient text-gold-glow">WORKS</span>
         </h1>
-        <p className="text-sm sm:text-base text-[#667085] leading-relaxed">
+        <p className="text-base text-[#5A657D] leading-relaxed">
           Clear, transparent, and fair. Learn everything you need to know about registering, participating, and claiming your prize in the Grand Lucky Draw.
         </p>
       </div>
@@ -65,22 +65,22 @@ const HowItWorksPage = () => {
           return (
             <div
               key={idx}
-              className="bg-white rounded-3xl p-8 space-y-4 border border-[#E8EAF0] shadow-card-light hover:border-[#D6A63A]/50 hover:shadow-card-hover transition-all flex flex-col justify-between"
+              className="bg-gradient-to-b from-white to-[#FDFBF7] rounded-3xl p-8 space-y-4 border border-[#E8EAF0] shadow-card-light hover:border-[#D4AF37] hover:shadow-card-hover transition-all flex flex-col justify-between group"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-[#FAF7EE] border border-[#D6A63A]/30 text-[#946708] uppercase">
+                  <span className="text-xs font-mono font-black px-3.5 py-1 rounded-full bg-[#FAF7EE] border border-[#D4AF37]/40 text-[#8C610A] uppercase font-display">
                     {s.step}
                   </span>
-                  <div className="p-3 rounded-2xl bg-[#FAF7EE] text-[#D6A63A]">
+                  <div className="p-3 rounded-2xl bg-gradient-to-br from-[#FAF7EE] to-[#F3E5C1] border border-[#D4AF37]/30 text-[#8C610A] group-hover:scale-105 transition-transform">
                     <Icon className="w-6 h-6" />
                   </div>
                 </div>
-                <h3 className="text-xl font-black text-[#172033] font-heading">{s.title}</h3>
-                <p className="text-sm text-[#667085] leading-relaxed">{s.desc}</p>
+                <h3 className="text-xl font-black text-[#0F172A] font-heading group-hover:text-[#B8860B] transition-colors">{s.title}</h3>
+                <p className="text-sm text-[#5A657D] leading-relaxed">{s.desc}</p>
               </div>
 
-              <div className="pt-4 border-t border-[#E8EAF0] text-xs text-[#946708] font-bold">
+              <div className="pt-4 border-t border-[#E8EAF0] text-xs text-[#8C610A] font-bold font-mono">
                 Official Draw Protocol
               </div>
             </div>

@@ -71,20 +71,20 @@ const WinnersPage = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 space-y-16">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF7EE] border border-[#D6A63A]/40 text-[#946708] text-xs font-bold tracking-wider uppercase shadow-xs">
-          <Crown className="w-4 h-4 text-[#D6A63A]" />
-          <span>Official Results Publication</span>
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full badge-gold text-xs font-black tracking-widest uppercase font-display shadow-xs">
+          <Crown className="w-4 h-4 text-[#D4AF37]" />
+          <span>OFFICIAL RESULTS PUBLICATION</span>
         </div>
-        <h1 className="text-4xl sm:text-6xl font-black font-heading text-[#172033]">
-          GRAND LUCKY DRAW <span className="text-gold-gradient">WINNERS</span>
+        <h1 className="text-4xl sm:text-6xl font-black font-heading text-[#0F172A]">
+          GRAND LUCKY DRAW <span className="text-gold-gradient text-gold-glow">WINNERS</span>
         </h1>
-        <p className="text-sm sm:text-base text-[#667085] leading-relaxed">
+        <p className="text-base text-[#5A657D] leading-relaxed">
           Official list of verified winners from the manual draw. All entries have been certified through two-step administrative approval.
         </p>
 
-        <div className="inline-flex items-center gap-2 text-xs font-semibold text-[#172033] bg-[#FAF7EE] border border-[#D6A63A]/30 px-4 py-2 rounded-xl shadow-xs">
+        <div className="inline-flex items-center gap-2 text-xs font-bold text-[#0F172A] bg-white border border-[#D4AF37]/40 px-5 py-2.5 rounded-2xl shadow-xs">
           <ShieldCheck className="w-4 h-4 text-[#18865B]" />
-          <span>Draw Date: <strong className="text-[#B8860B]">19 May 2027</strong> • 70 Grand Listed Prizes</span>
+          <span>Draw Date: <strong className="text-[#8C610A] font-display">19 May 2027</strong> • 70 Grand Listed Prizes</span>
         </div>
       </div>
 
@@ -96,13 +96,13 @@ const WinnersPage = () => {
             value={searchId}
             onChange={(e) => setSearchId(e.target.value)}
             placeholder="Check Participant ID (e.g. LD2027-000001)"
-            className="w-full px-5 py-4 pl-12 rounded-2xl bg-white border-2 border-[#E8EAF0] text-[#172033] font-mono text-sm sm:text-base placeholder:text-[#667085] focus:outline-none focus:border-[#D6A63A] focus:ring-2 focus:ring-[#D6A63A]/20 shadow-card-light transition-all"
+            className="w-full px-5 py-4 pl-12 rounded-2xl bg-white border-2 border-[#D4AF37]/35 text-[#0F172A] font-mono text-sm sm:text-base placeholder:text-[#5A657D] focus:outline-none focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 shadow-card-light transition-all"
           />
-          <Search className="w-5 h-5 text-[#D6A63A] absolute left-4 top-1/2 -translate-y-1/2" />
+          <Search className="w-5 h-5 text-[#D4AF37] absolute left-4 top-1/2 -translate-y-1/2" />
           <button
             type="submit"
             disabled={searching}
-            className="absolute right-2 top-2 bottom-2 px-5 rounded-xl btn-gold text-xs font-bold flex items-center gap-1.5"
+            className="absolute right-2 top-2 bottom-2 px-5 rounded-xl btn-gold text-xs font-black uppercase tracking-wider flex items-center gap-1.5 font-heading"
           >
             {searching ? 'Checking...' : 'Check ID'}
           </button>
