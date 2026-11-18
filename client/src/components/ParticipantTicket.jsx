@@ -35,98 +35,98 @@ const ParticipantTicket = ({ data }) => {
       <div className="flex items-center justify-end gap-3 mb-4 print:hidden">
         <button
           onClick={handlePrint}
-          className="btn-outline-gold px-4 py-2 rounded-lg text-xs font-semibold flex items-center gap-1.5"
+          className="btn-outline-gold px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-xs"
         >
-          <Printer className="w-4 h-4 text-gold-400" />
-          <span>Print Pass</span>
+          <Printer className="w-4 h-4 text-[#D6A63A]" />
+          <span>Print Official Pass</span>
         </button>
       </div>
 
-      {/* Luxury Digital Pass */}
+      {/* Luxury Light Digital Pass */}
       <div
         ref={ticketRef}
-        className="relative rounded-3xl bg-gradient-to-b from-[#181B23] via-[#0F1016] to-[#0A0B0E] border-2 border-gold-500/40 p-6 sm:p-8 shadow-card-dark overflow-hidden print:border-black print:text-black"
+        className="relative rounded-3xl bg-white border-2 border-[#D6A63A]/50 p-6 sm:p-8 shadow-card-hover overflow-hidden print:border-black print:text-black"
       >
-        {/* Decorative corner motifs */}
-        <div className="absolute top-0 right-0 w-32 h-32 bg-gold-500/10 rounded-full blur-2xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-32 h-32 bg-gold-500/10 rounded-full blur-2xl pointer-events-none" />
+        {/* Subtle decorative background tints */}
+        <div className="absolute top-0 right-0 w-48 h-48 bg-[#D6A63A]/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#D6A63A]/5 rounded-full blur-3xl pointer-events-none" />
 
         {/* Top Header */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-gold-500/20 pb-6 mb-6">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-[#E8EAF0] pb-6 mb-6">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-gold-400 to-gold-700 p-0.5 flex items-center justify-center">
-              <div className="w-full h-full bg-[#0B0B0E] rounded-[10px] flex items-center justify-center">
-                <Crown className="w-6 h-6 text-gold-400" />
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#DFBA5E] via-[#D6A63A] to-[#B8860B] p-0.5 flex items-center justify-center shadow-gold-glow">
+              <div className="w-full h-full bg-white rounded-[10px] flex items-center justify-center">
+                <Crown className="w-6 h-6 text-[#D6A63A]" />
               </div>
             </div>
             <div>
-              <div className="text-[10px] uppercase tracking-widest text-gold-400 font-bold">
+              <div className="text-[11px] uppercase tracking-widest text-[#B8860B] font-bold">
                 Dream Big... Win Big...
               </div>
-              <h2 className="text-xl sm:text-2xl font-extrabold text-gold-gradient font-heading">
+              <h2 className="text-xl sm:text-2xl font-black text-[#172033] font-heading tracking-tight">
                 {campaignTitle}
               </h2>
             </div>
           </div>
 
-          <div className="px-3 py-1.5 rounded-full bg-gold-500/15 border border-gold-500/30 flex items-center gap-1.5 text-xs font-bold text-gold-300">
-            <CheckCircle2 className="w-4 h-4 text-gold-400" />
+          <div className="px-3.5 py-1.5 rounded-full bg-[#18865B]/10 border border-[#18865B]/25 flex items-center gap-1.5 text-xs font-bold text-[#18865B]">
+            <CheckCircle2 className="w-4 h-4 text-[#18865B]" />
             <span>Official Verified Entry</span>
           </div>
         </div>
 
         {/* Participant ID Big Hero Badge */}
-        <div className="bg-gradient-to-r from-gold-500/10 via-gold-500/20 to-gold-500/10 border border-gold-500/40 rounded-2xl p-4 sm:p-5 text-center mb-6">
-          <div className="text-xs uppercase tracking-widest text-gold-300 font-semibold mb-1">
-            Unique Participant ID
+        <div className="bg-[#FAF7EE] border border-[#D6A63A]/40 rounded-2xl p-4 sm:p-6 text-center mb-6 shadow-xs">
+          <div className="text-xs uppercase tracking-wider text-[#946708] font-bold mb-1">
+            Official Participant Pass ID
           </div>
-          <div className="text-2xl sm:text-4xl font-black font-mono tracking-wider text-gold-gradient">
+          <div className="text-3xl sm:text-4xl md:text-5xl font-black font-mono tracking-wider text-[#172033]">
             {participantId}
           </div>
-          <div className="text-xs text-gray-400 mt-1 font-mono">
-            Ticket Entry #{ticketNumber} • Keep this ID safe for result verification
+          <div className="text-xs text-[#667085] mt-1.5 font-medium">
+            Ticket Entry #{ticketNumber} • Keep this ID safe for live manual draw result verification
           </div>
         </div>
 
         {/* Middle Details Grid + QR Code */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 items-center border-b border-gold-500/20 pb-6 mb-6">
-          <div className="sm:col-span-2 space-y-3">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 items-center border-b border-[#E8EAF0] pb-6 mb-6">
+          <div className="sm:col-span-2 space-y-3.5">
             <div>
-              <span className="text-[11px] uppercase tracking-wider text-gray-400 block font-semibold">
+              <span className="text-[11px] uppercase tracking-wider text-[#667085] block font-bold">
                 Participant Name
               </span>
-              <span className="text-lg font-bold text-white font-heading">{fullName}</span>
+              <span className="text-lg sm:text-xl font-black text-[#172033] font-heading">{fullName}</span>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <span className="text-[11px] uppercase tracking-wider text-gray-400 block font-semibold">
+                <span className="text-[11px] uppercase tracking-wider text-[#667085] block font-bold">
                   Registered Mobile
                 </span>
-                <span className="text-sm font-mono text-gray-200">
+                <span className="text-sm font-mono font-semibold text-[#172033]">
                   {mobile ? `${mobile.substring(0, 4)}XXXX${mobile.substring(8)}` : 'Verified'}
                 </span>
               </div>
               <div>
-                <span className="text-[11px] uppercase tracking-wider text-gray-400 block font-semibold">
+                <span className="text-[11px] uppercase tracking-wider text-[#667085] block font-bold">
                   Location
                 </span>
-                <span className="text-sm text-gray-200">{city}, {state}</span>
+                <span className="text-sm font-semibold text-[#172033]">{city}, {state}</span>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <span className="text-[11px] uppercase tracking-wider text-gray-400 block font-semibold">
+                <span className="text-[11px] uppercase tracking-wider text-[#667085] block font-bold">
                   Registration Date
                 </span>
-                <span className="text-xs text-gray-300 font-mono">
+                <span className="text-xs font-semibold text-[#172033]">
                   {new Date(registrationDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
                 </span>
               </div>
               <div>
-                <span className="text-[11px] uppercase tracking-wider text-gray-400 block font-semibold">
+                <span className="text-[11px] uppercase tracking-wider text-[#667085] block font-bold">
                   Official Draw Date
                 </span>
-                <span className="text-xs font-bold text-gold-400">
+                <span className="text-xs font-bold text-[#B8860B]">
                   {typeof drawDate === 'string' && drawDate.includes('T') ? new Date(drawDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' }) : drawDate}
                 </span>
               </div>
@@ -134,21 +134,21 @@ const ParticipantTicket = ({ data }) => {
           </div>
 
           {/* QR Code Container */}
-          <div className="flex flex-col items-center justify-center p-3 rounded-xl bg-white p-2 w-fit mx-auto shadow-gold-glow">
+          <div className="flex flex-col items-center justify-center p-3 rounded-2xl bg-white border border-[#E8EAF0] shadow-sm w-fit mx-auto">
             <QRCodeSVG value={qrData} size={110} level="H" />
-            <span className="text-[9px] text-gray-700 font-mono font-bold mt-1 uppercase tracking-wider">
+            <span className="text-[10px] text-[#667085] font-bold mt-2 uppercase tracking-wider">
               Scan to Verify
             </span>
           </div>
         </div>
 
         {/* Footer Security Stamp */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-gray-400">
-          <div className="flex items-center gap-1.5">
-            <ShieldCheck className="w-4 h-4 text-gold-400" />
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#667085]">
+          <div className="flex items-center gap-1.5 font-medium">
+            <ShieldCheck className="w-4 h-4 text-[#18865B]" />
             <span>Cryptographically sealed record. 100% manual draw transparency.</span>
           </div>
-          <div className="text-gold-400 font-semibold tracking-wide">
+          <div className="text-[#B8860B] font-bold tracking-wide">
             Grand Lucky Draw © 2027
           </div>
         </div>

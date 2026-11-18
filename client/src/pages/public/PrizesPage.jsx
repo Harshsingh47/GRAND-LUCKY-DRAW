@@ -53,23 +53,23 @@ const PrizesPage = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 space-y-12">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-300 text-xs font-bold tracking-widest uppercase shadow-gold-glow">
-          <Crown className="w-4 h-4 text-gold-400" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF7EE] border border-[#D6A63A]/40 text-[#946708] text-xs font-bold tracking-wider uppercase shadow-xs">
+          <Crown className="w-4 h-4 text-[#D6A63A]" />
           <span>70 Life-Changing Rewards</span>
         </div>
-        <h1 className="text-4xl sm:text-6xl font-black font-heading text-white">
+        <h1 className="text-4xl sm:text-6xl font-black font-heading text-[#172033]">
           PRIZE <span className="text-gold-gradient">CATALOGUE</span>
         </h1>
-        <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
+        <p className="text-sm sm:text-base text-[#667085] leading-relaxed">
           Discover the complete lineup of 70 grand prizes up for grabs in the Grand Lucky Draw 2027.
         </p>
 
-        <div className="flex flex-wrap items-center justify-center gap-4 text-sm font-semibold text-gold-300 pt-2 font-mono">
-          <span>• 4x Toyota Fortuners</span>
-          <span>• 5x Mahindra Thars</span>
-          <span>• 20x Maruti Swifts</span>
-          <span>• 40x Electric Scooters</span>
-          <span>• 1x Luxury Farmhouse</span>
+        <div className="flex flex-wrap items-center justify-center gap-3 text-xs sm:text-sm font-bold text-[#172033] pt-2">
+          <span className="px-3 py-1 rounded-lg bg-[#FAF7EE] border border-[#D6A63A]/30 text-[#946708]">4x Toyota Fortuners</span>
+          <span className="px-3 py-1 rounded-lg bg-[#FAF7EE] border border-[#D6A63A]/30 text-[#946708]">5x Mahindra Thars</span>
+          <span className="px-3 py-1 rounded-lg bg-[#FAF7EE] border border-[#D6A63A]/30 text-[#946708]">20x Maruti Swifts</span>
+          <span className="px-3 py-1 rounded-lg bg-[#FAF7EE] border border-[#D6A63A]/30 text-[#946708]">40x Electric Scooters</span>
+          <span className="px-3 py-1 rounded-lg bg-[#FAF7EE] border border-[#D6A63A]/30 text-[#946708]">1x Luxury Farmhouse</span>
         </div>
       </div>
 
@@ -79,10 +79,10 @@ const PrizesPage = () => {
           <button
             key={c.value}
             onClick={() => handleFilter(c.value)}
-            className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+            className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all shadow-xs ${
               selectedCategory === c.value
-                ? 'bg-gradient-to-r from-gold-500 to-gold-600 text-dark-950 shadow-gold-glow'
-                : 'bg-dark-900 border border-gold-500/20 text-gray-400 hover:text-white hover:border-gold-500/40'
+                ? 'bg-gradient-to-r from-[#DFBA5E] to-[#D6A63A] text-[#172033] shadow-gold-glow'
+                : 'bg-white border border-[#E8EAF0] text-[#667085] hover:text-[#172033] hover:border-[#D6A63A]/50'
             }`}
           >
             {c.label}
@@ -92,7 +92,7 @@ const PrizesPage = () => {
 
       {/* Prizes Grid */}
       {loading ? (
-        <div className="text-center py-20 text-gold-400 font-mono">Loading prize catalogue...</div>
+        <div className="text-center py-20 text-[#B8860B] font-bold">Loading prize catalogue...</div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredPrizes.map((prize) => (
@@ -106,37 +106,37 @@ const PrizesPage = () => {
       )}
 
       {/* Bottom CTA Card */}
-      <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-dark-900 via-dark-850 to-dark-900 border border-gold-500/30 text-center space-y-6">
-        <h3 className="text-2xl sm:text-3xl font-black font-heading text-white">
+      <div className="p-8 sm:p-12 rounded-3xl bg-white border border-[#E8EAF0] shadow-card-light text-center space-y-6">
+        <h3 className="text-2xl sm:text-3xl font-black font-heading text-[#172033]">
           WANT A CHANCE TO WIN THESE GRAND PRIZES?
         </h3>
-        <p className="text-sm text-gray-400 max-w-xl mx-auto">
+        <p className="text-sm text-[#667085] max-w-xl mx-auto">
           Participation is simple, quick, and verified. Register with your mobile number to get your unique participant ID.
         </p>
         <Link
           to="/register"
           className="btn-gold inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-sm shadow-gold-glow"
         >
-          <Sparkles className="w-5 h-5 text-dark-950" />
+          <Sparkles className="w-5 h-5 text-[#172033]" />
           <span>Register for Free Entry</span>
-          <ArrowRight className="w-5 h-5 text-dark-950" />
+          <ArrowRight className="w-5 h-5 text-[#172033]" />
         </Link>
       </div>
 
       {/* Modal */}
       {selectedPrize && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
-          <div className="bg-[#0F1015] border border-gold-500/40 rounded-3xl max-w-lg w-full p-6 sm:p-8 space-y-5 animate-scale-up">
-            <div className="flex items-center justify-between border-b border-gray-800 pb-4">
-              <div className="text-xl font-bold text-gold-gradient font-heading">{selectedPrize.name}</div>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+          <div className="bg-white border border-[#E8EAF0] rounded-3xl max-w-lg w-full p-6 sm:p-8 space-y-5 shadow-2xl animate-scale-up">
+            <div className="flex items-center justify-between border-b border-[#E8EAF0] pb-4">
+              <div className="text-xl font-black text-[#172033] font-heading">{selectedPrize.name}</div>
               <button
                 onClick={() => setSelectedPrize(null)}
-                className="text-gray-400 hover:text-white p-1 rounded-lg"
+                className="text-[#667085] hover:text-[#172033] p-1.5 rounded-lg hover:bg-gray-100 font-bold"
               >
                 ✕
               </button>
             </div>
-            <div className="h-48 rounded-xl overflow-hidden bg-black">
+            <div className="h-52 rounded-2xl overflow-hidden bg-[#F4F6FA] border border-[#E8EAF0]">
               <img
                 src={resolveImageUrl(selectedPrize.imageUrl)}
                 alt={selectedPrize.name}
@@ -144,14 +144,14 @@ const PrizesPage = () => {
                 onError={handleImageError}
               />
             </div>
-            <p className="text-sm text-gray-300 leading-relaxed">{selectedPrize.description}</p>
+            <p className="text-sm text-[#667085] leading-relaxed">{selectedPrize.description}</p>
             {selectedPrize.features && selectedPrize.features.length > 0 && (
               <div className="space-y-2">
-                <span className="text-xs uppercase font-bold text-gold-400 tracking-wider">Specifications:</span>
+                <span className="text-xs uppercase font-bold text-[#946708] tracking-wider">Specifications:</span>
                 <div className="grid grid-cols-2 gap-2">
                   {selectedPrize.features.map((f, i) => (
-                    <div key={i} className="text-xs text-gray-300 flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-gold-400" />
+                    <div key={i} className="text-xs text-[#172033] font-medium flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#18865B]" />
                       <span>{f}</span>
                     </div>
                   ))}

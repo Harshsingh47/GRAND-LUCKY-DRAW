@@ -49,28 +49,28 @@ const AdminLogin = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#070709] flex items-center justify-center p-4">
-      <div className="max-w-md w-full luxury-card rounded-3xl p-8 sm:p-10 shadow-card-dark space-y-6">
+    <div className="min-h-screen bg-[#F8F9FC] flex items-center justify-center p-4">
+      <div className="max-w-md w-full bg-white border border-[#E8EAF0] rounded-3xl p-8 sm:p-10 shadow-card-light space-y-6">
         <div className="text-center space-y-3">
-          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-gold-400 to-gold-700 p-0.5 mx-auto flex items-center justify-center shadow-gold-glow">
-            <div className="w-full h-full bg-[#0B0B0E] rounded-[14px] flex items-center justify-center">
-              <Crown className="w-7 h-7 text-gold-400" />
+          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#D6A63A] to-[#B8860B] p-0.5 mx-auto flex items-center justify-center shadow-sm">
+            <div className="w-full h-full bg-[#172033] rounded-[14px] flex items-center justify-center">
+              <Crown className="w-7 h-7 text-[#FAF7EE]" />
             </div>
           </div>
-          <div className="text-[10px] uppercase tracking-widest text-gold-400 font-bold">Grand Lucky Draw</div>
-          <h1 className="text-2xl font-black font-heading text-white">ADMIN COMMAND PORTAL</h1>
-          <p className="text-xs text-gray-400">Authorized personnel access only</p>
+          <div className="text-[10px] uppercase tracking-widest text-[#946708] font-bold">Grand Lucky Draw</div>
+          <h1 className="text-2xl font-black font-heading text-[#172033]">ADMIN COMMAND PORTAL</h1>
+          <p className="text-xs text-[#667085]">Authorized personnel access only</p>
         </div>
 
         {errorMsg && (
-          <div className="p-3.5 rounded-xl bg-red-500/15 border border-red-500/30 text-red-300 text-xs text-center">
+          <div className="p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-600 text-xs text-center font-medium">
             {errorMsg}
           </div>
         )}
 
         {/* Demo credentials picker */}
-        <div className="p-3.5 rounded-xl bg-dark-950 border border-gold-500/20 text-xs text-gray-400 space-y-2">
-          <span className="text-gold-400 font-bold uppercase text-[10px] block tracking-wider">Quick Fill Credentials:</span>
+        <div className="p-3.5 rounded-xl bg-[#FAF7EE] border border-[#D6A63A]/30 text-xs text-[#667085] space-y-2">
+          <span className="text-[#946708] font-bold uppercase text-[10px] block tracking-wider">Quick Fill Credentials:</span>
           <div className="flex gap-2">
             <button
               type="button"
@@ -78,7 +78,7 @@ const AdminLogin = () => {
                 setEmail('admin@grandluckydraw.com');
                 setPassword('Password@123');
               }}
-              className="flex-1 py-1 rounded bg-gold-500/10 border border-gold-500/30 text-gold-300 text-[11px] font-semibold hover:bg-gold-500/20"
+              className="flex-1 py-1.5 rounded-lg bg-white border border-[#D6A63A]/40 text-[#946708] text-[11px] font-bold hover:bg-[#FAF7EE] shadow-sm"
             >
               Super Admin
             </button>
@@ -88,7 +88,7 @@ const AdminLogin = () => {
                 setEmail('officer@grandluckydraw.com');
                 setPassword('Password@123');
               }}
-              className="flex-1 py-1 rounded bg-gold-500/10 border border-gold-500/30 text-gold-300 text-[11px] font-semibold hover:bg-gold-500/20"
+              className="flex-1 py-1.5 rounded-lg bg-white border border-[#D6A63A]/40 text-[#946708] text-[11px] font-bold hover:bg-[#FAF7EE] shadow-sm"
             >
               Draw Officer
             </button>
@@ -97,8 +97,8 @@ const AdminLogin = () => {
 
         <form onSubmit={handleLogin} className="space-y-4 text-xs">
           <div className="space-y-1">
-            <label className="font-bold uppercase text-gray-300 flex items-center gap-1.5">
-              <Mail className="w-3.5 h-3.5 text-gold-400" />
+            <label className="font-bold uppercase text-[#172033] flex items-center gap-1.5">
+              <Mail className="w-3.5 h-3.5 text-[#D6A63A]" />
               <span>Email Address</span>
             </label>
             <input
@@ -106,13 +106,13 @@ const AdminLogin = () => {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl bg-dark-950 border border-gold-500/30 text-white text-xs focus:outline-none focus:border-gold-400"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-[#F8F9FC] border border-[#E8EAF0] text-[#172033] text-xs focus:outline-none focus:border-[#D6A63A] focus:bg-white"
             />
           </div>
 
           <div className="space-y-1">
-            <label className="font-bold uppercase text-gray-300 flex items-center gap-1.5">
-              <Lock className="w-3.5 h-3.5 text-gold-400" />
+            <label className="font-bold uppercase text-[#172033] flex items-center gap-1.5">
+              <Lock className="w-3.5 h-3.5 text-[#D6A63A]" />
               <span>Password</span>
             </label>
             <input
@@ -120,14 +120,14 @@ const AdminLogin = () => {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl bg-dark-950 border border-gold-500/30 text-white text-xs focus:outline-none focus:border-gold-400"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-[#F8F9FC] border border-[#E8EAF0] text-[#172033] text-xs focus:outline-none focus:border-[#D6A63A] focus:bg-white"
             />
           </div>
 
           {requires2FA && (
             <div className="space-y-1">
-              <label className="font-bold uppercase text-gold-400 flex items-center gap-1.5">
-                <KeyRound className="w-3.5 h-3.5 text-gold-400" />
+              <label className="font-bold uppercase text-[#946708] flex items-center gap-1.5">
+                <KeyRound className="w-3.5 h-3.5 text-[#D6A63A]" />
                 <span>2FA Code (Enter 123456)</span>
               </label>
               <input
@@ -136,7 +136,7 @@ const AdminLogin = () => {
                 value={twoFactorCode}
                 onChange={(e) => setTwoFactorCode(e.target.value)}
                 placeholder="123456"
-                className="w-full px-3.5 py-2.5 rounded-xl bg-dark-950 border border-gold-500/50 text-gold-300 font-mono text-sm focus:outline-none focus:border-gold-400 text-center"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAF7EE] border border-[#D6A63A]/50 text-[#172033] font-mono text-sm focus:outline-none focus:border-[#D6A63A] text-center"
               />
             </div>
           )}
@@ -144,15 +144,15 @@ const AdminLogin = () => {
           <button
             type="submit"
             disabled={loading}
-            className="btn-gold w-full py-3.5 rounded-xl font-bold text-xs flex items-center justify-center gap-2 shadow-gold-glow mt-2"
+            className="btn-gold w-full py-3.5 rounded-xl font-bold text-xs flex items-center justify-center gap-2 shadow-sm mt-2"
           >
-            <ShieldCheck className="w-4 h-4 text-dark-950" />
+            <ShieldCheck className="w-4 h-4 text-[#172033]" />
             <span>{loading ? 'Authenticating...' : 'Sign In to Admin Panel'}</span>
           </button>
         </form>
 
         <div className="text-center pt-2">
-          <Link to="/" className="text-xs text-gray-500 hover:text-gold-400">
+          <Link to="/" className="text-xs text-[#667085] hover:text-[#172033] font-medium">
             ← Return to Public Website
           </Link>
         </div>

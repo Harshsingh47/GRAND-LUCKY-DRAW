@@ -22,16 +22,16 @@ const Navbar = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <header className="sticky top-0 z-40 bg-[#070709]/90 backdrop-blur-xl border-b border-gold-500/20">
+    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#E8EAF0] shadow-sm">
       {/* Top micro announcement bar */}
-      <div className="bg-gradient-to-r from-dark-950 via-dark-850 to-dark-950 border-b border-gold-500/10 py-1.5 px-4 text-xs text-center text-gray-300">
-        <span className="inline-flex items-center gap-1.5 text-gold-400 font-semibold tracking-wide uppercase">
-          <Crown className="w-3.5 h-3.5 text-gold-400" />
+      <div className="bg-[#FAF7EE] border-b border-[#E8EAF0] py-1.5 px-4 text-xs text-center text-[#172033]">
+        <span className="inline-flex items-center gap-1.5 text-[#B8860B] font-bold tracking-wide uppercase">
+          <Crown className="w-3.5 h-3.5 text-[#D6A63A]" />
           Official Campaign:
         </span>{' '}
-        <span className="text-gray-200">Grand Lucky Draw 2027 — 70 Listed Prizes • 100% Offline Manual Draw</span>
+        <span className="text-[#172033] font-medium">Grand Lucky Draw 2027 — 70 Listed Prizes • 100% Offline Manual Draw</span>
         {isAdminLoggedIn && (
-          <Link to="/admin/dashboard" className="ml-3 text-gold-400 underline font-semibold hover:text-gold-300">
+          <Link to="/admin/dashboard" className="ml-3 text-[#B8860B] underline font-semibold hover:text-[#946708]">
             [Admin Panel: {adminUser?.role}]
           </Link>
         )}
@@ -41,15 +41,15 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo & Brand */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-gold-300 via-gold-500 to-gold-700 p-0.5 shadow-gold-glow flex items-center justify-center transition-transform group-hover:scale-105">
-              <div className="w-full h-full bg-[#0B0B0E] rounded-[10px] flex items-center justify-center">
-                <Crown className="w-6 h-6 text-gold-400 group-hover:text-gold-300 transition-colors" />
+            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#DFBA5E] via-[#D6A63A] to-[#B8860B] p-0.5 shadow-gold-glow flex items-center justify-center transition-transform group-hover:scale-105">
+              <div className="w-full h-full bg-white rounded-[10px] flex items-center justify-center">
+                <Crown className="w-6 h-6 text-[#D6A63A] group-hover:scale-110 transition-transform" />
               </div>
             </div>
             <div>
-              <div className="text-xs uppercase tracking-[0.25em] text-gold-400/90 font-medium">Dream Big... Win Big...</div>
-              <div className="text-xl sm:text-2xl font-extrabold tracking-wide text-gold-gradient font-heading">
-                GRAND LUCKY DRAW
+              <div className="text-[11px] uppercase tracking-[0.22em] text-[#B8860B] font-bold">Dream Big... Win Big...</div>
+              <div className="text-xl sm:text-2xl font-black tracking-tight text-[#172033] font-heading">
+                GRAND <span className="text-gold-gradient">LUCKY DRAW</span>
               </div>
             </div>
           </Link>
@@ -60,10 +60,10 @@ const Navbar = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
+                className={`px-3 py-2 text-sm font-semibold rounded-lg transition-all duration-200 ${
                   isActive(link.path)
-                    ? 'text-gold-400 bg-gold-500/10 border border-gold-500/30'
-                    : 'text-gray-300 hover:text-gold-300 hover:bg-white/5'
+                    ? 'text-[#B8860B] bg-[#FAF7EE] border border-[#D6A63A]/40 shadow-xs'
+                    : 'text-[#667085] hover:text-[#172033] hover:bg-gray-100/70'
                 }`}
               >
                 {link.name}
@@ -77,18 +77,18 @@ const Navbar = () => {
               <div className="flex items-center gap-2">
                 <Link
                   to="/participant/dashboard"
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gold-500/15 border border-gold-500/40 text-gold-300 text-sm font-semibold hover:bg-gold-500/25 transition-all"
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#FAF7EE] border border-[#D6A63A]/40 text-[#172033] text-sm font-semibold hover:bg-[#F3E5C1]/50 transition-all shadow-xs"
                 >
-                  <User className="w-4 h-4 text-gold-400" />
+                  <User className="w-4 h-4 text-[#D6A63A]" />
                   <span>{participant?.fullName?.split(' ')[0] || 'My Pass'}</span>
-                  <span className="text-xs bg-gold-500/30 px-2 py-0.5 rounded text-gold-200 font-mono">
+                  <span className="text-xs bg-[#D6A63A]/20 px-2 py-0.5 rounded text-[#946708] font-mono font-bold">
                     {participant?.participantId || 'Pass'}
                   </span>
                 </Link>
                 <button
                   onClick={logoutParticipant}
                   title="Logout"
-                  className="p-2 rounded-lg text-gray-400 hover:text-red-400 hover:bg-white/5 transition-colors"
+                  className="p-2 rounded-lg text-[#667085] hover:text-red-500 hover:bg-red-50 transition-colors"
                 >
                   <LogOut className="w-4 h-4" />
                 </button>
@@ -97,15 +97,15 @@ const Navbar = () => {
               <div className="flex items-center gap-2">
                 <Link
                   to="/login"
-                  className="px-3 py-2 text-sm font-medium text-gray-300 hover:text-gold-300 transition-colors"
+                  className="px-3.5 py-2 text-sm font-semibold text-[#667085] hover:text-[#172033] transition-colors"
                 >
                   Login
                 </Link>
                 <Link
                   to="/register"
-                  className="btn-gold px-5 py-2.5 rounded-lg text-sm font-bold flex items-center gap-1.5 shadow-gold-glow"
+                  className="btn-gold px-5 py-2.5 rounded-xl text-sm font-bold flex items-center gap-1.5 shadow-gold-glow"
                 >
-                  <Sparkles className="w-4 h-4" />
+                  <Sparkles className="w-4 h-4 text-[#172033]" />
                   <span>Join Now</span>
                 </Link>
               </div>
@@ -116,7 +116,7 @@ const Navbar = () => {
           <div className="flex lg:hidden items-center gap-2">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg text-gray-300 hover:text-gold-400 hover:bg-white/5 focus:outline-none"
+              className="p-2 rounded-lg text-[#172033] hover:text-[#D6A63A] hover:bg-gray-100 focus:outline-none"
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -126,28 +126,28 @@ const Navbar = () => {
 
       {/* Mobile Drawer */}
       {isOpen && (
-        <div className="lg:hidden bg-[#0C0D11] border-b border-gold-500/20 px-4 pt-2 pb-6 space-y-2 animate-fade-in">
+        <div className="lg:hidden bg-white border-b border-[#E8EAF0] px-4 pt-2 pb-6 space-y-2 shadow-lg animate-fade-in">
           {navLinks.map((link) => (
             <Link
               key={link.path}
               to={link.path}
               onClick={() => setIsOpen(false)}
-              className={`block px-4 py-2.5 text-base font-medium rounded-lg ${
+              className={`block px-4 py-2.5 text-base font-semibold rounded-lg ${
                 isActive(link.path)
-                  ? 'text-gold-400 bg-gold-500/10 border border-gold-500/30'
-                  : 'text-gray-300 hover:text-gold-300 hover:bg-white/5'
+                  ? 'text-[#B8860B] bg-[#FAF7EE] border border-[#D6A63A]/30'
+                  : 'text-[#667085] hover:text-[#172033] hover:bg-gray-50'
               }`}
             >
               {link.name}
             </Link>
           ))}
-          <div className="pt-4 border-t border-gray-800 flex flex-col gap-2">
+          <div className="pt-4 border-t border-[#E8EAF0] flex flex-col gap-2">
             {isParticipantLoggedIn ? (
               <>
                 <Link
                   to="/participant/dashboard"
                   onClick={() => setIsOpen(false)}
-                  className="w-full text-center py-2.5 px-4 rounded-lg bg-gold-500/20 border border-gold-500/40 text-gold-300 font-semibold"
+                  className="w-full text-center py-2.5 px-4 rounded-xl bg-[#FAF7EE] border border-[#D6A63A]/40 text-[#172033] font-semibold"
                 >
                   Dashboard ({participant?.participantId})
                 </Link>
@@ -156,7 +156,7 @@ const Navbar = () => {
                     logoutParticipant();
                     setIsOpen(false);
                   }}
-                  className="w-full text-center py-2 px-4 rounded-lg text-red-400 hover:bg-red-500/10 text-sm"
+                  className="w-full text-center py-2 px-4 rounded-lg text-red-500 hover:bg-red-50 text-sm font-semibold"
                 >
                   Logout
                 </button>
@@ -166,14 +166,14 @@ const Navbar = () => {
                 <Link
                   to="/register"
                   onClick={() => setIsOpen(false)}
-                  className="btn-gold w-full text-center py-3 rounded-lg font-bold"
+                  className="btn-gold w-full text-center py-3 rounded-xl font-bold"
                 >
                   Join Now — Register Free
                 </Link>
                 <Link
                   to="/login"
                   onClick={() => setIsOpen(false)}
-                  className="btn-outline-gold w-full text-center py-2.5 rounded-lg text-sm"
+                  className="btn-outline-gold w-full text-center py-2.5 rounded-xl text-sm"
                 >
                   Login to Portal
                 </Link>

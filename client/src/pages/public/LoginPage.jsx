@@ -90,20 +90,20 @@ const LoginPage = () => {
   return (
     <div className="max-w-xl mx-auto px-4 py-12 sm:py-20">
       <div className="text-center space-y-3 mb-8">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 text-xs font-semibold text-gold-400 uppercase tracking-widest">
-          <Crown className="w-4 h-4 text-gold-400" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF7EE] border border-[#D6A63A]/40 text-xs font-bold text-[#946708] uppercase tracking-wider shadow-xs">
+          <Crown className="w-4 h-4 text-[#D6A63A]" />
           <span>Official Portal</span>
         </div>
-        <h1 className="text-3xl sm:text-4xl font-black font-heading text-white">
+        <h1 className="text-3xl sm:text-4xl font-black font-heading text-[#172033]">
           PORTAL <span className="text-gold-gradient">ACCESS</span>
         </h1>
-        <p className="text-sm text-gray-400">
+        <p className="text-sm text-[#667085]">
           Login using your registered credentials to access your dashboard.
         </p>
       </div>
 
       {/* Tabs */}
-      <div className="grid grid-cols-2 p-1.5 rounded-2xl bg-dark-900 border border-gold-500/20 mb-8">
+      <div className="grid grid-cols-2 p-1.5 rounded-2xl bg-white border border-[#E8EAF0] shadow-xs mb-8">
         <button
           onClick={() => {
             setActiveTab('participant');
@@ -111,8 +111,8 @@ const LoginPage = () => {
           }}
           className={`py-3 rounded-xl text-sm font-bold transition-all flex items-center justify-center gap-2 ${
             activeTab === 'participant'
-              ? 'bg-gradient-to-r from-gold-500 to-gold-600 text-dark-950 shadow-gold-glow'
-              : 'text-gray-400 hover:text-white'
+              ? 'bg-gradient-to-r from-[#DFBA5E] to-[#D6A63A] text-[#172033] shadow-gold-glow'
+              : 'text-[#667085] hover:text-[#172033]'
           }`}
         >
           <User className="w-4 h-4" />
@@ -125,8 +125,8 @@ const LoginPage = () => {
           }}
           className={`py-3 rounded-xl text-sm font-bold transition-all flex items-center justify-center gap-2 ${
             activeTab === 'admin'
-              ? 'bg-gradient-to-r from-gold-500 to-gold-600 text-dark-950 shadow-gold-glow'
-              : 'text-gray-400 hover:text-white'
+              ? 'bg-gradient-to-r from-[#DFBA5E] to-[#D6A63A] text-[#172033] shadow-gold-glow'
+              : 'text-[#667085] hover:text-[#172033]'
           }`}
         >
           <ShieldCheck className="w-4 h-4" />
@@ -136,18 +136,18 @@ const LoginPage = () => {
 
       {/* Error alert */}
       {errorMsg && (
-        <div className="mb-6 p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-300 text-sm">
+        <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm font-medium">
           {errorMsg}
         </div>
       )}
 
       {/* TAB 1: PARTICIPANT DIRECT LOGIN */}
       {activeTab === 'participant' && (
-        <div className="luxury-card rounded-3xl p-6 sm:p-8 shadow-card-dark">
+        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#E8EAF0] shadow-card-light">
           <form onSubmit={handleParticipantDirectLogin} className="space-y-6">
             <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-gray-300 flex items-center gap-2">
-                <Phone className="w-4 h-4 text-gold-400" />
+              <label className="text-xs font-bold uppercase tracking-wider text-[#172033] flex items-center gap-2">
+                <Phone className="w-4 h-4 text-[#D6A63A]" />
                 <span>Registered Mobile Number or Participant ID</span>
               </label>
               <input
@@ -156,9 +156,9 @@ const LoginPage = () => {
                 onChange={(e) => setIdentifier(e.target.value)}
                 placeholder="e.g. 9810123456 or LD2027-000001"
                 required
-                className="w-full px-4 py-3.5 rounded-xl bg-dark-950 border border-gold-500/30 text-white font-mono text-base focus:outline-none focus:border-gold-400"
+                className="w-full px-4 py-3.5 rounded-xl bg-[#F8F9FC] border border-[#E8EAF0] text-[#172033] font-mono text-base focus:bg-white focus:outline-none focus:border-[#D6A63A] focus:ring-2 focus:ring-[#D6A63A]/20 transition-all"
               />
-              <span className="text-[11px] text-gray-400 block">
+              <span className="text-[11px] text-[#667085] block font-medium">
                 Instant direct access. Enter your registered 10-digit mobile number or unique ID.
               </span>
             </div>
@@ -169,13 +169,13 @@ const LoginPage = () => {
               className="btn-gold w-full py-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 shadow-gold-glow"
             >
               {loading ? 'Accessing Dashboard...' : 'Login to Participant Portal'}
-              <ArrowRight className="w-4 h-4 text-dark-950" />
+              <ArrowRight className="w-4 h-4 text-[#172033]" />
             </button>
 
             <div className="text-center pt-2">
-              <span className="text-xs text-gray-400">
+              <span className="text-xs text-[#667085]">
                 Not registered yet?{' '}
-                <Link to="/register" className="text-gold-400 font-semibold underline">
+                <Link to="/register" className="text-[#B8860B] font-bold underline">
                   Register for Free
                 </Link>
               </span>
@@ -186,10 +186,10 @@ const LoginPage = () => {
 
       {/* TAB 2: ADMIN PORTAL LOGIN */}
       {activeTab === 'admin' && (
-        <div className="luxury-card rounded-3xl p-6 sm:p-8 shadow-card-dark space-y-6">
+        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#E8EAF0] shadow-card-light space-y-6">
           {/* Quick preset credential buttons for test convenience */}
-          <div className="p-4 rounded-xl bg-dark-950 border border-gold-500/20 text-xs text-gray-300 space-y-2">
-            <span className="text-gold-400 font-bold uppercase tracking-wider block">Demo Authorized Accounts:</span>
+          <div className="p-4 rounded-2xl bg-[#FAF7EE] border border-[#D6A63A]/30 text-xs text-[#172033] space-y-2">
+            <span className="text-[#946708] font-bold uppercase tracking-wider block">Demo Authorized Accounts:</span>
             <div className="flex flex-wrap gap-2">
               <button
                 type="button"
@@ -197,7 +197,7 @@ const LoginPage = () => {
                   setAdminEmail('admin@grandluckydraw.com');
                   setAdminPassword('Password@123');
                 }}
-                className="px-2.5 py-1 rounded bg-gold-500/10 border border-gold-500/30 text-gold-300 hover:bg-gold-500/20 text-[11px]"
+                className="px-3 py-1.5 rounded-lg bg-white border border-[#D6A63A]/40 text-[#946708] font-semibold hover:bg-[#F3E5C1]/40 text-xs shadow-xs"
               >
                 Fill Superadmin (Director)
               </button>
@@ -207,7 +207,7 @@ const LoginPage = () => {
                   setAdminEmail('officer@grandluckydraw.com');
                   setAdminPassword('Password@123');
                 }}
-                className="px-2.5 py-1 rounded bg-gold-500/10 border border-gold-500/30 text-gold-300 hover:bg-gold-500/20 text-[11px]"
+                className="px-3 py-1.5 rounded-lg bg-white border border-[#D6A63A]/40 text-[#946708] font-semibold hover:bg-[#F3E5C1]/40 text-xs shadow-xs"
               >
                 Fill Secondary Admin (Draw Officer)
               </button>
@@ -216,8 +216,8 @@ const LoginPage = () => {
 
           <form onSubmit={handleAdminLogin} className="space-y-5">
             <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-gray-300 flex items-center gap-2">
-                <Mail className="w-4 h-4 text-gold-400" />
+              <label className="text-xs font-bold uppercase tracking-wider text-[#172033] flex items-center gap-2">
+                <Mail className="w-4 h-4 text-[#D6A63A]" />
                 <span>Admin Email Address</span>
               </label>
               <input
@@ -226,13 +226,13 @@ const LoginPage = () => {
                 onChange={(e) => setAdminEmail(e.target.value)}
                 placeholder="admin@grandluckydraw.com"
                 required
-                className="w-full px-4 py-3.5 rounded-xl bg-dark-950 border border-gold-500/30 text-white text-sm focus:outline-none focus:border-gold-400"
+                className="w-full px-4 py-3.5 rounded-xl bg-[#F8F9FC] border border-[#E8EAF0] text-[#172033] text-sm focus:bg-white focus:outline-none focus:border-[#D6A63A] focus:ring-2 focus:ring-[#D6A63A]/20 transition-all"
               />
             </div>
 
             <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-gray-300 flex items-center gap-2">
-                <Lock className="w-4 h-4 text-gold-400" />
+              <label className="text-xs font-bold uppercase tracking-wider text-[#172033] flex items-center gap-2">
+                <Lock className="w-4 h-4 text-[#D6A63A]" />
                 <span>Admin Password</span>
               </label>
               <input
@@ -241,14 +241,14 @@ const LoginPage = () => {
                 onChange={(e) => setAdminPassword(e.target.value)}
                 placeholder="••••••••••••"
                 required
-                className="w-full px-4 py-3.5 rounded-xl bg-dark-950 border border-gold-500/30 text-white text-sm focus:outline-none focus:border-gold-400"
+                className="w-full px-4 py-3.5 rounded-xl bg-[#F8F9FC] border border-[#E8EAF0] text-[#172033] text-sm focus:bg-white focus:outline-none focus:border-[#D6A63A] focus:ring-2 focus:ring-[#D6A63A]/20 transition-all"
               />
             </div>
 
             {requires2FA && (
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wider text-gold-300 flex items-center gap-2">
-                  <KeyRound className="w-4 h-4 text-gold-400" />
+                <label className="text-xs font-bold uppercase tracking-wider text-[#B8860B] flex items-center gap-2">
+                  <KeyRound className="w-4 h-4 text-[#D6A63A]" />
                   <span>Two-Factor Authentication Code (2FA)</span>
                 </label>
                 <input
@@ -257,7 +257,7 @@ const LoginPage = () => {
                   onChange={(e) => setTwoFactorCode(e.target.value)}
                   placeholder="Enter 6-digit code or 123456"
                   required
-                  className="w-full px-4 py-3.5 rounded-xl bg-dark-950 border-2 border-gold-500/50 text-gold-300 text-sm font-mono focus:outline-none focus:border-gold-400"
+                  className="w-full px-4 py-3.5 rounded-xl bg-[#F8F9FC] border-2 border-[#D6A63A] text-[#172033] text-sm font-mono focus:bg-white focus:outline-none"
                 />
               </div>
             )}
@@ -267,7 +267,7 @@ const LoginPage = () => {
               disabled={loading}
               className="btn-gold w-full py-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 shadow-gold-glow"
             >
-              <ShieldCheck className="w-4 h-4 text-dark-950" />
+              <ShieldCheck className="w-4 h-4 text-[#172033]" />
               <span>{loading ? 'Authenticating...' : 'Secure Admin Login'}</span>
             </button>
           </form>

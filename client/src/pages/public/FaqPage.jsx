@@ -39,14 +39,14 @@ const FaqPage = () => {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 space-y-12">
       <div className="text-center space-y-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-300 text-xs font-bold tracking-widest uppercase">
-          <HelpCircle className="w-4 h-4 text-gold-400" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF7EE] border border-[#D6A63A]/40 text-[#946708] text-xs font-bold tracking-wider uppercase shadow-xs">
+          <HelpCircle className="w-4 h-4 text-[#D6A63A]" />
           <span>Frequently Asked Questions</span>
         </div>
-        <h1 className="text-4xl sm:text-5xl font-black font-heading text-white">
+        <h1 className="text-4xl sm:text-5xl font-black font-heading text-[#172033]">
           HELP & <span className="text-gold-gradient">FAQS</span>
         </h1>
-        <p className="text-sm sm:text-base text-gray-400">
+        <p className="text-sm sm:text-base text-[#667085]">
           Find answers to common questions about registration, participation, and the manual draw.
         </p>
       </div>
@@ -55,21 +55,21 @@ const FaqPage = () => {
         {faqs.map((faq, idx) => (
           <div
             key={idx}
-            className="rounded-2xl bg-dark-900 border border-gold-500/20 overflow-hidden transition-all"
+            className="rounded-2xl bg-white border border-[#E8EAF0] shadow-xs overflow-hidden transition-all"
           >
             <button
               onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
-              className="w-full p-5 text-left flex items-center justify-between gap-4 text-white font-medium hover:text-gold-300"
+              className="w-full p-5 text-left flex items-center justify-between gap-4 text-[#172033] font-bold hover:text-[#B8860B] transition-colors"
             >
               <span className="font-heading text-base sm:text-lg">{faq.q}</span>
               <ChevronDown
-                className={`w-5 h-5 text-gold-400 shrink-0 transition-transform ${
+                className={`w-5 h-5 text-[#D6A63A] shrink-0 transition-transform ${
                   openIdx === idx ? 'rotate-180' : ''
                 }`}
               />
             </button>
             {openIdx === idx && (
-              <div className="px-5 pb-5 text-sm text-gray-300 leading-relaxed border-t border-gray-800 pt-3">
+              <div className="px-5 pb-5 text-sm text-[#667085] leading-relaxed border-t border-[#E8EAF0] pt-3">
                 {faq.a}
               </div>
             )}
@@ -78,9 +78,9 @@ const FaqPage = () => {
       </div>
 
       <div className="text-center pt-6">
-        <Link to="/contact" className="btn-outline-gold inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold">
+        <Link to="/contact" className="btn-outline-gold inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold shadow-xs">
           <span>Still have questions? Contact Support</span>
-          <ArrowRight className="w-4 h-4" />
+          <ArrowRight className="w-4 h-4 text-[#D6A63A]" />
         </Link>
       </div>
     </div>

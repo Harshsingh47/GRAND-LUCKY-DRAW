@@ -8,10 +8,10 @@ const ParticipantPass = () => {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
       <div className="text-center space-y-2">
-        <h1 className="text-3xl font-black font-heading text-white">
+        <h1 className="text-3xl font-black font-heading text-[#172033]">
           DIGITAL <span className="text-gold-gradient">PARTICIPATION PASS</span>
         </h1>
-        <p className="text-sm text-gray-400">
+        <p className="text-sm text-[#667085]">
           Official lucky draw pass. Present or scan this pass for draw verification.
         </p>
       </div>

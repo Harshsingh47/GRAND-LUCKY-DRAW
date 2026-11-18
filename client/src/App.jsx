@@ -63,7 +63,7 @@ const ProtectedParticipantRoute = ({ children }) => {
 // Layout for Public & Participant Pages
 const PublicLayout = ({ children }) => {
   return (
-    <div className="min-h-screen flex flex-col bg-[#070709] text-gray-100">
+    <div className="min-h-screen flex flex-col bg-[#F8F9FC] text-[#172033]">
       <Navbar />
       <main className="flex-grow">{children}</main>
       <Footer />

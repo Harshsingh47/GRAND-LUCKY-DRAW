@@ -46,14 +46,14 @@ const HowItWorksPage = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 space-y-16">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-300 text-xs font-bold tracking-widest uppercase shadow-gold-glow">
-          <Crown className="w-4 h-4 text-gold-400" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF7EE] border border-[#D6A63A]/40 text-[#946708] text-xs font-bold tracking-wider uppercase shadow-xs">
+          <Crown className="w-4 h-4 text-[#D6A63A]" />
           <span>Participation Guide</span>
         </div>
-        <h1 className="text-4xl sm:text-6xl font-black font-heading text-white">
+        <h1 className="text-4xl sm:text-6xl font-black font-heading text-[#172033]">
           HOW IT <span className="text-gold-gradient">WORKS</span>
         </h1>
-        <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
+        <p className="text-sm sm:text-base text-[#667085] leading-relaxed">
           Clear, transparent, and fair. Learn everything you need to know about registering, participating, and claiming your prize in the Grand Lucky Draw.
         </p>
       </div>
@@ -65,22 +65,22 @@ const HowItWorksPage = () => {
           return (
             <div
               key={idx}
-              className="luxury-card rounded-3xl p-8 space-y-4 hover:border-gold-500/50 transition-all flex flex-col justify-between"
+              className="bg-white rounded-3xl p-8 space-y-4 border border-[#E8EAF0] shadow-card-light hover:border-[#D6A63A]/50 hover:shadow-card-hover transition-all flex flex-col justify-between"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-gold-500/15 border border-gold-500/30 text-gold-300 uppercase">
+                  <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-[#FAF7EE] border border-[#D6A63A]/30 text-[#946708] uppercase">
                     {s.step}
                   </span>
-                  <div className="p-3 rounded-xl bg-gold-500/10 text-gold-400">
+                  <div className="p-3 rounded-2xl bg-[#FAF7EE] text-[#D6A63A]">
                     <Icon className="w-6 h-6" />
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-white font-heading">{s.title}</h3>
-                <p className="text-sm text-gray-400 leading-relaxed">{s.desc}</p>
+                <h3 className="text-xl font-black text-[#172033] font-heading">{s.title}</h3>
+                <p className="text-sm text-[#667085] leading-relaxed">{s.desc}</p>
               </div>
 
-              <div className="pt-4 border-t border-gray-800 text-xs text-gold-400/80 font-mono">
+              <div className="pt-4 border-t border-[#E8EAF0] text-xs text-[#946708] font-bold">
                 Official Draw Protocol
               </div>
             </div>
@@ -89,11 +89,11 @@ const HowItWorksPage = () => {
       </div>
 
       {/* Rules & Eligibility Box */}
-      <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-b from-[#14161F] to-[#0A0B0E] border border-gold-500/30 space-y-6">
-        <h2 className="text-2xl font-bold text-white font-heading text-gold-gradient">
+      <div className="p-8 sm:p-10 rounded-3xl bg-white border border-[#E8EAF0] shadow-card-light space-y-6">
+        <h2 className="text-2xl font-black text-[#172033] font-heading">
           Campaign Rules & Eligibility Criteria
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-300">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-[#172033] font-medium">
           {[
             'Participant must be a citizen of India residing in India.',
             'Minimum age of participation is 18 years as of registration date.',
@@ -103,7 +103,7 @@ const HowItWorksPage = () => {
             'Vehicle prizes exclude local road taxes, insurance, and registration charges unless specified.'
           ].map((rule, idx) => (
             <div key={idx} className="flex items-start gap-3">
-              <CheckCircle2 className="w-5 h-5 text-gold-400 shrink-0 mt-0.5" />
+              <CheckCircle2 className="w-5 h-5 text-[#18865B] shrink-0 mt-0.5" />
               <span>{rule}</span>
             </div>
           ))}
@@ -114,10 +114,10 @@ const HowItWorksPage = () => {
       <div className="text-center">
         <Link
           to="/register"
-          className="btn-gold inline-flex items-center gap-2 px-10 py-4 rounded-xl font-bold text-base shadow-gold-glow-lg"
+          className="btn-gold inline-flex items-center gap-2 px-10 py-4 rounded-xl font-bold text-base shadow-gold-glow"
         >
           <span>Ready to Join? Register Now</span>
-          <ArrowRight className="w-5 h-5 text-dark-950" />
+          <ArrowRight className="w-5 h-5 text-[#172033]" />
         </Link>
       </div>
     </div>

@@ -42,14 +42,14 @@ const CountdownTimer = ({ targetDate = '2027-05-19T10:00:00.000Z', label = 'Draw
   return (
     <div className="w-full">
       {label && (
-        <div className="flex items-center justify-center gap-2 mb-3 text-xs tracking-widest uppercase font-semibold text-gold-400">
-          <Clock className="w-4 h-4 text-gold-400 animate-pulse" />
+        <div className="flex items-center justify-center gap-2 mb-3 text-xs tracking-wider uppercase font-bold text-[#B8860B]">
+          <Clock className="w-4 h-4 text-[#D6A63A] animate-pulse" />
           <span>{label}</span>
         </div>
       )}
 
       {timeLeft.isCompleted ? (
-        <div className="text-center p-4 rounded-xl bg-gold-500/15 border border-gold-500/40 text-gold-300 font-bold tracking-wide">
+        <div className="text-center p-4 rounded-xl bg-[#FAF7EE] border border-[#D6A63A]/40 text-[#B8860B] font-bold tracking-wide">
           Official Draw Event Underway! Check published results.
         </div>
       ) : (
@@ -57,13 +57,12 @@ const CountdownTimer = ({ targetDate = '2027-05-19T10:00:00.000Z', label = 'Draw
           {units.map((unit, idx) => (
             <div
               key={idx}
-              className="relative group p-3 sm:p-4 rounded-xl bg-gradient-to-b from-[#181B23] to-[#0E1015] border border-gold-500/30 text-center shadow-card-dark"
+              className="relative group p-3 sm:p-4 rounded-2xl bg-white border border-[#E8EAF0] text-center shadow-card-light hover:border-[#D6A63A]/60 transition-all"
             >
-              <div className="absolute inset-0 bg-gold-500/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-              <div className="text-2xl sm:text-4xl md:text-5xl font-black font-heading text-gold-gradient tracking-tight">
+              <div className="text-2xl sm:text-4xl md:text-5xl font-black font-heading text-[#172033] tracking-tight">
                 {unit.value}
               </div>
-              <div className="text-[10px] sm:text-xs font-semibold tracking-widest text-gray-400 uppercase mt-1">
+              <div className="text-[10px] sm:text-xs font-bold tracking-wider text-[#667085] uppercase mt-1">
                 {unit.label}
               </div>
             </div>

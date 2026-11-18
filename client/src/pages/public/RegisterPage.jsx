@@ -129,19 +129,19 @@ const RegisterPage = () => {
       {/* Title Header */}
       <div className="text-center max-w-2xl mx-auto space-y-4 mb-10">
         <div className="flex flex-wrap items-center justify-center gap-2">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-300 text-xs font-bold tracking-widest uppercase shadow-gold-glow">
-            <Crown className="w-4 h-4 text-gold-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF7EE] border border-[#D6A63A]/40 text-[#946708] text-xs font-bold tracking-wider uppercase shadow-xs">
+            <Crown className="w-4 h-4 text-[#D6A63A]" />
             <span>Official Campaign</span>
           </div>
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs font-bold tracking-wider uppercase">
-            <ShieldCheck className="w-4 h-4 text-emerald-400" />
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#18865B]/10 border border-[#18865B]/20 text-[#18865B] text-xs font-bold tracking-wider uppercase">
+            <ShieldCheck className="w-4 h-4 text-[#18865B]" />
             <span>Strictly 1 Entry Per Person</span>
           </div>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-black font-heading text-white">
+        <h1 className="text-3xl sm:text-5xl font-black font-heading text-[#172033]">
           PARTICIPANT <span className="text-gold-gradient">REGISTRATION</span>
         </h1>
-        <p className="text-sm sm:text-base text-gray-400">
+        <p className="text-sm sm:text-base text-[#667085]">
           Enter your details below to register for the Grand Lucky Draw 2027. Strictly one entry per person is permitted.
         </p>
       </div>
@@ -156,13 +156,13 @@ const RegisterPage = () => {
             <div
               className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs transition-all ${
                 step >= s.num
-                  ? 'bg-gradient-to-r from-gold-400 to-gold-600 text-dark-950 shadow-gold-glow'
-                  : 'bg-dark-800 text-gray-500 border border-gray-700'
+                  ? 'bg-gradient-to-r from-[#DFBA5E] to-[#D6A63A] text-[#172033] shadow-gold-glow'
+                  : 'bg-white text-[#667085] border border-[#E8EAF0]'
               }`}
             >
-              {step > s.num ? <CheckCircle2 className="w-5 h-5 text-dark-950" /> : s.num}
+              {step > s.num ? <CheckCircle2 className="w-5 h-5 text-[#172033]" /> : s.num}
             </div>
-            <span className={`text-xs font-semibold hidden sm:inline ${step >= s.num ? 'text-gold-300' : 'text-gray-500'}`}>
+            <span className={`text-xs font-bold hidden sm:inline ${step >= s.num ? 'text-[#B8860B]' : 'text-[#667085]'}`}>
               {s.label}
             </span>
           </div>
@@ -171,19 +171,19 @@ const RegisterPage = () => {
 
       {/* Error message alert */}
       {errorMsg && (
-        <div className="mb-6 p-4 rounded-xl bg-red-500/10 border border-red-500/30 space-y-3 text-red-300 text-sm">
+        <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 space-y-3 text-red-700 text-sm">
           <div className="flex items-center gap-3">
-            <AlertCircle className="w-5 h-5 text-red-400 shrink-0" />
-            <span>{errorMsg}</span>
+            <AlertCircle className="w-5 h-5 text-red-500 shrink-0" />
+            <span className="font-medium">{errorMsg}</span>
           </div>
           {existingId && (
-            <div className="pt-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-t border-red-500/20">
-              <span className="text-xs text-gray-300 font-mono">
-                Your Registered ID: <strong className="text-gold-300">{existingId}</strong>
+            <div className="pt-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-t border-red-200">
+              <span className="text-xs text-[#172033] font-mono">
+                Your Registered ID: <strong className="text-[#B8860B] font-bold">{existingId}</strong>
               </span>
               <Link
                 to="/login"
-                className="px-4 py-1.5 rounded-lg bg-gold-500 text-dark-950 font-bold text-xs hover:bg-gold-400 transition-all flex items-center gap-1.5 shadow-gold-glow"
+                className="px-4 py-1.5 rounded-xl btn-gold text-xs font-bold flex items-center gap-1.5 shadow-xs"
               >
                 <span>View My Official Pass</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -195,21 +195,21 @@ const RegisterPage = () => {
 
       {/* Registration Closed Notice */}
       {!isRegOpen && (
-        <div className="mb-6 p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center gap-3 text-amber-200 text-sm">
-          <AlertCircle className="w-5 h-5 text-amber-400 shrink-0" />
+        <div className="mb-6 p-4 rounded-xl bg-amber-50 border border-amber-200 flex items-center gap-3 text-amber-800 text-sm">
+          <AlertCircle className="w-5 h-5 text-amber-600 shrink-0" />
           <span>Lucky draw registrations are currently closed. The official draw ceremony is in progress.</span>
         </div>
       )}
 
       {/* STEP 1: REGISTRATION FORM */}
       {step === 1 && (
-        <div className="luxury-card rounded-3xl p-6 sm:p-10 shadow-card-dark">
+        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-[#E8EAF0] shadow-card-light">
           <form onSubmit={handleDirectRegistration} className="space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {/* Full Name */}
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wider text-gray-300 flex items-center gap-2">
-                  <User className="w-4 h-4 text-gold-400" />
+                <label className="text-xs font-bold uppercase tracking-wider text-[#172033] flex items-center gap-2">
+                  <User className="w-4 h-4 text-[#D6A63A]" />
                   <span>Full Name *</span>
                 </label>
                 <input
@@ -219,14 +219,14 @@ const RegisterPage = () => {
                   onChange={handleChange}
                   placeholder="e.g. Vikramaditya Sharma"
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-dark-950 border border-gold-500/30 text-white focus:outline-none focus:border-gold-400 text-sm"
+                  className="w-full px-4 py-3 rounded-xl bg-[#F8F9FC] border border-[#E8EAF0] text-[#172033] focus:bg-white focus:outline-none focus:border-[#D6A63A] focus:ring-2 focus:ring-[#D6A63A]/20 text-sm transition-all"
                 />
               </div>
 
               {/* Mobile Number */}
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wider text-gray-300 flex items-center gap-2">
-                  <Phone className="w-4 h-4 text-gold-400" />
+                <label className="text-xs font-bold uppercase tracking-wider text-[#172033] flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-[#D6A63A]" />
                   <span>Mobile Number (10 Digits) *</span>
                 </label>
                 <input
@@ -237,14 +237,14 @@ const RegisterPage = () => {
                   placeholder="e.g. 9810123456"
                   maxLength={10}
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-dark-950 border border-gold-500/30 text-white focus:outline-none focus:border-gold-400 text-sm font-mono"
+                  className="w-full px-4 py-3 rounded-xl bg-[#F8F9FC] border border-[#E8EAF0] text-[#172033] focus:bg-white focus:outline-none focus:border-[#D6A63A] focus:ring-2 focus:ring-[#D6A63A]/20 text-sm font-mono transition-all"
                 />
               </div>
 
               {/* Email Address */}
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wider text-gray-300 flex items-center gap-2">
-                  <Mail className="w-4 h-4 text-gold-400" />
+                <label className="text-xs font-bold uppercase tracking-wider text-[#172033] flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-[#D6A63A]" />
                   <span>Email Address (Optional)</span>
                 </label>
                 <input
@@ -253,14 +253,14 @@ const RegisterPage = () => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="e.g. vikram@example.com"
-                  className="w-full px-4 py-3 rounded-xl bg-dark-950 border border-gold-500/30 text-white focus:outline-none focus:border-gold-400 text-sm"
+                  className="w-full px-4 py-3 rounded-xl bg-[#F8F9FC] border border-[#E8EAF0] text-[#172033] focus:bg-white focus:outline-none focus:border-[#D6A63A] focus:ring-2 focus:ring-[#D6A63A]/20 text-sm transition-all"
                 />
               </div>
 
               {/* Date of Birth */}
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wider text-gray-300 flex items-center gap-2">
-                  <Calendar className="w-4 h-4 text-gold-400" />
+                <label className="text-xs font-bold uppercase tracking-wider text-[#172033] flex items-center gap-2">
+                  <Calendar className="w-4 h-4 text-[#D6A63A]" />
                   <span>Date of Birth (18+ Only)</span>
                 </label>
                 <input
@@ -268,14 +268,14 @@ const RegisterPage = () => {
                   name="dateOfBirth"
                   value={formData.dateOfBirth}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-xl bg-dark-950 border border-gold-500/30 text-white focus:outline-none focus:border-gold-400 text-sm"
+                  className="w-full px-4 py-3 rounded-xl bg-[#F8F9FC] border border-[#E8EAF0] text-[#172033] focus:bg-white focus:outline-none focus:border-[#D6A63A] focus:ring-2 focus:ring-[#D6A63A]/20 text-sm transition-all"
                 />
               </div>
 
               {/* State */}
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wider text-gray-300 flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-gold-400" />
+                <label className="text-xs font-bold uppercase tracking-wider text-[#172033] flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-[#D6A63A]" />
                   <span>State / UT *</span>
                 </label>
                 <select
@@ -283,7 +283,7 @@ const RegisterPage = () => {
                   value={formData.state}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-dark-950 border border-gold-500/30 text-white focus:outline-none focus:border-gold-400 text-sm"
+                  className="w-full px-4 py-3 rounded-xl bg-[#F8F9FC] border border-[#E8EAF0] text-[#172033] focus:bg-white focus:outline-none focus:border-[#D6A63A] focus:ring-2 focus:ring-[#D6A63A]/20 text-sm transition-all"
                 >
                   <option value="">Select State</option>
                   {indianStates.map((st) => (
@@ -294,8 +294,8 @@ const RegisterPage = () => {
 
               {/* City */}
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wider text-gray-300 flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-gold-400" />
+                <label className="text-xs font-bold uppercase tracking-wider text-[#172033] flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-[#D6A63A]" />
                   <span>City / Town *</span>
                 </label>
                 <input
@@ -305,14 +305,14 @@ const RegisterPage = () => {
                   onChange={handleChange}
                   placeholder="e.g. New Delhi"
                   required
-                  className="w-full px-4 py-3 rounded-xl bg-dark-950 border border-gold-500/30 text-white focus:outline-none focus:border-gold-400 text-sm"
+                  className="w-full px-4 py-3 rounded-xl bg-[#F8F9FC] border border-[#E8EAF0] text-[#172033] focus:bg-white focus:outline-none focus:border-[#D6A63A] focus:ring-2 focus:ring-[#D6A63A]/20 text-sm transition-all"
                 />
               </div>
             </div>
 
             {/* Address */}
             <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-gray-300">
+              <label className="text-xs font-bold uppercase tracking-wider text-[#172033]">
                 Residential Address (Optional)
               </label>
               <input
@@ -321,12 +321,12 @@ const RegisterPage = () => {
                 value={formData.address}
                 onChange={handleChange}
                 placeholder="House / Street / Colony details"
-                className="w-full px-4 py-3 rounded-xl bg-dark-950 border border-gold-500/30 text-white focus:outline-none focus:border-gold-400 text-sm"
+                className="w-full px-4 py-3 rounded-xl bg-[#F8F9FC] border border-[#E8EAF0] text-[#172033] focus:bg-white focus:outline-none focus:border-[#D6A63A] focus:ring-2 focus:ring-[#D6A63A]/20 text-sm transition-all"
               />
             </div>
 
             {/* Compliance Checkboxes */}
-            <div className="space-y-3 pt-3 border-t border-gray-800 text-sm text-gray-300">
+            <div className="space-y-3 pt-3 border-t border-[#E8EAF0] text-sm text-[#667085]">
               <label className="flex items-start gap-3 cursor-pointer">
                 <input
                   type="checkbox"
@@ -334,11 +334,11 @@ const RegisterPage = () => {
                   checked={formData.acceptedTerms}
                   onChange={handleChange}
                   required
-                  className="mt-1 w-4 h-4 accent-gold-500 rounded"
+                  className="mt-1 w-4 h-4 accent-[#D6A63A] rounded"
                 />
-                <span className="text-xs text-gray-300">
+                <span className="text-xs text-[#667085]">
                   I confirm I am an Indian resident aged 18 or above, and accept the{' '}
-                  <Link to="/terms-and-conditions" target="_blank" className="text-gold-400 underline">
+                  <Link to="/terms-and-conditions" target="_blank" className="text-[#B8860B] font-bold underline">
                     Terms & Conditions
                   </Link>{' '}
                   and the offline manual draw rules.
@@ -352,11 +352,11 @@ const RegisterPage = () => {
                   checked={formData.consentPrivacy}
                   onChange={handleChange}
                   required
-                  className="mt-1 w-4 h-4 accent-gold-500 rounded"
+                  className="mt-1 w-4 h-4 accent-[#D6A63A] rounded"
                 />
-                <span className="text-xs text-gray-300">
+                <span className="text-xs text-[#667085]">
                   I consent to the{' '}
-                  <Link to="/privacy-policy" target="_blank" className="text-gold-400 underline">
+                  <Link to="/privacy-policy" target="_blank" className="text-[#B8860B] font-bold underline">
                     Privacy Policy
                   </Link>{' '}
                   and authorize SMS notifications regarding draw announcements and winner updates.
@@ -371,7 +371,7 @@ const RegisterPage = () => {
                 disabled={loading || !isRegOpen}
                 className={`w-full py-4 rounded-xl font-bold text-base flex items-center justify-center gap-2 transition-all ${
                   !isRegOpen
-                    ? 'bg-gray-800 text-gray-500 cursor-not-allowed border border-gray-700'
+                    ? 'bg-gray-200 text-gray-400 cursor-not-allowed border border-gray-300'
                     : 'btn-gold shadow-gold-glow'
                 }`}
               >
@@ -381,9 +381,9 @@ const RegisterPage = () => {
                   <span>Registrations Currently Closed</span>
                 ) : (
                   <>
-                    <Sparkles className="w-5 h-5 text-dark-950" />
+                    <Sparkles className="w-5 h-5 text-[#172033]" />
                     <span>Complete Registration & Issue Official Pass</span>
-                    <ArrowRight className="w-5 h-5 text-dark-950" />
+                    <ArrowRight className="w-5 h-5 text-[#172033]" />
                   </>
                 )}
               </button>
@@ -396,14 +396,14 @@ const RegisterPage = () => {
       {step === 2 && registeredData && (
         <div className="space-y-8 animate-scale-up">
           <div className="text-center space-y-2">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#18865B]/10 border border-[#18865B]/25 text-[#18865B] text-xs font-bold">
               <CheckCircle2 className="w-4 h-4" />
               <span>REGISTRATION CONFIRMED</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gold-gradient font-heading">
+            <h2 className="text-3xl sm:text-4xl font-black text-[#172033] font-heading">
               CONGRATULATIONS, {registeredData.fullName}!
             </h2>
-            <p className="text-sm text-gray-300 max-w-xl mx-auto">
+            <p className="text-sm text-[#667085] max-w-xl mx-auto">
               You are officially registered for the Grand Lucky Draw. Your official digital participation pass has been generated below.
             </p>
           </div>
@@ -431,7 +431,7 @@ const RegisterPage = () => {
               className="btn-gold px-8 py-3.5 rounded-xl font-bold text-sm flex items-center gap-2 shadow-gold-glow"
             >
               <span>Go to My Participant Portal</span>
-              <ArrowRight className="w-4 h-4 text-dark-950" />
+              <ArrowRight className="w-4 h-4 text-[#172033]" />
             </Link>
             <Link
               to="/prizes"
