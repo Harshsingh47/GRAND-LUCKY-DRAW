@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Crown, ShieldCheck, Mail, Phone, MapPin, ExternalLink, Heart } from 'lucide-react';
+import { Crown, ShieldCheck, ExternalLink } from 'lucide-react';
 
 const Footer = () => {
   return (
     <footer className="bg-white border-t border-[#E8EAF0] text-[#667085] pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
           {/* Brand Col */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
@@ -82,29 +82,6 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-
-          {/* Contact Col */}
-          <div>
-            <h3 className="text-sm font-bold uppercase tracking-wider text-[#172033] mb-4 font-heading">
-              Campaign Support
-            </h3>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-start gap-3">
-                <Mail className="w-4 h-4 text-[#D6A63A] shrink-0 mt-1" />
-                <a href="mailto:support@grandluckydraw.com" className="hover:text-[#D6A63A] transition-colors break-all font-medium">
-                  support@grandluckydraw.com
-                </a>
-              </li>
-              <li className="flex items-start gap-3">
-                <Phone className="w-4 h-4 text-[#D6A63A] shrink-0 mt-1" />
-                <span className="font-medium text-[#172033]">+91 98765 43210 (Toll Free / Helpdesk)</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-[#D6A63A] shrink-0 mt-1" />
-                <span className="text-[#667085]">Central Draw Committee Office, Media District, New Delhi - 110001</span>
-              </li>
-            </ul>
-          </div>
         </div>
 
         {/* Legal Disclaimer Box */}
@@ -137,7 +114,6 @@ const Footer = () => {
           <div className="flex items-center gap-6 font-medium">
             <Link to="/terms-and-conditions" className="hover:text-[#172033] transition-colors">Terms of Service</Link>
             <Link to="/privacy-policy" className="hover:text-[#172033] transition-colors">Privacy Policy</Link>
-            <Link to="/contact" className="hover:text-[#172033] transition-colors">Contact Us</Link>
           </div>
         </div>
       </div>

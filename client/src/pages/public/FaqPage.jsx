@@ -78,8 +78,8 @@ const FaqPage = () => {
       </div>
 
       <div className="text-center pt-6">
-        <Link to="/contact" className="btn-outline-gold inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold shadow-xs">
-          <span>Still have questions? Contact Support</span>
+        <Link to="/how-it-works" className="btn-outline-gold inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold shadow-xs">
+          <span>Learn How Participation Works</span>
           <ArrowRight className="w-4 h-4 text-[#D6A63A]" />
         </Link>
       </div>
